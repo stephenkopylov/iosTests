@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /*
     testClass = [[SomeClass alloc] init];
     for (int i = 0; i<10; i++) {
         [testClass testFunctionWithCallback:^(SomeClass2 *testObj) {
@@ -27,6 +27,7 @@
         }];
     }
     testClass = nil;
+     */
     
     // Do any additional setup after loading the view, typically from a nib.
 }

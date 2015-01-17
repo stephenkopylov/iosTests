@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840F4BDB1A6A59450085078D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F4BDA1A6A59450085078D /* ViewController2.m */; };
 		847AB1B71A69BAC500773828 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AB1B61A69BAC500773828 /* main.m */; };
 		847AB1BA1A69BAC500773828 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AB1B91A69BAC500773828 /* AppDelegate.m */; };
 		847AB1BD1A69BAC500773828 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AB1BC1A69BAC500773828 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840F4BD91A6A59450085078D /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		840F4BDA1A6A59450085078D /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		847AB1B11A69BAC500773828 /* blocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847AB1B51A69BAC500773828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847AB1B61A69BAC500773828 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				847AB1DB1A69BBE700773828 /* SomeClass.m */,
 				847AB1DD1A69C0FF00773828 /* SomeClass2.h */,
 				847AB1DE1A69C0FF00773828 /* SomeClass2.m */,
+				840F4BD91A6A59450085078D /* ViewController2.h */,
+				840F4BDA1A6A59450085078D /* ViewController2.m */,
 			);
 			path = blocks;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				847AB1BA1A69BAC500773828 /* AppDelegate.m in Sources */,
 				847AB1DF1A69C0FF00773828 /* SomeClass2.m in Sources */,
 				847AB1B71A69BAC500773828 /* main.m in Sources */,
+				840F4BDB1A6A59450085078D /* ViewController2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +432,7 @@
 				847AB1D61A69BAC500773828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		847AB1D71A69BAC500773828 /* Build configuration list for PBXNativeTarget "blocksTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				847AB1D91A69BAC500773828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
