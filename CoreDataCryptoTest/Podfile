@@ -1,0 +1,1 @@
+pod 'EncryptedCoreData', :git => 'https://github.com/project-imas/encrypted-core-data.git'

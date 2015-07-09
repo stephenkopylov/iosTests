@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EncryptedCoreData" "${PODS_ROOT}/Headers/Public/SQLCipher"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EncryptedCoreData" -isystem "${PODS_ROOT}/Headers/Public/SQLCipher" $(inherited) -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_CC $(inherited) -DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2 -DSQLITE_THREADSAFE -DSQLCIPHER_CRYPTO_CC
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-EncryptedCoreData" -l"Pods-SQLCipher" -framework "CoreData" -framework "Security"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

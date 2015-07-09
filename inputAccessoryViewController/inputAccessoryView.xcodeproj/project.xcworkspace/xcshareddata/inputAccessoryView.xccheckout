@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7C238116-E0BC-43AF-A04D-ED3A904F0567</string>
+	<key>IDESourceControlProjectName</key>
+	<string>inputAccessoryView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F8FC652042ADFEDC5F1B4DE78CE56B625C079CFE</key>
+		<string>https://github.com/stephenkopylov/inputAccessoryViewController.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>inputAccessoryView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F8FC652042ADFEDC5F1B4DE78CE56B625C079CFE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/stephenkopylov/inputAccessoryViewController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F8FC652042ADFEDC5F1B4DE78CE56B625C079CFE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F8FC652042ADFEDC5F1B4DE78CE56B625C079CFE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>inputAccessoryViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

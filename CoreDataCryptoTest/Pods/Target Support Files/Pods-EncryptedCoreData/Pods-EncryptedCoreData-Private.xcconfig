@@ -1,0 +1,7 @@
+#include "Pods-EncryptedCoreData.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/EncryptedCoreData" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EncryptedCoreData" "${PODS_ROOT}/Headers/Public/SQLCipher"
+OTHER_CFLAGS = ${PODS_ENCRYPTEDCOREDATA_OTHER_CFLAGS}
+OTHER_LDFLAGS = ${PODS_ENCRYPTEDCOREDATA_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

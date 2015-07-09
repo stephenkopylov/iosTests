@@ -1,0 +1,26 @@
+PODS:
+  - EncryptedCoreData (3.0):
+    - SQLCipher (~> 3.1.0)
+  - SQLCipher (3.1.0):
+    - SQLCipher/standard (= 3.1.0)
+  - SQLCipher/common (3.1.0)
+  - SQLCipher/standard (3.1.0):
+    - SQLCipher/common
+
+DEPENDENCIES:
+  - EncryptedCoreData (from `https://github.com/project-imas/encrypted-core-data.git`)
+
+EXTERNAL SOURCES:
+  EncryptedCoreData:
+    :git: https://github.com/project-imas/encrypted-core-data.git
+
+CHECKOUT OPTIONS:
+  EncryptedCoreData:
+    :commit: 3067f129792b976ebad49c91de4a36c468535011
+    :git: https://github.com/project-imas/encrypted-core-data.git
+
+SPEC CHECKSUMS:
+  EncryptedCoreData: 9d66526980b3ec6782d29dc479d0dc2a8dcb4917
+  SQLCipher: c44fcca49c31483c2489cfb79aa7a69407f3794a
+
+COCOAPODS: 0.36.3

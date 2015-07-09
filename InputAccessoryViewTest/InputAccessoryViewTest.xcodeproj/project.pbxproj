@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EEE83AEE1AE1145600A86D88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83AED1AE1145600A86D88 /* main.m */; };
+		EEE83AF11AE1145600A86D88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83AF01AE1145600A86D88 /* AppDelegate.m */; };
+		EEE83AF41AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEE83AF21AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodeld */; };
+		EEE83AF71AE1145600A86D88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83AF61AE1145600A86D88 /* ViewController.m */; };
+		EEE83AFA1AE1145600A86D88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE83AF81AE1145600A86D88 /* Main.storyboard */; };
+		EEE83AFC1AE1145600A86D88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE83AFB1AE1145600A86D88 /* Images.xcassets */; };
+		EEE83AFF1AE1145600A86D88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE83AFD1AE1145600A86D88 /* LaunchScreen.xib */; };
+		EEE83B0B1AE1145600A86D88 /* InputAccessoryViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83B0A1AE1145600A86D88 /* InputAccessoryViewTestTests.m */; };
+		EEE83B161AE1181400A86D88 /* InputAccessoryViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83B151AE1181400A86D88 /* InputAccessoryViewViewController.m */; };
+		EEE83B191AE11B5A00A86D88 /* TestModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE83B181AE11B5A00A86D88 /* TestModalViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEE83B051AE1145600A86D88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEE83AE01AE1145600A86D88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE83AE71AE1145600A86D88;
+			remoteInfo = InputAccessoryViewTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EEE83AE81AE1145600A86D88 /* InputAccessoryViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InputAccessoryViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE83AEC1AE1145600A86D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE83AED1AE1145600A86D88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEE83AEF1AE1145600A86D88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EEE83AF01AE1145600A86D88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EEE83AF31AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InputAccessoryViewTest.xcdatamodel; sourceTree = "<group>"; };
+		EEE83AF51AE1145600A86D88 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EEE83AF61AE1145600A86D88 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EEE83AF91AE1145600A86D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEE83AFB1AE1145600A86D88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EEE83AFE1AE1145600A86D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EEE83B041AE1145600A86D88 /* InputAccessoryViewTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputAccessoryViewTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE83B091AE1145600A86D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE83B0A1AE1145600A86D88 /* InputAccessoryViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputAccessoryViewTestTests.m; sourceTree = "<group>"; };
+		EEE83B141AE1181400A86D88 /* InputAccessoryViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputAccessoryViewViewController.h; sourceTree = "<group>"; };
+		EEE83B151AE1181400A86D88 /* InputAccessoryViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputAccessoryViewViewController.m; sourceTree = "<group>"; };
+		EEE83B171AE11B5A00A86D88 /* TestModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModalViewController.h; sourceTree = "<group>"; };
+		EEE83B181AE11B5A00A86D88 /* TestModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModalViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEE83AE51AE1145600A86D88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE83B011AE1145600A86D88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EEE83ADF1AE1145600A86D88 = {
+			isa = PBXGroup;
+			children = (
+				EEE83AEA1AE1145600A86D88 /* InputAccessoryViewTest */,
+				EEE83B071AE1145600A86D88 /* InputAccessoryViewTestTests */,
+				EEE83AE91AE1145600A86D88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEE83AE91AE1145600A86D88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEE83AE81AE1145600A86D88 /* InputAccessoryViewTest.app */,
+				EEE83B041AE1145600A86D88 /* InputAccessoryViewTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEE83AEA1AE1145600A86D88 /* InputAccessoryViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				EEE83AEF1AE1145600A86D88 /* AppDelegate.h */,
+				EEE83AF01AE1145600A86D88 /* AppDelegate.m */,
+				EEE83AF51AE1145600A86D88 /* ViewController.h */,
+				EEE83AF61AE1145600A86D88 /* ViewController.m */,
+				EEE83AF81AE1145600A86D88 /* Main.storyboard */,
+				EEE83AFB1AE1145600A86D88 /* Images.xcassets */,
+				EEE83AFD1AE1145600A86D88 /* LaunchScreen.xib */,
+				EEE83AF21AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodeld */,
+				EEE83AEB1AE1145600A86D88 /* Supporting Files */,
+				EEE83B141AE1181400A86D88 /* InputAccessoryViewViewController.h */,
+				EEE83B151AE1181400A86D88 /* InputAccessoryViewViewController.m */,
+				EEE83B171AE11B5A00A86D88 /* TestModalViewController.h */,
+				EEE83B181AE11B5A00A86D88 /* TestModalViewController.m */,
+			);
+			path = InputAccessoryViewTest;
+			sourceTree = "<group>";
+		};
+		EEE83AEB1AE1145600A86D88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE83AEC1AE1145600A86D88 /* Info.plist */,
+				EEE83AED1AE1145600A86D88 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEE83B071AE1145600A86D88 /* InputAccessoryViewTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEE83B0A1AE1145600A86D88 /* InputAccessoryViewTestTests.m */,
+				EEE83B081AE1145600A86D88 /* Supporting Files */,
+			);
+			path = InputAccessoryViewTestTests;
+			sourceTree = "<group>";
+		};
+		EEE83B081AE1145600A86D88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE83B091AE1145600A86D88 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEE83AE71AE1145600A86D88 /* InputAccessoryViewTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE83B0E1AE1145600A86D88 /* Build configuration list for PBXNativeTarget "InputAccessoryViewTest" */;
+			buildPhases = (
+				EEE83AE41AE1145600A86D88 /* Sources */,
+				EEE83AE51AE1145600A86D88 /* Frameworks */,
+				EEE83AE61AE1145600A86D88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InputAccessoryViewTest;
+			productName = InputAccessoryViewTest;
+			productReference = EEE83AE81AE1145600A86D88 /* InputAccessoryViewTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEE83B031AE1145600A86D88 /* InputAccessoryViewTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE83B111AE1145600A86D88 /* Build configuration list for PBXNativeTarget "InputAccessoryViewTestTests" */;
+			buildPhases = (
+				EEE83B001AE1145600A86D88 /* Sources */,
+				EEE83B011AE1145600A86D88 /* Frameworks */,
+				EEE83B021AE1145600A86D88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEE83B061AE1145600A86D88 /* PBXTargetDependency */,
+			);
+			name = InputAccessoryViewTestTests;
+			productName = InputAccessoryViewTestTests;
+			productReference = EEE83B041AE1145600A86D88 /* InputAccessoryViewTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEE83AE01AE1145600A86D88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = rovaev;
+				TargetAttributes = {
+					EEE83AE71AE1145600A86D88 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					EEE83B031AE1145600A86D88 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = EEE83AE71AE1145600A86D88;
+					};
+				};
+			};
+			buildConfigurationList = EEE83AE31AE1145600A86D88 /* Build configuration list for PBXProject "InputAccessoryViewTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEE83ADF1AE1145600A86D88;
+			productRefGroup = EEE83AE91AE1145600A86D88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEE83AE71AE1145600A86D88 /* InputAccessoryViewTest */,
+				EEE83B031AE1145600A86D88 /* InputAccessoryViewTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEE83AE61AE1145600A86D88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE83AFA1AE1145600A86D88 /* Main.storyboard in Resources */,
+				EEE83AFF1AE1145600A86D88 /* LaunchScreen.xib in Resources */,
+				EEE83AFC1AE1145600A86D88 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE83B021AE1145600A86D88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEE83AE41AE1145600A86D88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE83B191AE11B5A00A86D88 /* TestModalViewController.m in Sources */,
+				EEE83AF11AE1145600A86D88 /* AppDelegate.m in Sources */,
+				EEE83AF41AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodeld in Sources */,
+				EEE83AF71AE1145600A86D88 /* ViewController.m in Sources */,
+				EEE83B161AE1181400A86D88 /* InputAccessoryViewViewController.m in Sources */,
+				EEE83AEE1AE1145600A86D88 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE83B001AE1145600A86D88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE83B0B1AE1145600A86D88 /* InputAccessoryViewTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEE83B061AE1145600A86D88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEE83AE71AE1145600A86D88 /* InputAccessoryViewTest */;
+			targetProxy = EEE83B051AE1145600A86D88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEE83AF81AE1145600A86D88 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE83AF91AE1145600A86D88 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEE83AFD1AE1145600A86D88 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE83AFE1AE1145600A86D88 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEE83B0C1AE1145600A86D88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEE83B0D1AE1145600A86D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEE83B0F1AE1145600A86D88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = InputAccessoryViewTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEE83B101AE1145600A86D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = InputAccessoryViewTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EEE83B121AE1145600A86D88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InputAccessoryViewTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InputAccessoryViewTest.app/InputAccessoryViewTest";
+			};
+			name = Debug;
+		};
+		EEE83B131AE1145600A86D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InputAccessoryViewTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InputAccessoryViewTest.app/InputAccessoryViewTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEE83AE31AE1145600A86D88 /* Build configuration list for PBXProject "InputAccessoryViewTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE83B0C1AE1145600A86D88 /* Debug */,
+				EEE83B0D1AE1145600A86D88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEE83B0E1AE1145600A86D88 /* Build configuration list for PBXNativeTarget "InputAccessoryViewTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE83B0F1AE1145600A86D88 /* Debug */,
+				EEE83B101AE1145600A86D88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EEE83B111AE1145600A86D88 /* Build configuration list for PBXNativeTarget "InputAccessoryViewTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE83B121AE1145600A86D88 /* Debug */,
+				EEE83B131AE1145600A86D88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEE83AF21AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEE83AF31AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodel */,
+			);
+			currentVersion = EEE83AF31AE1145600A86D88 /* InputAccessoryViewTest.xcdatamodel */;
+			path = InputAccessoryViewTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EEE83AE01AE1145600A86D88 /* Project object */;
+}
