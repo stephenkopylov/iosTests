@@ -7,11 +7,19 @@
 //
 
 #import <Realm/Realm.h>
+RLM_ARRAY_TYPE(RealmTestModelDog)
+RLM_ARRAY_TYPE(RealmTestModel)
 
 @interface RealmTestModel : RLMObject
-@property NSString *name;
+    @property NSString *firstName;
+    @property NSString *secondName;
+    @property NSDate *date;
+    @property RLMArray<RealmTestModelDog> *dogs;
 @end
 
-// This protocol enables typed collections. i.e.:
-// RLMArray<RealmTestModel>
-RLM_ARRAY_TYPE(RealmTestModel)
+@interface RealmTestModelDog : RLMObject
+    @property NSString *name;
+    @property (readonly) NSArray *owners;
+@end
+
+

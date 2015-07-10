@@ -10,19 +10,26 @@
 
 @implementation RealmTestModel
 
-// Specify default values for properties
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{ @"firstName": @"defaultName", @"secondName": @"defaultSecondName" };
+}
 
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
+@end
 
-// Specify properties to ignore (Realm won't persist these)
 
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
+@implementation RealmTestModelDog
+
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{ @"name": @"defaultDogName" };
+}
+
+- (NSArray *)owners
+{
+    return [self linkingObjectsOfClass:@"RealmTestModel" forProperty:@"dogs"];
+}
+
 
 @end

@@ -20,37 +20,55 @@
 {
     [super viewDidLoad];
     NSLog(@"%@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+    NSLog(@"before");
+    
+    RLMMigrationBlock migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+            [migration enumerateObjects:RealmTestModel.className block:^(RLMObject *oldObject, RLMObject *newObject) {
+                //newObject[@"dogs"] = nil;
+            }];
+    };
+    
+    [RLMRealm setDefaultRealmSchemaVersion:5 withMigrationBlock:migrationBlock];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-
         RLMRealm *realm = [RLMRealm defaultRealm];
         
         [realm beginWriteTransaction];
-        for ( int i = 0; i < 1000; i++ ) {
-            // You only need to do this once (per thread)
+        
+        for ( int i = 0; i < 10000; i++ ) {
             RLMResults *results = [RealmTestModel allObjects];
             
             RealmTestModel *testModel = [RealmTestModel new];
-            testModel.name = [NSString stringWithFormat:@"Stephen%lu", (unsigned long)results.count];
+            testModel.firstName = [NSString stringWithFormat:@"Stephen%lu", (unsigned long)results.count];
+            testModel.date = [NSDate new];
             
-            // Add to Realm with transaction
+            RealmTestModelDog *dog = [RealmTestModelDog new];
+            dog.name = @"superDog";
+            
+            [testModel.dogs addObject:dog];
             
             [realm addObject:testModel];
         }
         
         [realm commitWriteTransaction];
         
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            RLMRealm *realm = [RLMRealm defaultRealm];
             RLMResults *results = [RealmTestModel allObjects];
             RealmTestModel *model = (RealmTestModel *)results.lastObject;
-            NSLog(@"name = %@", model.name);
+            NSLog(@"name = %@", model.firstName);
+            
+            
+            RealmTestModelDog *dog = (RealmTestModelDog*)model.dogs.lastObject;
+            RealmTestModel *man = dog.owners.lastObject;
+            
+            NSLog(@"after %@",man.firstName);
         });
     });
     
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
-
 
 
 - (void)didReceiveMemoryWarning

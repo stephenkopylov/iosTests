@@ -45,8 +45,8 @@
 		842B8E291B4F145B00FEB16D /* RealmTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealmTestTests.m; sourceTree = "<group>"; };
 		842B8E331B4F15AB00FEB16D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		842B8E351B4F15E900FEB16D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		84C6987F1B4F166F00BECE11 /* RealmTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmTestModel.h; sourceTree = "<group>"; };
-		84C698801B4F166F00BECE11 /* RealmTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmTestModel.m; sourceTree = "<group>"; };
+		84C6987F1B4F166F00BECE11 /* RealmTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmTestModel.h; sourceTree = SOURCE_ROOT; };
+		84C698801B4F166F00BECE11 /* RealmTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmTestModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +72,6 @@
 		842B8E011B4F145B00FEB16D = {
 			isa = PBXGroup;
 			children = (
-				84C6987F1B4F166F00BECE11 /* RealmTestModel.h */,
-				84C698801B4F166F00BECE11 /* RealmTestModel.m */,
 				842B8E351B4F15E900FEB16D /* libc++.dylib */,
 				842B8E0C1B4F145B00FEB16D /* RealmTest */,
 				842B8E261B4F145B00FEB16D /* RealmTestTests */,
@@ -94,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				842B8E331B4F15AB00FEB16D /* Realm.framework */,
+				84C6987F1B4F166F00BECE11 /* RealmTestModel.h */,
+				84C698801B4F166F00BECE11 /* RealmTestModel.m */,
 				842B8E111B4F145B00FEB16D /* AppDelegate.h */,
 				842B8E121B4F145B00FEB16D /* AppDelegate.m */,
 				842B8E141B4F145B00FEB16D /* ViewController.h */,
