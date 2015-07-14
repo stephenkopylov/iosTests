@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5B1DE800-7401-4AD0-A533-4F47EC86EEE9</string>
+	<string>10DB8BD6-0017-4B41-AF33-2D1A2A82A70E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,7 +14,7 @@
 		<string>https://github.com/stephenkopylov/ios_tests.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SocketIOTest/SocketIOTest.xcodeproj/project.xcworkspace</string>
+	<string>QuartzCoreTest/QuartzCoreTest.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8144A1361F5B20F18FF4A041246BB82FDAA38967</key>

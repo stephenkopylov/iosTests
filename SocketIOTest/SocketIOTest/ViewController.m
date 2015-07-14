@@ -19,11 +19,16 @@
 {
     [super viewDidLoad];
     
-    SocketIOClient *socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:8080" options:nil];
+    SocketIOClient *socket = [[SocketIOClient alloc] initWithSocketURL:@"expertoption.com:18622" options:nil];
     
     [socket on:@"connect" callback:^(NSArray *data, void (^ack)(NSArray *)) {
         NSLog(@"socket connected");
     }];
+    
+    [socket emitWithAck:@"demoregister" withItems:@[@{@"action":@"demoregister"}]](0, ^(NSArray *data) {
+
+    });
+    
     
     [socket on:@"currentAmount" callback:^(NSArray *data, void (^ack)(NSArray *)) {
         double cur = [[data objectAtIndex:0] floatValue];
