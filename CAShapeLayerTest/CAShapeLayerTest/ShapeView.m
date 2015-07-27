@@ -37,6 +37,13 @@
     __block CATransform3D scale = CATransform3DMakeScale(5, 5, 1);
     __block CATransform3D transform = CATransform3DConcat(translate, scale);
     
+    CAShapeLayer *testLayer =  testLayer = [CAShapeLayer new];
+    testLayer.strokeColor = [UIColor greenColor].CGColor;
+    testLayer.lineWidth = 4;
+    [_shapeLayer addSublayer:testLayer];
+    
+
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
  
         
@@ -45,6 +52,13 @@
             _shapeLayer.transform = transform;
         }];
        
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIBezierPath *bezierPath2 = [UIBezierPath bezierPath];
+        [bezierPath2 moveToPoint:CGPointMake(0, 10)];
+        [bezierPath2 addLineToPoint:CGPointMake(50, 60)];
+        testLayer.path = bezierPath2.CGPath;
     });
     /*
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(11 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
