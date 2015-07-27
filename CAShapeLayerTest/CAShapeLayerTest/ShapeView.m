@@ -10,12 +10,14 @@
 
 @implementation ShapeView{
     CAShapeLayer *_shapeLayer;
+    UIBezierPath *_path;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        /*
         self.layer.shadowColor = [[UIColor greenColor] CGColor];
         self.layer.shadowOffset = CGSizeMake(5.0, 5.0);
         self.layer.shadowOpacity = 1.0;
@@ -24,25 +26,45 @@
         
         self.layer.borderColor = [UIColor greenColor].CGColor;
         self.layer.borderWidth = 2;
+         */
+        _shapeLayer = [CAShapeLayer layer];
+        _shapeLayer.fillColor = [UIColor whiteColor].CGColor;
+        _shapeLayer.position = CGPointMake(100, 100);
+        _shapeLayer.bounds = CGRectMake(0, 0, 200, 200);
+        
+        _path = [UIBezierPath bezierPath];
+        
+        [_path moveToPoint:CGPointMake(0, 0)];
+        [_path addLineToPoint:CGPointMake(50, 50)];
+        [_path addLineToPoint:CGPointMake(500, 1000)];
+        
+        _path.lineWidth = 1.0;
+        [[UIColor blackColor] setStroke];
+        
+        
+        [_path stroke];
     }
     return self;
 }
 
+-(void)drawRect:(CGRect)rect{
+    
+}
+
 -(void)didMoveToSuperview{
     
+   // CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
+   // [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     //[CATransaction begin];
     //[CATransaction setDisableActions:YES];
-    
+     /*
     
     CALayer *maskedLayer = [CALayer layer];
     maskedLayer.backgroundColor = [UIColor redColor].CGColor;
     maskedLayer.position = CGPointMake(200, 200);
     maskedLayer.bounds   = CGRectMake(0, 0, 200, 200);
     
-    CAShapeLayer *mask = [CAShapeLayer layer];
-    mask.fillColor = [UIColor whiteColor].CGColor;
-    mask.position = CGPointMake(100, 100);
-    mask.bounds   = CGRectMake(0, 0, 200, 200);
+  
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, 100, 100);
@@ -73,8 +95,6 @@
     
     //[CATransaction commit];
     
-    
-    
     __block CATransform3D translate = CATransform3DMakeTranslation(100, 100, 0);
     __block CATransform3D scale = CATransform3DMakeScale(5, 2, 1);
     __block CATransform3D transform = CATransform3DConcat(translate, scale);
@@ -86,8 +106,8 @@
         }];
     });
     
-    
-    /*
+ 
+   
     CALayer *testCALayer = [CALayer new];
    // testCALayer.borderColor = [UIColor greenColor].CGColor;
     //testCALayer.borderWidth = 2;
@@ -105,9 +125,13 @@
     _shapeLayer = [CAShapeLayer new];
     _shapeLayer.borderColor = [UIColor blueColor].CGColor;
     _shapeLayer.lineWidth = 4;
+    _shapeLayer.shadowColor = [[UIColor greenColor] CGColor];
+    _shapeLayer.shadowOffset = CGSizeMake(5.0, 5.0);
+    _shapeLayer.shadowOpacity = 1.0;
+    _shapeLayer.shadowRadius = 0.0;
     [self.layer addSublayer:_shapeLayer];
     
-    testCALayer.mask = _shapeLayer;
+   //testCALayer.mask = _shapeLayer;
     
     _shapeLayer.frame = self.layer.frame;
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
@@ -129,22 +153,35 @@
 
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
- 
-        
-        
         [UIView animateWithDuration:20 animations:^{
             _shapeLayer.transform = transform;
         }];
-       
     });
-    
+   
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIBezierPath *bezierPath2 = [UIBezierPath bezierPath];
         [bezierPath2 moveToPoint:CGPointMake(0, 10)];
         [bezierPath2 addLineToPoint:CGPointMake(50, 60)];
         testLayer.path = bezierPath2.CGPath;
     })
-    */
+   
+    
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
+    [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+      */
+}
+
+-(void)update{
+    NSLog(@"self.bounds %@",NSStringFromCGRect(self.frame));
+    /*
+    CAShapeLayer *maskCopy = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:_shapeLayer]];
+    maskCopy.fillColor = NULL;
+    maskCopy.strokeColor = [UIColor yellowColor].CGColor;
+    maskCopy.lineWidth = 1;
+    maskCopy.position = _shapeLayer.position;
+    
+    self.layer.sublayers = @[_shapeLayer,maskCopy];
+               */
 }
 
 -(void)layoutSublayersOfLayer:(CALayer *)layer{

@@ -15,6 +15,7 @@
 		EE8CB1931B66587800D9D3EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8CB1911B66587800D9D3EE /* LaunchScreen.xib */; };
 		EE8CB19F1B66587800D9D3EE /* CAShapeLayerTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8CB19E1B66587800D9D3EE /* CAShapeLayerTestTests.m */; };
 		EE8CB1AA1B6658A700D9D3EE /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8CB1A91B6658A700D9D3EE /* ShapeView.m */; };
+		EE8CB1AD1B66A07800D9D3EE /* testView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8CB1AC1B66A07800D9D3EE /* testView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		EE8CB19E1B66587800D9D3EE /* CAShapeLayerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAShapeLayerTestTests.m; sourceTree = "<group>"; };
 		EE8CB1A81B6658A700D9D3EE /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
 		EE8CB1A91B6658A700D9D3EE /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
+		EE8CB1AB1B66A07800D9D3EE /* testView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testView.h; sourceTree = "<group>"; };
+		EE8CB1AC1B66A07800D9D3EE /* testView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				EE8CB1821B66587800D9D3EE /* Supporting Files */,
 				EE8CB1A81B6658A700D9D3EE /* ShapeView.h */,
 				EE8CB1A91B6658A700D9D3EE /* ShapeView.m */,
+				EE8CB1AB1B66A07800D9D3EE /* testView.h */,
+				EE8CB1AC1B66A07800D9D3EE /* testView.m */,
 			);
 			path = CAShapeLayerTest;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				EE8CB18B1B66587800D9D3EE /* ViewController.m in Sources */,
 				EE8CB1881B66587800D9D3EE /* AppDelegate.m in Sources */,
 				EE8CB1AA1B6658A700D9D3EE /* ShapeView.m in Sources */,
+				EE8CB1AD1B66A07800D9D3EE /* testView.m in Sources */,
 				EE8CB1851B66587800D9D3EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +437,7 @@
 				EE8CB1A41B66587800D9D3EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE8CB1A51B66587800D9D3EE /* Build configuration list for PBXNativeTarget "CAShapeLayerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +446,7 @@
 				EE8CB1A71B66587800D9D3EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
