@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4552B88699CBC166900C183A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02BD16B9CF5DC158264D5A7 /* libPods.a */; };
+		EEE9843D1B68D681006200F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE9843C1B68D681006200F8 /* main.m */; };
+		EEE984401B68D681006200F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE9843F1B68D681006200F8 /* AppDelegate.m */; };
+		EEE984431B68D681006200F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE984421B68D681006200F8 /* ViewController.m */; };
+		EEE984461B68D681006200F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE984441B68D681006200F8 /* Main.storyboard */; };
+		EEE984481B68D681006200F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE984471B68D681006200F8 /* Images.xcassets */; };
+		EEE9844B1B68D681006200F8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE984491B68D681006200F8 /* LaunchScreen.xib */; };
+		EEE984571B68D681006200F8 /* HorizontalStatusBarTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE984561B68D681006200F8 /* HorizontalStatusBarTestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEE984511B68D681006200F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEE9842F1B68D681006200F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE984361B68D681006200F8;
+			remoteInfo = HorizontalStatusBarTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E9BCFBF2BDE470AFBDAC24C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		40FAF32592BDCA4EABE702B9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A02BD16B9CF5DC158264D5A7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE984371B68D681006200F8 /* HorizontalStatusBarTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizontalStatusBarTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE9843B1B68D681006200F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE9843C1B68D681006200F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEE9843E1B68D681006200F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EEE9843F1B68D681006200F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EEE984411B68D681006200F8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EEE984421B68D681006200F8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EEE984451B68D681006200F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEE984471B68D681006200F8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EEE9844A1B68D681006200F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EEE984501B68D681006200F8 /* HorizontalStatusBarTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorizontalStatusBarTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE984551B68D681006200F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE984561B68D681006200F8 /* HorizontalStatusBarTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizontalStatusBarTestTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEE984341B68D681006200F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4552B88699CBC166900C183A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE9844D1B68D681006200F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A78365F126548BEBFE9D8CAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A02BD16B9CF5DC158264D5A7 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4A3B655D13DCAA9121F8088 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E9BCFBF2BDE470AFBDAC24C /* Pods.debug.xcconfig */,
+				40FAF32592BDCA4EABE702B9 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EEE9842E1B68D681006200F8 = {
+			isa = PBXGroup;
+			children = (
+				EEE984391B68D681006200F8 /* HorizontalStatusBarTest */,
+				EEE984531B68D681006200F8 /* HorizontalStatusBarTestTests */,
+				EEE984381B68D681006200F8 /* Products */,
+				C4A3B655D13DCAA9121F8088 /* Pods */,
+				A78365F126548BEBFE9D8CAB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EEE984381B68D681006200F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEE984371B68D681006200F8 /* HorizontalStatusBarTest.app */,
+				EEE984501B68D681006200F8 /* HorizontalStatusBarTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEE984391B68D681006200F8 /* HorizontalStatusBarTest */ = {
+			isa = PBXGroup;
+			children = (
+				EEE9843E1B68D681006200F8 /* AppDelegate.h */,
+				EEE9843F1B68D681006200F8 /* AppDelegate.m */,
+				EEE984411B68D681006200F8 /* ViewController.h */,
+				EEE984421B68D681006200F8 /* ViewController.m */,
+				EEE984441B68D681006200F8 /* Main.storyboard */,
+				EEE984471B68D681006200F8 /* Images.xcassets */,
+				EEE984491B68D681006200F8 /* LaunchScreen.xib */,
+				EEE9843A1B68D681006200F8 /* Supporting Files */,
+			);
+			path = HorizontalStatusBarTest;
+			sourceTree = "<group>";
+		};
+		EEE9843A1B68D681006200F8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE9843B1B68D681006200F8 /* Info.plist */,
+				EEE9843C1B68D681006200F8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEE984531B68D681006200F8 /* HorizontalStatusBarTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEE984561B68D681006200F8 /* HorizontalStatusBarTestTests.m */,
+				EEE984541B68D681006200F8 /* Supporting Files */,
+			);
+			path = HorizontalStatusBarTestTests;
+			sourceTree = "<group>";
+		};
+		EEE984541B68D681006200F8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE984551B68D681006200F8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEE984361B68D681006200F8 /* HorizontalStatusBarTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE9845A1B68D681006200F8 /* Build configuration list for PBXNativeTarget "HorizontalStatusBarTest" */;
+			buildPhases = (
+				2DDE1C1F7C6EEF8ECEDE0D0A /* Check Pods Manifest.lock */,
+				EEE984331B68D681006200F8 /* Sources */,
+				EEE984341B68D681006200F8 /* Frameworks */,
+				EEE984351B68D681006200F8 /* Resources */,
+				1E46192B446B82B16CA8A722 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HorizontalStatusBarTest;
+			productName = HorizontalStatusBarTest;
+			productReference = EEE984371B68D681006200F8 /* HorizontalStatusBarTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEE9844F1B68D681006200F8 /* HorizontalStatusBarTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE9845D1B68D681006200F8 /* Build configuration list for PBXNativeTarget "HorizontalStatusBarTestTests" */;
+			buildPhases = (
+				EEE9844C1B68D681006200F8 /* Sources */,
+				EEE9844D1B68D681006200F8 /* Frameworks */,
+				EEE9844E1B68D681006200F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEE984521B68D681006200F8 /* PBXTargetDependency */,
+			);
+			name = HorizontalStatusBarTestTests;
+			productName = HorizontalStatusBarTestTests;
+			productReference = EEE984501B68D681006200F8 /* HorizontalStatusBarTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEE9842F1B68D681006200F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = rovaev;
+				TargetAttributes = {
+					EEE984361B68D681006200F8 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					EEE9844F1B68D681006200F8 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = EEE984361B68D681006200F8;
+					};
+				};
+			};
+			buildConfigurationList = EEE984321B68D681006200F8 /* Build configuration list for PBXProject "HorizontalStatusBarTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEE9842E1B68D681006200F8;
+			productRefGroup = EEE984381B68D681006200F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEE984361B68D681006200F8 /* HorizontalStatusBarTest */,
+				EEE9844F1B68D681006200F8 /* HorizontalStatusBarTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEE984351B68D681006200F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE984461B68D681006200F8 /* Main.storyboard in Resources */,
+				EEE9844B1B68D681006200F8 /* LaunchScreen.xib in Resources */,
+				EEE984481B68D681006200F8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE9844E1B68D681006200F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E46192B446B82B16CA8A722 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DDE1C1F7C6EEF8ECEDE0D0A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEE984331B68D681006200F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE984431B68D681006200F8 /* ViewController.m in Sources */,
+				EEE984401B68D681006200F8 /* AppDelegate.m in Sources */,
+				EEE9843D1B68D681006200F8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE9844C1B68D681006200F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE984571B68D681006200F8 /* HorizontalStatusBarTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEE984521B68D681006200F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEE984361B68D681006200F8 /* HorizontalStatusBarTest */;
+			targetProxy = EEE984511B68D681006200F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEE984441B68D681006200F8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE984451B68D681006200F8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEE984491B68D681006200F8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE9844A1B68D681006200F8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEE984581B68D681006200F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEE984591B68D681006200F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEE9845B1B68D681006200F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E9BCFBF2BDE470AFBDAC24C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HorizontalStatusBarTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEE9845C1B68D681006200F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40FAF32592BDCA4EABE702B9 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HorizontalStatusBarTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EEE9845E1B68D681006200F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HorizontalStatusBarTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizontalStatusBarTest.app/HorizontalStatusBarTest";
+			};
+			name = Debug;
+		};
+		EEE9845F1B68D681006200F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HorizontalStatusBarTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorizontalStatusBarTest.app/HorizontalStatusBarTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEE984321B68D681006200F8 /* Build configuration list for PBXProject "HorizontalStatusBarTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE984581B68D681006200F8 /* Debug */,
+				EEE984591B68D681006200F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEE9845A1B68D681006200F8 /* Build configuration list for PBXNativeTarget "HorizontalStatusBarTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE9845B1B68D681006200F8 /* Debug */,
+				EEE9845C1B68D681006200F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEE9845D1B68D681006200F8 /* Build configuration list for PBXNativeTarget "HorizontalStatusBarTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE9845E1B68D681006200F8 /* Debug */,
+				EEE9845F1B68D681006200F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEE9842F1B68D681006200F8 /* Project object */;
+}
