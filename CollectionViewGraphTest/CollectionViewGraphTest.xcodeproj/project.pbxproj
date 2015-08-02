@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DCF22BEB1B6E205C00C3B902 /* TestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22BEA1B6E205C00C3B902 /* TestLayer.m */; };
 		EE1D250D1B6B8BEE006CC3F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1D250C1B6B8BEE006CC3F0 /* main.m */; };
 		EE1D25101B6B8BEE006CC3F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1D250F1B6B8BEE006CC3F0 /* AppDelegate.m */; };
 		EE1D25131B6B8BEE006CC3F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1D25121B6B8BEE006CC3F0 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DCF22BE91B6E205C00C3B902 /* TestLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLayer.h; sourceTree = "<group>"; };
+		DCF22BEA1B6E205C00C3B902 /* TestLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLayer.m; sourceTree = "<group>"; };
 		EE1D25071B6B8BEE006CC3F0 /* CollectionViewGraphTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewGraphTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1D250B1B6B8BEE006CC3F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE1D250C1B6B8BEE006CC3F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				EE1D250A1B6B8BEE006CC3F0 /* Supporting Files */,
 				EE1D25301B6B8C4D006CC3F0 /* TestCollectionViewCell.h */,
 				EE1D25311B6B8C4D006CC3F0 /* TestCollectionViewCell.m */,
+				DCF22BE91B6E205C00C3B902 /* TestLayer.h */,
+				DCF22BEA1B6E205C00C3B902 /* TestLayer.m */,
 			);
 			path = CollectionViewGraphTest;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				EE1D25131B6B8BEE006CC3F0 /* ViewController.m in Sources */,
 				EE1D25101B6B8BEE006CC3F0 /* AppDelegate.m in Sources */,
 				EE1D25321B6B8C4D006CC3F0 /* TestCollectionViewCell.m in Sources */,
+				DCF22BEB1B6E205C00C3B902 /* TestLayer.m in Sources */,
 				EE1D250D1B6B8BEE006CC3F0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +430,7 @@
 				EE1D252C1B6B8BEE006CC3F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE1D252D1B6B8BEE006CC3F0 /* Build configuration list for PBXNativeTarget "CollectionViewGraphTestTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +439,7 @@
 				EE1D252F1B6B8BEE006CC3F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

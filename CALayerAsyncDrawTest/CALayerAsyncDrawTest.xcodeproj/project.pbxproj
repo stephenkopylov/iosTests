@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCF22BFB1B6E301400C3B902 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22BFA1B6E301400C3B902 /* main.m */; };
+		DCF22BFE1B6E301400C3B902 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22BFD1B6E301400C3B902 /* AppDelegate.m */; };
+		DCF22C011B6E301400C3B902 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22C001B6E301400C3B902 /* ViewController.m */; };
+		DCF22C041B6E301400C3B902 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF22C021B6E301400C3B902 /* Main.storyboard */; };
+		DCF22C061B6E301400C3B902 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF22C051B6E301400C3B902 /* Images.xcassets */; };
+		DCF22C091B6E301400C3B902 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF22C071B6E301400C3B902 /* LaunchScreen.xib */; };
+		DCF22C151B6E301400C3B902 /* CALayerAsyncDrawTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22C141B6E301400C3B902 /* CALayerAsyncDrawTestTests.m */; };
+		DCF22C201B6E307800C3B902 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22C1F1B6E307800C3B902 /* TestView.m */; };
+		DCF22C551B6E328000C3B902 /* TestView2.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF22C541B6E328000C3B902 /* TestView2.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCF22C0F1B6E301400C3B902 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCF22BED1B6E301400C3B902 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCF22BF41B6E301400C3B902;
+			remoteInfo = CALayerAsyncDrawTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCF22BF51B6E301400C3B902 /* CALayerAsyncDrawTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CALayerAsyncDrawTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF22BF91B6E301400C3B902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF22BFA1B6E301400C3B902 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCF22BFC1B6E301400C3B902 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCF22BFD1B6E301400C3B902 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCF22BFF1B6E301400C3B902 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DCF22C001B6E301400C3B902 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DCF22C031B6E301400C3B902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DCF22C051B6E301400C3B902 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DCF22C081B6E301400C3B902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DCF22C0E1B6E301400C3B902 /* CALayerAsyncDrawTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CALayerAsyncDrawTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF22C131B6E301400C3B902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF22C141B6E301400C3B902 /* CALayerAsyncDrawTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CALayerAsyncDrawTestTests.m; sourceTree = "<group>"; };
+		DCF22C1E1B6E307800C3B902 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		DCF22C1F1B6E307800C3B902 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		DCF22C531B6E328000C3B902 /* TestView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView2.h; sourceTree = "<group>"; };
+		DCF22C541B6E328000C3B902 /* TestView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView2.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCF22BF21B6E301400C3B902 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCF22C0B1B6E301400C3B902 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCF22BEC1B6E301400C3B902 = {
+			isa = PBXGroup;
+			children = (
+				DCF22BF71B6E301400C3B902 /* CALayerAsyncDrawTest */,
+				DCF22C111B6E301400C3B902 /* CALayerAsyncDrawTestTests */,
+				DCF22BF61B6E301400C3B902 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCF22BF61B6E301400C3B902 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCF22BF51B6E301400C3B902 /* CALayerAsyncDrawTest.app */,
+				DCF22C0E1B6E301400C3B902 /* CALayerAsyncDrawTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCF22BF71B6E301400C3B902 /* CALayerAsyncDrawTest */ = {
+			isa = PBXGroup;
+			children = (
+				DCF22BFC1B6E301400C3B902 /* AppDelegate.h */,
+				DCF22BFD1B6E301400C3B902 /* AppDelegate.m */,
+				DCF22BFF1B6E301400C3B902 /* ViewController.h */,
+				DCF22C001B6E301400C3B902 /* ViewController.m */,
+				DCF22C021B6E301400C3B902 /* Main.storyboard */,
+				DCF22C051B6E301400C3B902 /* Images.xcassets */,
+				DCF22C071B6E301400C3B902 /* LaunchScreen.xib */,
+				DCF22BF81B6E301400C3B902 /* Supporting Files */,
+				DCF22C1E1B6E307800C3B902 /* TestView.h */,
+				DCF22C1F1B6E307800C3B902 /* TestView.m */,
+				DCF22C531B6E328000C3B902 /* TestView2.h */,
+				DCF22C541B6E328000C3B902 /* TestView2.m */,
+			);
+			path = CALayerAsyncDrawTest;
+			sourceTree = "<group>";
+		};
+		DCF22BF81B6E301400C3B902 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCF22BF91B6E301400C3B902 /* Info.plist */,
+				DCF22BFA1B6E301400C3B902 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCF22C111B6E301400C3B902 /* CALayerAsyncDrawTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCF22C141B6E301400C3B902 /* CALayerAsyncDrawTestTests.m */,
+				DCF22C121B6E301400C3B902 /* Supporting Files */,
+			);
+			path = CALayerAsyncDrawTestTests;
+			sourceTree = "<group>";
+		};
+		DCF22C121B6E301400C3B902 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCF22C131B6E301400C3B902 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCF22BF41B6E301400C3B902 /* CALayerAsyncDrawTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCF22C181B6E301400C3B902 /* Build configuration list for PBXNativeTarget "CALayerAsyncDrawTest" */;
+			buildPhases = (
+				DCF22BF11B6E301400C3B902 /* Sources */,
+				DCF22BF21B6E301400C3B902 /* Frameworks */,
+				DCF22BF31B6E301400C3B902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CALayerAsyncDrawTest;
+			productName = CALayerAsyncDrawTest;
+			productReference = DCF22BF51B6E301400C3B902 /* CALayerAsyncDrawTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCF22C0D1B6E301400C3B902 /* CALayerAsyncDrawTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCF22C1B1B6E301400C3B902 /* Build configuration list for PBXNativeTarget "CALayerAsyncDrawTestTests" */;
+			buildPhases = (
+				DCF22C0A1B6E301400C3B902 /* Sources */,
+				DCF22C0B1B6E301400C3B902 /* Frameworks */,
+				DCF22C0C1B6E301400C3B902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCF22C101B6E301400C3B902 /* PBXTargetDependency */,
+			);
+			name = CALayerAsyncDrawTestTests;
+			productName = CALayerAsyncDrawTestTests;
+			productReference = DCF22C0E1B6E301400C3B902 /* CALayerAsyncDrawTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCF22BED1B6E301400C3B902 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Stephen Kopylov - Home";
+				TargetAttributes = {
+					DCF22BF41B6E301400C3B902 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					DCF22C0D1B6E301400C3B902 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = DCF22BF41B6E301400C3B902;
+					};
+				};
+			};
+			buildConfigurationList = DCF22BF01B6E301400C3B902 /* Build configuration list for PBXProject "CALayerAsyncDrawTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCF22BEC1B6E301400C3B902;
+			productRefGroup = DCF22BF61B6E301400C3B902 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCF22BF41B6E301400C3B902 /* CALayerAsyncDrawTest */,
+				DCF22C0D1B6E301400C3B902 /* CALayerAsyncDrawTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCF22BF31B6E301400C3B902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF22C041B6E301400C3B902 /* Main.storyboard in Resources */,
+				DCF22C091B6E301400C3B902 /* LaunchScreen.xib in Resources */,
+				DCF22C061B6E301400C3B902 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCF22C0C1B6E301400C3B902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCF22BF11B6E301400C3B902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF22C201B6E307800C3B902 /* TestView.m in Sources */,
+				DCF22C011B6E301400C3B902 /* ViewController.m in Sources */,
+				DCF22BFE1B6E301400C3B902 /* AppDelegate.m in Sources */,
+				DCF22C551B6E328000C3B902 /* TestView2.m in Sources */,
+				DCF22BFB1B6E301400C3B902 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCF22C0A1B6E301400C3B902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF22C151B6E301400C3B902 /* CALayerAsyncDrawTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCF22C101B6E301400C3B902 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCF22BF41B6E301400C3B902 /* CALayerAsyncDrawTest */;
+			targetProxy = DCF22C0F1B6E301400C3B902 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCF22C021B6E301400C3B902 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCF22C031B6E301400C3B902 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCF22C071B6E301400C3B902 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCF22C081B6E301400C3B902 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCF22C161B6E301400C3B902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCF22C171B6E301400C3B902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCF22C191B6E301400C3B902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CALayerAsyncDrawTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCF22C1A1B6E301400C3B902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CALayerAsyncDrawTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DCF22C1C1B6E301400C3B902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CALayerAsyncDrawTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CALayerAsyncDrawTest.app/CALayerAsyncDrawTest";
+			};
+			name = Debug;
+		};
+		DCF22C1D1B6E301400C3B902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CALayerAsyncDrawTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CALayerAsyncDrawTest.app/CALayerAsyncDrawTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCF22BF01B6E301400C3B902 /* Build configuration list for PBXProject "CALayerAsyncDrawTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF22C161B6E301400C3B902 /* Debug */,
+				DCF22C171B6E301400C3B902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCF22C181B6E301400C3B902 /* Build configuration list for PBXNativeTarget "CALayerAsyncDrawTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF22C191B6E301400C3B902 /* Debug */,
+				DCF22C1A1B6E301400C3B902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCF22C1B1B6E301400C3B902 /* Build configuration list for PBXNativeTarget "CALayerAsyncDrawTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF22C1C1B6E301400C3B902 /* Debug */,
+				DCF22C1D1B6E301400C3B902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCF22BED1B6E301400C3B902 /* Project object */;
+}
