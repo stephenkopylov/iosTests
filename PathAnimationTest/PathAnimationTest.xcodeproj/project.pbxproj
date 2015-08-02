@@ -15,6 +15,7 @@
 		DCA3EA4C1B6E83E100747B89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA3EA4A1B6E83E100747B89 /* LaunchScreen.xib */; };
 		DCA3EA581B6E83E100747B89 /* PathAnimationTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA3EA571B6E83E100747B89 /* PathAnimationTestTests.m */; };
 		DCA3EA631B6E83FD00747B89 /* PathView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA3EA621B6E83FD00747B89 /* PathView.m */; };
+		DCA3EA661B6E85BF00747B89 /* CShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA3EA651B6E85BF00747B89 /* CShapeLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		DCA3EA571B6E83E100747B89 /* PathAnimationTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathAnimationTestTests.m; sourceTree = "<group>"; };
 		DCA3EA611B6E83FD00747B89 /* PathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathView.h; sourceTree = "<group>"; };
 		DCA3EA621B6E83FD00747B89 /* PathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathView.m; sourceTree = "<group>"; };
+		DCA3EA641B6E85BF00747B89 /* CShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CShapeLayer.h; sourceTree = "<group>"; };
+		DCA3EA651B6E85BF00747B89 /* CShapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CShapeLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				DCA3EA3B1B6E83E100747B89 /* Supporting Files */,
 				DCA3EA611B6E83FD00747B89 /* PathView.h */,
 				DCA3EA621B6E83FD00747B89 /* PathView.m */,
+				DCA3EA641B6E85BF00747B89 /* CShapeLayer.h */,
+				DCA3EA651B6E85BF00747B89 /* CShapeLayer.m */,
 			);
 			path = PathAnimationTest;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			files = (
 				DCA3EA441B6E83E100747B89 /* ViewController.m in Sources */,
 				DCA3EA631B6E83FD00747B89 /* PathView.m in Sources */,
+				DCA3EA661B6E85BF00747B89 /* CShapeLayer.m in Sources */,
 				DCA3EA411B6E83E100747B89 /* AppDelegate.m in Sources */,
 				DCA3EA3E1B6E83E100747B89 /* main.m in Sources */,
 			);

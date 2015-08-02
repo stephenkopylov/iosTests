@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B6D155BF-D0CF-4E43-B7BA-7F811BB65547</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>OpenGLSample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8144A1361F5B20F18FF4A041246BB82FDAA38967</key>
 		<string>https://github.com/stephenkopylov/ios_tests.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>OpenGLSample/OpenGLSample.xcodeproj/project.xcworkspace</string>
+	<string>OpenGLSample/OpenGLSample.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8144A1361F5B20F18FF4A041246BB82FDAA38967</key>
