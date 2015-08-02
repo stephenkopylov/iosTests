@@ -20,6 +20,9 @@
     ((UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout).scrollDirection = UICollectionViewScrollDirectionHorizontal;
     ((UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout).minimumLineSpacing = 0;
     ((UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout).minimumInteritemSpacing = 0;
+    self.collectionView.layer.drawsAsynchronously = YES;
+    //self.collectionView.layer.shouldRasterize = YES;
+
 }
 
 

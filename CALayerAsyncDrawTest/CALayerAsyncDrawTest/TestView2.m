@@ -22,6 +22,7 @@
         l.borderWidth = 2.0f;
         [v.layer addSublayer:l];
     }
+    
     //add the view to the application's main view
     [self addSubview:v];
 }
