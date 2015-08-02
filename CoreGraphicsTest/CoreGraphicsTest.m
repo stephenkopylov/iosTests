@@ -35,12 +35,14 @@
     
     [_path moveToPoint:CGPointMake(0, 0)];
     
+    self.layer.drawsAsynchronously = YES;
+    self.layer.contentsScale = [UIScreen mainScreen].scale;
     /* And end it at this point */
-    for (int i = 0; i<10000; i++) {
+    for (int i = 0; i<100; i++) {
         int lowerBound = 0;
         int upperBound = 100;
         int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
-        [_path addLineToPoint:CGPointMake(i, rndValue)];
+        [_path addLineToPoint:CGPointMake(i*5, rndValue)];
     }
     
     _dLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
@@ -72,18 +74,27 @@
         [fillPath addLineToPoint:CGPointMake(0, self.frame.size.height)];
         [fillPath closePath];
         
+        
+        CGFloat scale = [UIScreen mainScreen].scale;
+        
+        
         CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-        CGContextRef currentContext = CGBitmapContextCreate(nil, self.frame.size.width, self.frame.size.height, 8, self.frame.size.width * (CGColorSpaceGetNumberOfComponents(space) + 1), space,kCGImageAlphaPremultipliedLast);
+        CGSize size = self.frame.size;
+        CGContextRef currentContext = CGBitmapContextCreate(NULL,
+                                                            size.width * scale, size.height * scale,
+                                                            8, size.width * scale * 4, space,
+                                                            kCGImageAlphaPremultipliedFirst);
         CGColorSpaceRelease(space);
+        CGContextScaleCTM(currentContext, scale, scale);
         
         //CGContextSetShouldAntialias(currentContext, NO);
         //CGContextSetAllowsAntialiasing(currentContext, NO);
         // CGContextSetInterpolationQuality(currentContext, kCGInterpolationNone);
         
-        CGContextSetLineWidth(currentContext, 1.0);
+        CGContextSetLineWidth(currentContext, 4);
         CGContextSetLineCap(currentContext, kCGLineCapRound);
         CGContextSetLineJoin(currentContext, kCGLineJoinRound);
-        CGContextSetStrokeColorWithColor(currentContext, [UIColor blueColor].CGColor);
+        CGContextSetStrokeColorWithColor(currentContext, [UIColor whiteColor].CGColor);
         CGContextBeginPath(currentContext);
         CGContextAddPath(currentContext, path.CGPath);
         
