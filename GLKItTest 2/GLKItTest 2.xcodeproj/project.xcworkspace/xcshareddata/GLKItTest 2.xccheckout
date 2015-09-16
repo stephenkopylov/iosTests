@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>C9BCDAB7-5183-42F3-8AD4-9150B73666FC</string>
+	<string>B5C2BC91-48F4-4F52-A48D-05D0A7AAB5FF</string>
 	<key>IDESourceControlProjectName</key>
-	<string>GLKitTest</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8144A1361F5B20F18FF4A041246BB82FDAA38967</key>
 		<string>https://github.com/stephenkopylov/ios_tests.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GLKitTest/GLKitTest.xcodeproj</string>
+	<string>GLKItTest 2/GLKItTest 2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8144A1361F5B20F18FF4A041246BB82FDAA38967</key>
