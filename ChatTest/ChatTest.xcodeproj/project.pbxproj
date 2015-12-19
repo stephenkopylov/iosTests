@@ -16,6 +16,7 @@
 		4CD635201C25768300338FE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6351E1C25768300338FE8 /* LaunchScreen.storyboard */; };
 		4CD6352E1C2594FB00338FE8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD6352D1C2594FB00338FE8 /* MobileCoreServices.framework */; };
 		4CD635301C25953300338FE8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD6352F1C25953300338FE8 /* SystemConfiguration.framework */; };
+		4CD635331C2595FA00338FE8 /* ChatStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635321C2595FA00338FE8 /* ChatStyling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		4CD635211C25768300338FE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD6352D1C2594FB00338FE8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4CD6352F1C25953300338FE8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4CD635311C2595FA00338FE8 /* ChatStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStyling.h; sourceTree = "<group>"; };
+		4CD635321C2595FA00338FE8 /* ChatStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatStyling.m; sourceTree = "<group>"; };
 		BF0B6F3817757063646C4B4B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8287C7406B168E4DC3BAC31 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +88,8 @@
 				4CD635141C25768300338FE8 /* AppDelegate.m */,
 				4CD635161C25768300338FE8 /* ViewController.h */,
 				4CD635171C25768300338FE8 /* ViewController.m */,
+				4CD635311C2595FA00338FE8 /* ChatStyling.h */,
+				4CD635321C2595FA00338FE8 /* ChatStyling.m */,
 				4CD635191C25768300338FE8 /* Main.storyboard */,
 				4CD6351C1C25768300338FE8 /* Assets.xcassets */,
 				4CD6351E1C25768300338FE8 /* LaunchScreen.storyboard */,
@@ -234,6 +239,7 @@
 			files = (
 				4CD635181C25768300338FE8 /* ViewController.m in Sources */,
 				4CD635151C25768300338FE8 /* AppDelegate.m in Sources */,
+				4CD635331C2595FA00338FE8 /* ChatStyling.m in Sources */,
 				4CD635121C25768300338FE8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

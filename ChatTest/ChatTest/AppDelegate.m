@@ -1,45 +1,111 @@
-//
-//  AppDelegate.m
-//  ChatTest
-//
-//  Created by Stephen Kopylov - Home on 19/12/15.
-//  Copyright © 2015 Stephen Kopylov - Home. All rights reserved.
-//
-
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "ChatStyling.h"
 
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+{
+    [self styleApp];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Chat setup
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // apply appearance styling first if you want to customise the look of the chat
+    [ChatStyling applyStyling];
+    
+    // configure account key and pre-chat form
+    [ZDCChat configure:^(ZDCConfig *defaults) {
+        
+        defaults.accountKey = @"3GWVlz4YyqBQb8oIzky6JCjyL0eTo3MA";
+        defaults.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.phone = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.department = ZDCPreChatDataOptionalEditable;
+        defaults.preChatDataRequirements.message = ZDCPreChatDataOptional;
+    }];
+    
+    // To override the default avatar uncomment and complete the image name
+    //[[ZDCChatAvatar appearance] setDefaultAvatar:@"your_avatar_name_here"];
+    
+    // Uncomment to disable visitor data persistence between application runs
+    //[[ZDCChat instance].session visitorInfo].shouldPersist = NO;
+    
+    // Uncomment if you don't want open chat sessions to be automatically resumed on application launch
+    //[ZDCChat instance].shouldResumeOnLaunch = NO;
+    
+    // remember to switch off debug logging before app store submission!
+    [ZDCLog enable:YES];
+    [ZDCLog setLogLevel:ZDCLogLevelWarn];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // sample app boiler plate
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1.0f];
+    
+    // top view controller
+    ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
+    
+    // nav controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    // assign nav controller as root
+    self.window.rootViewController = navController;
+    
+    // make key window
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
+- (void) styleApp
+{
+    if ([ZDUUtil isVersionOrNewer:@(7)]) {
+        
+        // status bar
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+        // nav bar
+        NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIColor whiteColor] ,UITextAttributeTextColor, nil];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+        
+        if ([ZDUUtil isVersionOrNewer:@(8)]) {
+            
+            // For translucent nav bars set YES
+            [[UINavigationBar appearance] setTranslucent:NO];
+        }
+        
+        // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
+        // (you may also want to change the title text and tint colors above since they are white by default)
+        //[[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
+        //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
+        //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
+        
+    } else {
+        
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+    }
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+void uncaughtExceptionHandler(NSException *exception) {
+    [ZDCLog e:@"CRASH: %@", exception];
+    [ZDCLog e:@"Stack Trace: %@", [exception callStackSymbols]];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
 @end
+
