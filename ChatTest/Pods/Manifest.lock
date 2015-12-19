@@ -1,1 +1,15 @@
+PODS:
+  - ZDCChat (1.1.3):
+    - ZDCChat/Core (= 1.1.3)
+    - ZDCChat/Localization (= 1.1.3)
+  - ZDCChat/Core (1.1.3)
+  - ZDCChat/Localization (1.1.3):
+    - ZDCChat/Core
+
+DEPENDENCIES:
+  - ZDCChat
+
+SPEC CHECKSUMS:
+  ZDCChat: 622510c53bb7af4da19ad39c4268bb93c50fbf6e
+
 COCOAPODS: 0.39.0
