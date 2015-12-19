@@ -1,14 +1,15 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "CustomChatViewController.h"
 #import "ChatStyling.h"
 
 
 @implementation AppDelegate
 
 
-- (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self styleApp];
+    //[self styleApp];
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Chat setup
@@ -19,7 +20,6 @@
     
     // configure account key and pre-chat form
     [ZDCChat configure:^(ZDCConfig *defaults) {
-        
         defaults.accountKey = @"3GWVlz4YyqBQb8oIzky6JCjyL0eTo3MA";
         defaults.preChatDataRequirements.name = ZDCPreChatDataOptionalEditable;
         defaults.preChatDataRequirements.email = ZDCPreChatDataOptionalEditable;
@@ -51,7 +51,8 @@
     self.window.backgroundColor = [UIColor colorWithWhite:0.94f alpha:1.0f];
     
     // top view controller
-    ViewController *vc = [[ViewController alloc] initWithNibName:nil bundle:nil];
+    CustomChatViewController *vc = [[CustomChatViewController alloc] initWithNibName:nil bundle:nil];
+    //ViewController *vc = [ViewController new];
     
     // nav controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -66,24 +67,22 @@
 }
 
 
-- (void) styleApp
+- (void)styleApp
 {
-    if ([ZDUUtil isVersionOrNewer:@(7)]) {
-        
+    if ( [ZDUUtil isVersionOrNewer:@(7)] ) {
         // status bar
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         
         // nav bar
-        NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [UIColor whiteColor] ,UITextAttributeTextColor, nil];
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+        //NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+        //                                  [UIColor whiteColor] ,UITextAttributeTextColor, nil];
+        //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        //[[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+        //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
         
-        if ([ZDUUtil isVersionOrNewer:@(8)]) {
-            
+        if ( [ZDUUtil isVersionOrNewer:@(8)] ) {
             // For translucent nav bars set YES
-            [[UINavigationBar appearance] setTranslucent:NO];
+            // [[UINavigationBar appearance] setTranslucent:NO];
         }
         
         // For a completely transparent nav bar uncomment this and set 'translucent' above to YES
@@ -92,20 +91,18 @@
         //[[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         //[[UINavigationBar appearance] setShadowImage:[UIImage new]];
         //[[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
-        
-    } else {
-        
-        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
+    }
+    else {
+        // [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.91f green:0.16f blue:0.16f alpha:1.0f]];
     }
 }
 
 
-void uncaughtExceptionHandler(NSException *exception) {
+void uncaughtExceptionHandler(NSException *exception)
+{
     [ZDCLog e:@"CRASH: %@", exception];
     [ZDCLog e:@"Stack Trace: %@", [exception callStackSymbols]];
 }
 
 
-
 @end
-

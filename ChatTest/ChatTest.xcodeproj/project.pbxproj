@@ -11,12 +11,12 @@
 		4CD635121C25768300338FE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635111C25768300338FE8 /* main.m */; };
 		4CD635151C25768300338FE8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635141C25768300338FE8 /* AppDelegate.m */; };
 		4CD635181C25768300338FE8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635171C25768300338FE8 /* ViewController.m */; };
-		4CD6351B1C25768300338FE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD635191C25768300338FE8 /* Main.storyboard */; };
 		4CD6351D1C25768300338FE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6351C1C25768300338FE8 /* Assets.xcassets */; };
 		4CD635201C25768300338FE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6351E1C25768300338FE8 /* LaunchScreen.storyboard */; };
 		4CD6352E1C2594FB00338FE8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD6352D1C2594FB00338FE8 /* MobileCoreServices.framework */; };
 		4CD635301C25953300338FE8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD6352F1C25953300338FE8 /* SystemConfiguration.framework */; };
 		4CD635331C2595FA00338FE8 /* ChatStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635321C2595FA00338FE8 /* ChatStyling.m */; };
+		4CD635361C259E5C00338FE8 /* CustomChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD635351C259E5C00338FE8 /* CustomChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,6 @@
 		4CD635141C25768300338FE8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4CD635161C25768300338FE8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4CD635171C25768300338FE8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4CD6351A1C25768300338FE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CD6351C1C25768300338FE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CD6351F1C25768300338FE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CD635211C25768300338FE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +34,8 @@
 		4CD6352F1C25953300338FE8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4CD635311C2595FA00338FE8 /* ChatStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStyling.h; sourceTree = "<group>"; };
 		4CD635321C2595FA00338FE8 /* ChatStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatStyling.m; sourceTree = "<group>"; };
+		4CD635341C259E5C00338FE8 /* CustomChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomChatViewController.h; path = ../../CustomChatViewController.h; sourceTree = "<group>"; };
+		4CD635351C259E5C00338FE8 /* CustomChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomChatViewController.m; path = ../../CustomChatViewController.m; sourceTree = "<group>"; };
 		BF0B6F3817757063646C4B4B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8287C7406B168E4DC3BAC31 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,11 +91,12 @@
 				4CD635171C25768300338FE8 /* ViewController.m */,
 				4CD635311C2595FA00338FE8 /* ChatStyling.h */,
 				4CD635321C2595FA00338FE8 /* ChatStyling.m */,
-				4CD635191C25768300338FE8 /* Main.storyboard */,
 				4CD6351C1C25768300338FE8 /* Assets.xcassets */,
 				4CD6351E1C25768300338FE8 /* LaunchScreen.storyboard */,
 				4CD635211C25768300338FE8 /* Info.plist */,
 				4CD635101C25768300338FE8 /* Supporting Files */,
+				4CD635341C259E5C00338FE8 /* CustomChatViewController.h */,
+				4CD635351C259E5C00338FE8 /* CustomChatViewController.m */,
 			);
 			path = ChatTest;
 			sourceTree = "<group>";
@@ -178,7 +180,6 @@
 			files = (
 				4CD635201C25768300338FE8 /* LaunchScreen.storyboard in Resources */,
 				4CD6351D1C25768300338FE8 /* Assets.xcassets in Resources */,
-				4CD6351B1C25768300338FE8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +240,7 @@
 			files = (
 				4CD635181C25768300338FE8 /* ViewController.m in Sources */,
 				4CD635151C25768300338FE8 /* AppDelegate.m in Sources */,
+				4CD635361C259E5C00338FE8 /* CustomChatViewController.m in Sources */,
 				4CD635331C2595FA00338FE8 /* ChatStyling.m in Sources */,
 				4CD635121C25768300338FE8 /* main.m in Sources */,
 			);
@@ -247,14 +249,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4CD635191C25768300338FE8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CD6351A1C25768300338FE8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4CD6351E1C25768300338FE8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
