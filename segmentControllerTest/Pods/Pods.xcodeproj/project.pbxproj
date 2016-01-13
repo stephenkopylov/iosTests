@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AC82CD6A3CA06E74674E6C846DD19A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		1F5B14772859ED4E26FE440C5B6779A2 /* NYSegmentIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7527C168070414AC41D043455AE00B9 /* NYSegmentIndicator.m */; };
+		2B5018847DD4BC8389CD2F749645798D /* NYSegmentIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F3F9D06FE6CBA54B7B7C16E3CCC92F /* NYSegmentIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		377EC458E0E1B17904336E35F4CB3E3A /* NYSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 45939F806B73E10487999D563A307FCA /* NYSegmentedControl.m */; };
+		4E70F1D86701DAFD5D708EE8D47E3176 /* NYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6270E8107A4E8C08C2AE0817D2092C5C /* NYSegment.m */; };
+		6204F94C386C64B450C0AF0BAB5725A7 /* NYSegmentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 763BCD8905161B262400AB02D05D304A /* NYSegmentLabel.m */; };
+		78D8430C3364219303F439D442EA035A /* NYSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E77BECA753381F1A51D06C294C8D303 /* NYSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B77387B3FA6AB6FA9A4237D49D01948 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		8FABEFC73B23E6A1562B36C96D71E3BE /* NYSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 52056B02C4FB8A578E3C415839CDBCCF /* NYSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		975C252DB3D0CAB53E8E244158496983 /* NYSegmentLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 29FB6FBDA4AFDB202833C783B21FA058 /* NYSegmentLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B56F2B58A7967644AE30ACA9BE65BCB6 /* NYSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5418EE919EC5711307267DAA76ADD24D /* NYSegmentedControl-dummy.m */; };
+		F9D447FAA417C5EEB61A3FD4D3573A8C /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22DB52975000FE7692562E8C5C19101D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C5DC53E2A6CFCEAE071A0699254C101;
+			remoteInfo = NYSegmentedControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		16F3F9D06FE6CBA54B7B7C16E3CCC92F /* NYSegmentIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NYSegmentIndicator.h; path = NYSegmentedControl/NYSegmentIndicator.h; sourceTree = "<group>"; };
+		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		29FB6FBDA4AFDB202833C783B21FA058 /* NYSegmentLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NYSegmentLabel.h; path = NYSegmentedControl/NYSegmentLabel.h; sourceTree = "<group>"; };
+		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		45939F806B73E10487999D563A307FCA /* NYSegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NYSegmentedControl.m; path = NYSegmentedControl/NYSegmentedControl.m; sourceTree = "<group>"; };
+		4C3875FA5670B6B1D8C81E956EB4262E /* libNYSegmentedControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNYSegmentedControl.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D95152A9A0348D2DD83F6E3D15E39F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		52056B02C4FB8A578E3C415839CDBCCF /* NYSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NYSegment.h; path = NYSegmentedControl/NYSegment.h; sourceTree = "<group>"; };
+		5418EE919EC5711307267DAA76ADD24D /* NYSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NYSegmentedControl-dummy.m"; sourceTree = "<group>"; };
+		6270E8107A4E8C08C2AE0817D2092C5C /* NYSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NYSegment.m; path = NYSegmentedControl/NYSegment.m; sourceTree = "<group>"; };
+		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		6FC5A316260A21A7511E99EDAE9D0042 /* NYSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NYSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
+		763BCD8905161B262400AB02D05D304A /* NYSegmentLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NYSegmentLabel.m; path = NYSegmentedControl/NYSegmentLabel.m; sourceTree = "<group>"; };
+		7F98F20BD403C946C6A9D19B66EFA0D7 /* NYSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NYSegmentedControl.xcconfig; sourceTree = "<group>"; };
+		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		9E77BECA753381F1A51D06C294C8D303 /* NYSegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NYSegmentedControl.h; path = NYSegmentedControl/NYSegmentedControl.h; sourceTree = "<group>"; };
+		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F7527C168070414AC41D043455AE00B9 /* NYSegmentIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NYSegmentIndicator.m; path = NYSegmentedControl/NYSegmentIndicator.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89719322EA7EE69898FE7CE035A5FE24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AC82CD6A3CA06E74674E6C846DD19A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA22095B25981C6EE68AA992D4FA5C84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B77387B3FA6AB6FA9A4237D49D01948 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		276591A02C31594A36720F6AF3A439F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C3875FA5670B6B1D8C81E956EB4262E /* libNYSegmentedControl.a */,
+				4D95152A9A0348D2DD83F6E3D15E39F5 /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52FE151F9E4CAA30D4D5E571D63733C2 /* NYSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				52056B02C4FB8A578E3C415839CDBCCF /* NYSegment.h */,
+				6270E8107A4E8C08C2AE0817D2092C5C /* NYSegment.m */,
+				9E77BECA753381F1A51D06C294C8D303 /* NYSegmentedControl.h */,
+				45939F806B73E10487999D563A307FCA /* NYSegmentedControl.m */,
+				16F3F9D06FE6CBA54B7B7C16E3CCC92F /* NYSegmentIndicator.h */,
+				F7527C168070414AC41D043455AE00B9 /* NYSegmentIndicator.m */,
+				29FB6FBDA4AFDB202833C783B21FA058 /* NYSegmentLabel.h */,
+				763BCD8905161B262400AB02D05D304A /* NYSegmentLabel.m */,
+				B4163BAE88D9F0C08D70E039EBCD809D /* Support Files */,
+			);
+			path = NYSegmentedControl;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				BEC9C95454694AEE9B5445541698E8B5 /* Pods */,
+				276591A02C31594A36720F6AF3A439F9 /* Products */,
+				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */,
+				10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */,
+				272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */,
+				6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */,
+				A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */,
+				4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */,
+				98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		B4163BAE88D9F0C08D70E039EBCD809D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F98F20BD403C946C6A9D19B66EFA0D7 /* NYSegmentedControl.xcconfig */,
+				5418EE919EC5711307267DAA76ADD24D /* NYSegmentedControl-dummy.m */,
+				6FC5A316260A21A7511E99EDAE9D0042 /* NYSegmentedControl-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NYSegmentedControl";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEC9C95454694AEE9B5445541698E8B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52FE151F9E4CAA30D4D5E571D63733C2 /* NYSegmentedControl */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		147B31A576446A95BFAA2031A61BDFCE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FABEFC73B23E6A1562B36C96D71E3BE /* NYSegment.h in Headers */,
+				78D8430C3364219303F439D442EA035A /* NYSegmentedControl.h in Headers */,
+				2B5018847DD4BC8389CD2F749645798D /* NYSegmentIndicator.h in Headers */,
+				975C252DB3D0CAB53E8E244158496983 /* NYSegmentLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5D5E6A4F1A59FD5E1871CAB2F8838A86 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31CD94ACB2AFEB42694A3CB0F770CF2D /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				7C4AE385428C30B31B8BC191F8FC9408 /* Sources */,
+				FA22095B25981C6EE68AA992D4FA5C84 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67B109F6608087A34D64907FDBAAF801 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 4D95152A9A0348D2DD83F6E3D15E39F5 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9C5DC53E2A6CFCEAE071A0699254C101 /* NYSegmentedControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0A2F416FE62665BC8678BDEC439BBC8 /* Build configuration list for PBXNativeTarget "NYSegmentedControl" */;
+			buildPhases = (
+				B48969F8F8C8DEFE1955C43EBFFC64AB /* Sources */,
+				89719322EA7EE69898FE7CE035A5FE24 /* Frameworks */,
+				147B31A576446A95BFAA2031A61BDFCE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NYSegmentedControl;
+			productName = NYSegmentedControl;
+			productReference = 4C3875FA5670B6B1D8C81E956EB4262E /* libNYSegmentedControl.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 276591A02C31594A36720F6AF3A439F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C5DC53E2A6CFCEAE071A0699254C101 /* NYSegmentedControl */,
+				5D5E6A4F1A59FD5E1871CAB2F8838A86 /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C4AE385428C30B31B8BC191F8FC9408 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D447FAA417C5EEB61A3FD4D3573A8C /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B48969F8F8C8DEFE1955C43EBFFC64AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E70F1D86701DAFD5D708EE8D47E3176 /* NYSegment.m in Sources */,
+				B56F2B58A7967644AE30ACA9BE65BCB6 /* NYSegmentedControl-dummy.m in Sources */,
+				377EC458E0E1B17904336E35F4CB3E3A /* NYSegmentedControl.m in Sources */,
+				1F5B14772859ED4E26FE440C5B6779A2 /* NYSegmentIndicator.m in Sources */,
+				6204F94C386C64B450C0AF0BAB5725A7 /* NYSegmentLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67B109F6608087A34D64907FDBAAF801 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NYSegmentedControl;
+			target = 9C5DC53E2A6CFCEAE071A0699254C101 /* NYSegmentedControl */;
+			targetProxy = 22DB52975000FE7692562E8C5C19101D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		391F74D21197C1A62255D10CC9E49C41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F98F20BD403C946C6A9D19B66EFA0D7 /* NYSegmentedControl.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NYSegmentedControl/NYSegmentedControl-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3BC8309AEE483F51C1B19CC4AB3A2BD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A08F3F94872E8ED3D4AC73ADA8CDEC6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F98F20BD403C946C6A9D19B66EFA0D7 /* NYSegmentedControl.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NYSegmentedControl/NYSegmentedControl-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FA38FC44A6FC9F83B5C0D3D05E7A9C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31CD94ACB2AFEB42694A3CB0F770CF2D /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC8309AEE483F51C1B19CC4AB3A2BD5 /* Debug */,
+				FA38FC44A6FC9F83B5C0D3D05E7A9C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0A2F416FE62665BC8678BDEC439BBC8 /* Build configuration list for PBXNativeTarget "NYSegmentedControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A08F3F94872E8ED3D4AC73ADA8CDEC6C /* Debug */,
+				391F74D21197C1A62255D10CC9E49C41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

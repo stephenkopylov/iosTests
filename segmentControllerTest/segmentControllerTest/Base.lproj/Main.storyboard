@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K8P-wy-px9">
+                                <rect key="frame" x="240" y="146" width="121" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="upC-DH-yFA"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Ql-fJ-5I4">
+                                <rect key="frame" x="247" y="268" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jzq-w1-6xx">
+                                <rect key="frame" x="240" y="204" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZv-bU-GP2" customClass="NYSegmentedControl">
+                                <rect key="frame" x="220" y="368" width="162" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jzq-w1-6xx" firstAttribute="top" secondItem="K8P-wy-px9" secondAttribute="bottom" constant="30" id="85z-hz-cfe"/>
+                            <constraint firstItem="jzq-w1-6xx" firstAttribute="centerX" secondItem="K8P-wy-px9" secondAttribute="centerX" id="CrY-ma-hHk"/>
+                            <constraint firstItem="K8P-wy-px9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NPS-Yb-vbg"/>
+                            <constraint firstItem="jzq-w1-6xx" firstAttribute="height" secondItem="K8P-wy-px9" secondAttribute="height" id="jLS-S8-1Jd"/>
+                            <constraint firstItem="K8P-wy-px9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="126" id="tAj-hv-05n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmented1" destination="K8P-wy-px9" id="gjf-dV-CyQ"/>
+                        <outlet property="segmented2" destination="jzq-w1-6xx" id="WUZ-iv-ybY"/>
+                        <outlet property="segmented3" destination="9Ql-fJ-5I4" id="8O1-aU-KZa"/>
+                        <outlet property="segmented4" destination="rZv-bU-GP2" id="T0U-tt-TGd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="429"/>
+        </scene>
+    </scenes>
+</document>
