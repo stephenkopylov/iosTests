@@ -1,0 +1,221 @@
+// Misc
+"OK" = "Ок";
+"DEMO_ACCOUNT" = "Демо аккаунт";
+"TAKE_A_PHOTO" =  "Сделать фото";
+"SELECT_FROM_GALLERY" =  "Выбрать из галереи";
+"CANCEL" =  "Отмена";
+"REMOVE" =  "Удалить";
+"ERROR" =  "Ошибка";
+"APPROVED" = "Подтвержден";
+"REJECTED" = "Не принят";
+"PENDING" = "В обработке";
+"DATE" = "Дата";
+"AMOUNT" = "Сумма";
+"TYPE" = "Тип";
+"STATUS" = "Статус";
+"PAYMENT_SYSTEM" = "Система";
+"SEND" = "Отправить";
+"EMPTY_LIST" = "Список пуст";
+"THANK_YOU" = "Спасибо";
+"REFRESHING" = "Обновление";
+"PHONES" = "+7 804 333-46-47,+7 (812) 454-03-60";
+"LETS_TRAGE" = "Торговать";
+"HOURS" = "часы";
+"MINUTES" = "минуты";
+"SECONDS" = "секунды";
+
+
+// VC titles
+"TRADE_VIEWCONTROLLER_TITLE" = "Торги";
+"PROFILE_VIEWCONTROLLER_TITLE" = "Профиль";
+"EDIT_PROFILE_VIEWCONTROLLER_TITLE" = "Редактирование профиля";
+"TRADE_HISTORY_VIEWCONTROLLER_TITLE" = "История торгов";
+"LEADERBOARD_VIEWCONTROLLER_TITLE" = "Доска лидеров";
+"PAYMENT_HISTORY_VIEWCONTROLLER_TITLE" = "История платежей";
+"JOURNAL_HISTORY_VIEWCONTROLLER_TITLE" = "Журнал";
+"ACHIEVEMENTS_HISTORY_VIEWCONTROLLER_TITLE" = "Достижения";
+"DEPOSIT_VIEWCONTROLLER_TITLE" = "Пополнение баланса";
+"WITHDRAW_VIEWCONTROLLER_TITLE" = "Вывод средств";
+"DOCUMENTS_VERIFICATION_VIEWCONTROLLER_TITLE" = "Подтверждение учетной записи";
+
+
+// MenuTableViewController
+"SETTINGS_BUTTON_TITLE" = "Настройки";
+"LOGOUT_BUTTON_TITLE" = "Выход";
+"DEPOSIT_BUTTON_TITLE" = "Пополнить";
+"GET_REAL_BUTTON_TITLE" = "Реальный счет";
+"CHAT" = "Онлайн-чат";
+
+
+// SettingsViewController
+"SETTINGS_THEME_TITLE" = "Тема";
+
+
+// TradeViewController
+"ASSETS_MENU_TITLE" = "Опционы";
+"EXP_TIME_MENU_TITLE" = "Время экспирации";
+"PURCHASE_DEADLINE_LINE_NAME" = "Время для покупки";
+"EXP_TIME_LINE_NAME" = "Время экспирации";
+"EXP_TRADE_TAB_TITLE" = "Торги";
+"EXP_OPTIONS_TAB_TITLE" = "Сделки";
+"FILLED_PLOT_TITLE" = "Область";
+"LINE_PLOT_TITLE" = "Линия";
+"CANDLES_PLOT_TITLE" = "Свечи";
+"BARS_PLOT_TITLE" = "Бары";
+"SECONDS_SYMBOL" = "с";
+"AVERAGE_INDICATOR_TITLE" = "Скользящее среднее";
+"BOLLINGER_INDICATOR_TITLE" = "Волны Боллинджера";
+"ALLIGATOR_INDICATOR_TITLE" = "Аллигатор";
+"LINE_COMMON_TITLE" = "Линия";
+"LINE_RAY_TITLE" = "Луч";
+"LINE_HORIZONTAL_TITLE" = "Горизонтальная линия";
+"ASSET_INACTIVE_TEXT" = "Торги на данном активе сейчас закрыты";
+
+
+// Popups
+"ALLIGATOR_JAWS" = "Челюсти";
+"ALLIGATOR_TEETH" = "Зубы";
+"ALLIGATOR_LIPS" = "Губы";
+"ALLIGATOR_PERIOD" = "Период";
+"ALLIGATOR_SHIFT" = "Сдвиг";
+"AVERAGE_TYPE" = "Тип";
+"AVERAGE_COLOR" = "Цвет";
+"BOLLINGER_DEVIATION" = "Отклонение (%)";
+"INSTRUMENT_POPUP_APPLY" = "Применить";
+"INSTRUMENT_POPUP_CANCEL" = "Отменить";
+"REGISTER_POPUP_TITLE" = "Открытие реального счета";
+"REGISTER_POPUP_DESCRIPTION" = "Регистрация → Пополните баланс → Зарабатывайте\n\nПереход к торговле на настоящие деньги.\nОставьте Ваш email, чтобы открыть реальный счет и перейти на форму пополнения баланса";
+"VERIFICATION_POPUP_TITLE" = "Подтверждение персональной информации";
+"FIRST_NAME" = "Имя";
+"LAST_NAME" = "Фамилия";
+"PHONE" = "Номер телефона";
+"PHONE_CODE" = "Код подтверждения";
+"VERIFY" = "Подтвердить";
+"SEND_SMS" = "Отправить СМС";
+"CALL" = "Позвонить";
+"EMAIL_CONFIRMATION_REQUEST" = "Пожалуйста, подтвердите Вашу электронную почту. На %@ была отправлена ссылка для подтверждения";
+"SELECT_COUNTRY" =  "Выберите страну";
+"PAYMENT_SUCCESSFUL" = "На Ваш счет успешно зачислено %@";
+"PAYMENT_FAILED" = "Платеж не прошел";
+"EXIT_CONFIRMATION" = "Вы действительно хотите выйти?";
+"DEPOSIT_BONUS" = "100% бонус На депозит";
+"DEPOSIT_BONUS_SUBTITLE" = "До конца предложения осталось";
+"DEPOSIT_BONUS_GET" = "Получить бонус";
+
+
+// RatesViewController
+"RATES_INVESTMENT_TITLE" = "Сумма";
+"RATES_REFUND_TITLE" = "Страховка";
+"RATES_EARNING_TITLE" = "Прибыль";
+"RATES_CALL" = "ВЫШЕ";
+"RATES_PUT" = "НИЖЕ";
+"RATES_NEW_BET" = "Новый опцион";
+
+
+// TradePopupViewController
+"DEAL_CLOSED_TITLE" = "РЕЗУЛЬТАТ ТОРГОВ";
+"TRADE_RESULT_CLOSE_BUTTON_TITLE" = "Закрыть";
+"TRADE_RESULT_SHARE_BUTTON" = "Поделиться";
+
+
+// Themes
+"THEME_MANAGER_LIGHT_THEME_TITLE" = "Светлая";
+"THEME_MANAGER_DARK_THEME_TITLE" = "Тёмная";
+
+
+// LoginViewController
+"EMAIL_TEXTFIELD_PLACEHOLDER" = "Электронная почта";
+"PASSWORD_TEXTFIELD_PLACEHOLDER" = "Пароль";
+"FORGOT_PASSWORD_BUTTON_TITLE" = "Забыли пароль?";
+"LOGIN_BUTTON_TITLE" = "Вход";
+"SIGN_UP_BUTTON_TITLE1" = "Нет аккаунта?";
+"SIGN_UP_BUTTON_TITLE2" = "Бесплатное демо";
+"REQUEST_DEMO" = "Бесплатное демо";
+"SIGN_UP" = "Открыть реальный счёт";
+"PASSWORD_CONFIRM" = "Пароль еще раз";
+"CONFIRM" = "Я принимаю";
+"TERMS" = "условия и положения";
+
+
+// ProfileViewController
+"EDIT_PROFILE_BUTTON" = "Редактировать";
+"FOLLOW_BUTTON" = "Подписаться";
+"TAB_DEALS" = "Cделки";
+"TRADER_TYPE_BEAR" = "Bear-type trader";
+"TRADER_TYPE_BULL" = "Bull-type trader";
+"TRADING_LEVEL" = "Уровень трейдера";
+
+
+// EditProfileViewController
+"ACCOUNT_NUMBER_STRING" = "№ аккаунта:";
+"AVATAR_CHANGE_BUTTON_TITLE" = "Изменить";
+"AVATAR_SECTION_TITLE" = "АВАТАР";
+"ADDRESS_SECTION_TITLE" = "АДРЕС";
+"PHONE_SECTION_TITLE" = "НОМЕР ТЕЛЕФОНА";
+"BIRTHDAYDATE_SECTION_TITLE" = "ДАТА РОЖДЕНИЯ";
+"COUNTRY_PLACEHOLDER" = "Страна";
+"CITY_PLACEHOLDER" = "Город";
+"POSTAL_CODE_PLACEHOLDER" = "Индекс";
+"ADDRESS_PLACEHOLDER" = "Адрес";
+"PHONENUMBER_PLACEHOLDER" = "Номер телефона";
+"BIRTH_DAY_PLACEHOLDER" = "Число";
+"MONTH_DAY_PLACEHOLDER" = "Месяц";
+"YEAR_DAY_PLACEHOLDER" = "Год";
+
+
+// DocumentsVerificationViewController
+"DOCUMENTS_VERIFICATION_DESCRIPTION" = "Согласно политике AM&KYC, для вывода средств нам необходимо удостоверить Вашу личность.\nДля этого пожалуйста, предоставьте копии следующих документов.";
+"ID_TITLE" = "Паспорт";
+"ID_TEXT" = "Цветная фотография или цветной скан с оригинала паспорта высокого качества (разворот с фотографией и ФИО).";
+"UTILITY_TITLE" = "Адрес";
+"UTILITY_TEXT" = "Любой счет за услуги не старше трех месяцев, на котором указаны Ваши адрес и ФИО (счет за коммунальные услуги, воду, электричество, интернет и пр.) Предоставляемый документ должен быть высокого качества, текст удобочитаемым и четким.";
+"CARD_TITLE" = "Карта";
+"CARD_TEXT" = "Цветная фотография или цветной скан лицевой стороны банковской карты, с которой был совершен платеж. На фотографии должны быть видны номер карты, имя владельца и срок действия.";
+"DOCUMETS_VERIFICATION_APPROVED" = "Подтвержден";
+"DOCUMETS_VERIFICATION_REJECTED" = "Не принят";
+"DOCUMETS_VERIFICATION_PENDING" = "В обработке";
+"DOCUMENT_SELECT" = "Выбрать";
+
+
+// WithdrawViewController
+"NEW_PAYMENT_TITLE" = "НОВЫЙ ПЛАТЁЖ";
+"RECENT_PAYMENTS_TITLE" = "НЕДАВНИЕ ВЫПЛАТЫ";
+"TRANSACTION_STATUS_NEW" = "На рассмотрении";
+"TRANSACTION_STATUS_REJECTED" = "Отклонен";
+"TRANSACTION_STATUS_CANCELED" = "Отменен";
+"TRANSACTION_STATUS_APPROVED" = "Подтвержден";
+"TRANSACTION_STATUS_PAID" = "Оплачен";
+"PAYMENT_METHOD.CARD_NUMBER" = "Номер карты";
+"PAYMENT_METHOD.CARD_DATE" = "Дата окончания действия карты (ММ/ГГ)";
+"PAYMENT_METHOD.PHONE_NUMBER" = "Номер телефона";
+"PAYMENT_METHOD.ACCOUNT_ID" = "Номер счета";
+"PAYMENT_METHOD.EMAIL" = "Email";
+"WITHDRAWAL_SUCCESS_TEXT" = "Запрос на вывод средств успешно создан.";
+
+
+// Errors
+"ERROR_TIMEOUT" = "Нет ответа от сервера.\nПожалуйста, проверьте ваше интернет соединение";
+"ERROR_SLOW_INTERNET_CONNECTION" = "Плохое качество интернет соединения";
+"ERROR_STRIKE_TIME_NOT_SYNCED" = "Ошибка открытия сделки: передано неправильное время";
+"ERROR_AMOUNT_INVALID" = "Неправильная сумма сделки";
+"ERROR_AMOUNT_TOO_BIG" = "Сумма сделки больше максимально возможной";
+"ERROR_AMOUNT_TOO_SMALL" = "Сумма сделки меньше минимально возможной";
+"ERROR_STRIKE_RATE_INVALID" = "Передана неправильная страйк цена";
+"ERROR_REFUND_INVALID" = "Неправильное значение страховки сделки";
+"ERROR_EXPIRATION_INVALID" =  "Неправильное время экспирации";
+"ERROR_BALANCE_TOO_SMALL" = "Недостаточно средств для совершения сделки";
+"ERROR_REGISTRATION_CLOSED" = "К сожалению в данный момент регистрация пользователей из стран ЕС, США, Канады и Японии недоступна";
+"ERROR_EMAIL_ALREADY_EXISTS" = "Данная почта уже зарегистрирована";
+"ERROR_MAXIMUM_CHECK" = "Превышен лимит запросов. Пожалуйста, попробуйте позже";
+"ERROR_PLEASE_WAIT_60" = "Пожалуйста, подождите 60 секунд перед тем как сделать следующий запрос";
+"ERROR_PLEASE_WAIT_10" = "Пожалуйста, подождите 10 секунд перед тем как сделать следующий запрос";
+"ERROR_PHONE_ALREADY_REGISTERED" = "Данный телефон уже зарегистрирован в системе";
+"ERROR_TRY_AGAIN_LATER" = "Попробуйте позже";
+"ERROR_INCORRECT_DATA" = "Неправильные данные";
+"ERROR_WITHDRAWAL_AMOUNT_TOO_SMALL" = "Сумма платежа слишком мала";
+"ERROR_AMOUNT_OVERDRAFT" = "Введенная сумма превышает баланс";
+
+
+
+/* Infos */
+"PASSWORD_RECOVERY_MAIL_SENT" = "На указанный e-mail отправлены инструкции для восстановления доступа";

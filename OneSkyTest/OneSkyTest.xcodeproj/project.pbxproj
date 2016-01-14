@@ -13,9 +13,14 @@
 		4C27099F1C33F5A800339F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C27099D1C33F5A800339F18 /* Main.storyboard */; };
 		4C2709A11C33F5A800339F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2709A01C33F5A800339F18 /* Assets.xcassets */; };
 		4C2709A41C33F5A800339F18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2709A21C33F5A800339F18 /* LaunchScreen.storyboard */; };
+		4C2709B01C34201100339F18 /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2709AF1C34201100339F18 /* libicucore.A.tbd */; };
+		4C2709B31C342C5B00339F18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C2709B51C342C5B00339F18 /* Localizable.strings */; };
+		D5929EF868C1DAFC79DF9BDD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA0207D34CB40BABC3EF43F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DDD2AE7C58A7E89FCA34B82 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		27B1909D117596628E417DC9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4C2709911C33F5A800339F18 /* OneSkyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneSkyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2709951C33F5A800339F18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C2709971C33F5A800339F18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +31,13 @@
 		4C2709A01C33F5A800339F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C2709A31C33F5A800339F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C2709A51C33F5A800339F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C2709AB1C33F9B100339F18 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		4C2709AC1C33F9B100339F18 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4C2709AD1C341FA400339F18 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		4C2709AF1C34201100339F18 /* libicucore.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.A.tbd; path = usr/lib/libicucore.A.tbd; sourceTree = SDKROOT; };
+		4C2709B61C342C5D00339F18 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4C2709B81C342C6300339F18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5DA0207D34CB40BABC3EF43F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2709B01C34201100339F18 /* libicucore.A.tbd in Frameworks */,
+				D5929EF868C1DAFC79DF9BDD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ACF8B8440B03D023C410F5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27B1909D117596628E417DC9 /* Pods.debug.xcconfig */,
+				1DDD2AE7C58A7E89FCA34B82 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		383574A2A0ACEF86DFB49907 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2709AF1C34201100339F18 /* libicucore.A.tbd */,
+				4C2709AD1C341FA400339F18 /* libicucore.tbd */,
+				5DA0207D34CB40BABC3EF43F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C2709881C33F5A800339F18 = {
 			isa = PBXGroup;
 			children = (
 				4C2709931C33F5A800339F18 /* OneSkyTest */,
 				4C2709921C33F5A800339F18 /* Products */,
+				1ACF8B8440B03D023C410F5F /* Pods */,
+				383574A2A0ACEF86DFB49907 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +102,7 @@
 				4C2709A21C33F5A800339F18 /* LaunchScreen.storyboard */,
 				4C2709A51C33F5A800339F18 /* Info.plist */,
 				4C2709941C33F5A800339F18 /* Supporting Files */,
+				4C2709B51C342C5B00339F18 /* Localizable.strings */,
 			);
 			path = OneSkyTest;
 			sourceTree = "<group>";
@@ -86,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C2709A81C33F5A800339F18 /* Build configuration list for PBXNativeTarget "OneSkyTest" */;
 			buildPhases = (
+				EDD99DAF58B3149AEB61E63F /* Check Pods Manifest.lock */,
 				4C27098D1C33F5A800339F18 /* Sources */,
 				4C27098E1C33F5A800339F18 /* Frameworks */,
 				4C27098F1C33F5A800339F18 /* Resources */,
+				7CD9E43D306B24774942E809 /* Embed Pods Frameworks */,
+				900F0027C98E852EA2D31256 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,6 +159,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 4C2709881C33F5A800339F18;
 			productRefGroup = 4C2709921C33F5A800339F18 /* Products */;
@@ -137,12 +177,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2709A41C33F5A800339F18 /* LaunchScreen.storyboard in Resources */,
+				4C2709B31C342C5B00339F18 /* Localizable.strings in Resources */,
 				4C2709A11C33F5A800339F18 /* Assets.xcassets in Resources */,
 				4C27099F1C33F5A800339F18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CD9E43D306B24774942E809 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		900F0027C98E852EA2D31256 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDD99DAF58B3149AEB61E63F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C27098D1C33F5A800339F18 /* Sources */ = {
@@ -162,6 +251,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4C27099E1C33F5A800339F18 /* Base */,
+				4C2709AB1C33F9B100339F18 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -170,8 +260,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				4C2709A31C33F5A800339F18 /* Base */,
+				4C2709AC1C33F9B100339F18 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4C2709B51C342C5B00339F18 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C2709B61C342C5D00339F18 /* ru */,
+				4C2709B81C342C6300339F18 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,10 +361,19 @@
 		};
 		4C2709A91C33F5A800339F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27B1909D117596628E417DC9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OneSkyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"OneSkyOTAPlugin\"",
+					"-framework",
+					"\"UIKit\"",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Home.OneSkyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -272,10 +381,19 @@
 		};
 		4C2709AA1C33F5A800339F18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DDD2AE7C58A7E89FCA34B82 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OneSkyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"OneSkyOTAPlugin\"",
+					"-framework",
+					"\"UIKit\"",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Home.OneSkyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -300,6 +418,7 @@
 				4C2709AA1C33F5A800339F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

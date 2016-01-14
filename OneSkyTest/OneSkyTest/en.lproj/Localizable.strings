@@ -1,0 +1,222 @@
+// Misc
+"OK" = "Ok";
+"DEMO_ACCOUNT" = "Demo account";
+"TAKE_A_PHOTO" =  "Take a photo";
+"SELECT_FROM_GALLERY" =  "Select from gallery";
+"CANCEL" =  "Cancel";
+"REMOVE" =  "Remove";
+"ERROR" =  "Error";
+"APPROVED" = "Approved";
+"REJECTED" = "Rejected";
+"PENDING" = "Processing";
+"DATE" = "Date";
+"AMOUNT" = "Amount";
+"TYPE" = "Type";
+"STATUS" = "Status";
+"PAYMENT_SYSTEM" = "System";
+"SEND" = "Send";
+"EMPTY_LIST" = "The list is empty";
+"THANK_YOU" = "Congrats!";
+"REFRESHING" = "Refreshing";
+"PHONES" = "+44 20 3239 3315";
+"LETS_TRAGE" = "Trade";
+"HOURS" = "hours";
+"MINUTES" = "minutes";
+"SECONDS" = "seconds";
+"SECONDS_1" = "seconds";
+
+
+// VC titles
+"TRADE_VIEWCONTROLLER_TITLE" = "Trade";
+"PROFILE_VIEWCONTROLLER_TITLE" = "Profile";
+"EDIT_PROFILE_VIEWCONTROLLER_TITLE" = "Edit profile";
+"TRADE_HISTORY_VIEWCONTROLLER_TITLE" = "Trade history";
+"LEADERBOARD_VIEWCONTROLLER_TITLE" = "Leaderboard";
+"PAYMENT_HISTORY_VIEWCONTROLLER_TITLE" = "Payment history";
+"JOURNAL_HISTORY_VIEWCONTROLLER_TITLE" = "Journal";
+"ACHIEVEMENTS_HISTORY_VIEWCONTROLLER_TITLE" = "Achievements";
+"DEPOSIT_VIEWCONTROLLER_TITLE" = "Deposit";
+"WITHDRAW_VIEWCONTROLLER_TITLE" = "Withdraw";
+"DOCUMENTS_VERIFICATION_VIEWCONTROLLER_TITLE" = "Account verification";
+
+
+// MenuTableViewController
+"SETTINGS_BUTTON_TITLE" = "Settings";
+"LOGOUT_BUTTON_TITLE" = "Exit";
+"DEPOSIT_BUTTON_TITLE" = "Deposit";
+"GET_REAL_BUTTON_TITLE" = "Real account";
+"CHAT" = "Live chat";
+
+
+// SettingsViewController
+"SETTINGS_THEME_TITLE" = "Theme";
+
+
+// TradeViewController
+"ASSETS_MENU_TITLE" = "Assets";
+"EXP_TIME_MENU_TITLE" = "Expiration time";
+"PURCHASE_DEADLINE_LINE_NAME" = "Purchase deadline";
+"EXP_TIME_LINE_NAME" = "Expiration time";
+"EXP_TRADE_TAB_TITLE" = "Trade";
+"EXP_OPTIONS_TAB_TITLE" = "Deals";
+"FILLED_PLOT_TITLE" = "Area";
+"LINE_PLOT_TITLE" = "Line";
+"CANDLES_PLOT_TITLE" = "Candles";
+"BARS_PLOT_TITLE" = "Bars";
+"SECONDS_SYMBOL" = "s";
+"AVERAGE_INDICATOR_TITLE" = "Moving average";
+"BOLLINGER_INDICATOR_TITLE" = "Bollinger bands";
+"ALLIGATOR_INDICATOR_TITLE" = "Alligator";
+"LINE_COMMON_TITLE" = "Line";
+"LINE_RAY_TITLE" = "Ray";
+"LINE_HORIZONTAL_TITLE" = "Horizontal line";
+"ASSET_INACTIVE_TEXT" = "Sorry, but this asset is inactive for this time, try to select another one, or come again later.";
+
+
+// Popups
+"ALLIGATOR_JAWS" = "Jaws";
+"ALLIGATOR_TEETH" = "Teeth";
+"ALLIGATOR_LIPS" = "Lips";
+"ALLIGATOR_PERIOD" = "Period";
+"ALLIGATOR_SHIFT" = "Shift";
+"AVERAGE_TYPE" = "Type";
+"AVERAGE_COLOR" = "Color";
+"BOLLINGER_DEVIATION" = "Deviation (%)";
+"INSTRUMENT_POPUP_APPLY" = "Apply";
+"INSTRUMENT_POPUP_CANCEL" = "Cancel";
+"REGISTER_POPUP_TITLE" = "Open real account";
+"REGISTER_POPUP_DESCRIPTION" = "Registration → Deposit → Earn money\n\nStarting trade for real money.\nLeave your email to open a real account and open deposit page.";
+"VERIFICATION_POPUP_TITLE" = "Verify personal information";
+"FIRST_NAME" = "First name";
+"LAST_NAME" = "Last name";
+"PHONE" = "Phone number";
+"PHONE_CODE" = "Code from SMS";
+"VERIFY" = "Verify";
+"SEND_SMS" = "Send SMS";
+"CALL" = "Call";
+"EMAIL_CONFIRMATION_REQUEST" = "Please confirm your e-mail. Confirmation link was sent to %@";
+"SELECT_COUNTRY" =  "Select country";
+"PAYMENT_SUCCESSFUL" = "Your account is successfully credited by %@";
+"PAYMENT_FAILED" = "Payment failed";
+"EXIT_CONFIRMATION" = "Are you sure you want to exit?";
+"DEPOSIT_BONUS" = "100% deposit bonus";
+"DEPOSIT_BONUS_SUBTITLE" = "Your offer expires in";
+"DEPOSIT_BONUS_GET" = "Get bonus";
+
+
+// RatesViewController
+"RATES_INVESTMENT_TITLE" = "Investment";
+"RATES_REFUND_TITLE" = "Insurance";
+"RATES_EARNING_TITLE" = "Earning";
+"RATES_CALL" = "UP";
+"RATES_PUT" = "DOWN";
+"RATES_NEW_BET" = "New option";
+
+
+// TradePopupViewController
+"DEAL_CLOSED_TITLE" = "TRADE RESULT";
+"TRADE_RESULT_CLOSE_BUTTON_TITLE" = "Close";
+"TRADE_RESULT_SHARE_BUTTON" = "Share";
+
+
+// Themes
+"THEME_MANAGER_LIGHT_THEME_TITLE" = "Light";
+"THEME_MANAGER_DARK_THEME_TITLE" = "Dark";
+
+
+// LoginViewController
+"EMAIL_TEXTFIELD_PLACEHOLDER" = "E-mail address";
+"PASSWORD_TEXTFIELD_PLACEHOLDER" = "Password";
+"FORGOT_PASSWORD_BUTTON_TITLE" = "Forgot password?";
+"LOGIN_BUTTON_TITLE" = "Login";
+"SIGN_UP_BUTTON_TITLE1" = "New member?";
+"SIGN_UP_BUTTON_TITLE2" = "Try free demo";
+"REQUEST_DEMO" = "Try free demo";
+"SIGN_UP" = "Open real account";
+"PASSWORD_CONFIRM" = "Confirm";
+"CONFIRM" = "I accept";
+"TERMS" = "terms and conditions";
+
+
+// ProfileViewController
+"EDIT_PROFILE_BUTTON" = "Edit profile";
+"FOLLOW_BUTTON" = "Follow";
+"TAB_DEALS" = "Deals";
+"TRADER_TYPE_BEAR" = "Bear-type trader";
+"TRADER_TYPE_BULL" = "Bull-type trader";
+"TRADING_LEVEL" = "Trading level";
+
+
+// EditProfileViewController
+"ACCOUNT_NUMBER_STRING" = "Acc. #";
+"AVATAR_CHANGE_BUTTON_TITLE" = "Change";
+"AVATAR_SECTION_TITLE" = "AVATAR";
+"ADDRESS_SECTION_TITLE" = "ADDRESS";
+"PHONE_SECTION_TITLE" = "PHONE NUMBER";
+"BIRTHDAYDATE_SECTION_TITLE" = "BIRTHDATY DATE";
+"COUNTRY_PLACEHOLDER" = "Country";
+"CITY_PLACEHOLDER" = "City";
+"POSTAL_CODE_PLACEHOLDER" = "Postal code";
+"ADDRESS_PLACEHOLDER" = "Address";
+"PHONENUMBER_PLACEHOLDER" = "Phone number";
+"BIRTH_DAY_PLACEHOLDER" = "DD";
+"MONTH_DAY_PLACEHOLDER" = "MM";
+"YEAR_DAY_PLACEHOLDER" = "YEAR";
+
+
+// DocumentsVerificationViewController
+"DOCUMENTS_VERIFICATION_DESCRIPTION" = "According to policy AM&KYC for money withdrawal we need to identify your personality. For this please send us copy of documents listed below.";
+"ID_TITLE" = "ID";
+"ID_TEXT" = "Color high quality photo or scan from original of your ID or Passport. It should be page with photo and full name.";
+"UTILITY_TITLE" = "Utility bill";
+"UTILITY_TEXT" = "Bill not older than three months with your address and full name (eg. water, electricity, internet). The document has to be high quality with readable text.";
+"CARD_TITLE" = "Bank Card";
+"CARD_TEXT" = "Color photo or scan of bank card which was used for deposit. Card number, holder name and expiration date should be presented on the photo.";
+"DOCUMETS_VERIFICATION_APPROVED" = "Approved";
+"DOCUMETS_VERIFICATION_REJECTED" = "Rejected";
+"DOCUMETS_VERIFICATION_PENDING" = "Processing";
+"DOCUMENT_SELECT" = "Select";
+
+
+// WithdrawViewController
+"NEW_PAYMENT_TITLE" = "NEW PAYMENT";
+"RECENT_PAYMENTS_TITLE" = "RECENT PAYMENTS";
+"TRANSACTION_STATUS_NEW" = "New";
+"TRANSACTION_STATUS_REJECTED" = "Rejected";
+"TRANSACTION_STATUS_CANCELED" = "Canceled";
+"TRANSACTION_STATUS_APPROVED" = "Approved";
+"TRANSACTION_STATUS_PAID" = "Paid";
+"PAYMENT_METHOD.CARD_NUMBER" = "Card number";
+"PAYMENT_METHOD.CARD_DATE" = "Card date";
+"PAYMENT_METHOD.PHONE_NUMBER" = "Phone number";
+"PAYMENT_METHOD.ACCOUNT_ID" = "Account ID";
+"PAYMENT_METHOD.EMAIL" = "Email";
+"WITHDRAWAL_SUCCESS_TEXT" = "Withdraw request successfully sent.";
+
+
+// Errors
+"ERROR_TIMEOUT" = "Request timed out.\nPlease check your internet connection";
+"ERROR_SLOW_INTERNET_CONNECTION" = "Slow internet connection";
+"ERROR_STRIKE_TIME_NOT_SYNCED" = "Error during deal opening: incorrect time";
+"ERROR_AMOUNT_INVALID" = "Incorrect deal amount";
+"ERROR_AMOUNT_TOO_BIG" = "Deal amount is bigger than maximum possible";
+"ERROR_AMOUNT_TOO_SMALL" = "Deal amount is smaller than minimum possible";
+"ERROR_STRIKE_RATE_INVALID" = "Specified incorrect strike level";
+"ERROR_REFUND_INVALID" = "Specified incorrect insurance value";
+"ERROR_EXPIRATION_INVALID" =  "Specified incorrect expiration time";
+"ERROR_BALANCE_TOO_SMALL" = "Insufficient funds for making the deal";
+"ERROR_REGISTRATION_CLOSED" = "Unfortunately registration is not currently available for citizens of EU, USA, Canada and Japan";
+"ERROR_EMAIL_ALREADY_EXISTS" = "This email is already registered";
+"ERROR_MAXIMUM_CHECK" = "Request limit exceeded. Please try again later";
+"ERROR_PLEASE_WAIT_60" = "Please wait 60 seconds before making a new request";
+"ERROR_PLEASE_WAIT_10" = "Please wait 10 seconds before making a new request";
+"ERROR_PHONE_ALREADY_REGISTERED" = "This phone number is already registered in the system";
+"ERROR_TRY_AGAIN_LATER" = "Try again later";
+"ERROR_INCORRECT_DATA" = "Incorrect data";
+"ERROR_WITHDRAWAL_AMOUNT_TOO_SMALL" = "Withdrawal amount too small";
+"ERROR_AMOUNT_OVERDRAFT" = "Entered amount is bigger than balance";
+
+
+
+/* Infos */
+"PASSWORD_RECOVERY_MAIL_SENT" = "Instructions were sent to specified e-mail";

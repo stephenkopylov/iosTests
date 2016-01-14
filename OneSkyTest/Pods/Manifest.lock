@@ -1,0 +1,10 @@
+PODS:
+  - OneSkyOTAPlugin (0.9.8)
+
+DEPENDENCIES:
+  - OneSkyOTAPlugin (~> 0.9.8)
+
+SPEC CHECKSUMS:
+  OneSkyOTAPlugin: 113b2d84e65cc9a94ba0dc1c31d4d55b60221d00
+
+COCOAPODS: 0.39.0
