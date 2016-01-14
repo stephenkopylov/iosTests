@@ -1,0 +1,10 @@
+PODS:
+  - NYSegmentedControl (1.0.7)
+
+DEPENDENCIES:
+  - NYSegmentedControl
+
+SPEC CHECKSUMS:
+  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
+
+COCOAPODS: 0.39.0
