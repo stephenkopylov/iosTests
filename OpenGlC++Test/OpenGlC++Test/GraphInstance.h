@@ -12,8 +12,8 @@
 #include <stdio.h>
 
 class GraphInstance {
-    int x;
 public:
+    float x;
     void test();
     void test2();
 };

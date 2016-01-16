@@ -19,9 +19,11 @@
 {
     [super viewDidLoad];
     
-    PlotView *view = [PlotView new];
-    
+    PlotView *view = [[PlotView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     [self.view addSubview:view];
+    
+    PlotView *view2 = [[PlotView alloc] initWithFrame:CGRectMake(150, 0, 100, 100)];
+    [self.view addSubview:view2];
 }
 
 

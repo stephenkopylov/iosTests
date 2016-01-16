@@ -13,28 +13,29 @@
 
 @implementation PlotView {
     GraphInstance test;
+    EAGLContext *_context;
 }
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     
     if ( self ) {
         test = GraphInstance();
-        test.test();
-        EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        [EAGLContext setCurrentContext:context];
+        
+        srand48(arc4random());
+        
+        double x = drand48();
+        test.x =  x;
+        
+        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
         GLKView *view = [[GLKView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        view.context = context;
+        view.context = _context;
         view.backgroundColor = [UIColor redColor];
         view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
         view.delegate = self;
         view.enableSetNeedsDisplay = YES;
         [self addSubview:view];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [view setNeedsDisplay];
-        });
     }
     
     return self;
@@ -43,6 +44,8 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    [EAGLContext setCurrentContext:_context];
+    test.test();
     test.test2();
 }
 

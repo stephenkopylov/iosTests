@@ -8,24 +8,17 @@
 
 #include "GraphInstance.h"
 #include <OpenGLES/ES1/gl.h>
-#include <OpenGLES/ES1/gl.h>
+
 void GraphInstance::test()
 {
-    glClearColor(1.0, 0.0, 0.0, 1.0);
+    glFlush();
+    printf("%f\n", this->x);
+    glClearColor(this->x, this->x, this->x, this->x);
 }
 
 
 void GraphInstance::test2()
 {
-    GLfloat rect[] = {
-        0,   100,
-        100, 100,
-        100, 100,
-        100, 100
-    };
-    
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glColor4f(20.0f, 20.0f, 20.0f, 244.0f);
-    glVertexPointer(2, GL_FLOAT, 0, rect);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    glClear(GLbitfield(GL_COLOR_BUFFER_BIT));
+
 }
