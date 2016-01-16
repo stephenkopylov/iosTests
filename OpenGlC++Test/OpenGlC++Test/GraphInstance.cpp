@@ -7,18 +7,29 @@
 //
 
 #include "GraphInstance.h"
-#include <OpenGLES/ES1/gl.h>
+#include "Engine.h"
+
+Engine engine;
+
+GraphInstance::GraphInstance()
+{
+    engine = Engine();
+}
+
 
 void GraphInstance::test()
 {
-    glFlush();
     printf("%f\n", this->x);
-    glClearColor(this->x, this->x, this->x, this->x);
+    
+    Point firstPoint = Point(0.0, 0.0);
+    Point secondPoint = Point(100.0, 100.0);
+    
+    engine.startDraw();
+    engine.drawLine(firstPoint, secondPoint, 2.0);
+    engine.startDraw();
 }
 
 
 void GraphInstance::test2()
 {
-    glClear(GLbitfield(GL_COLOR_BUFFER_BIT));
-
 }

@@ -16,6 +16,7 @@
 		4C6149B71C4ABE2B000DC1CF /* PlotView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C6149B61C4ABE2B000DC1CF /* PlotView.mm */; };
 		4C6149BA1C4ABE56000DC1CF /* GraphInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6149B81C4ABE56000DC1CF /* GraphInstance.cpp */; };
 		4C6149BC1C4AC256000DC1CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6149BB1C4AC256000DC1CF /* OpenGLES.framework */; };
+		DC84C02A1C4ADED3008FD6EE /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC84C0281C4ADED3008FD6EE /* Engine.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		4C6149B81C4ABE56000DC1CF /* GraphInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphInstance.cpp; sourceTree = "<group>"; };
 		4C6149B91C4ABE56000DC1CF /* GraphInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphInstance.h; sourceTree = "<group>"; };
 		4C6149BB1C4AC256000DC1CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DC84C0281C4ADED3008FD6EE /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
+		DC84C0291C4ADED3008FD6EE /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 		4C61499D1C4ABE0C000DC1CF /* OpenGlC++Test */ = {
 			isa = PBXGroup;
 			children = (
+				DC84C0271C4ADE9E008FD6EE /* Engine */,
 				4C6149A11C4ABE0C000DC1CF /* AppDelegate.h */,
 				4C6149A21C4ABE0C000DC1CF /* AppDelegate.m */,
 				4C6149A41C4ABE0C000DC1CF /* ViewController.h */,
@@ -91,6 +95,15 @@
 				4C61499F1C4ABE0C000DC1CF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC84C0271C4ADE9E008FD6EE /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				DC84C0281C4ADED3008FD6EE /* Engine.cpp */,
+				DC84C0291C4ADED3008FD6EE /* Engine.h */,
+			);
+			name = Engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6149A61C4ABE0C000DC1CF /* ViewController.m in Sources */,
+				DC84C02A1C4ADED3008FD6EE /* Engine.cpp in Sources */,
 				4C6149A31C4ABE0C000DC1CF /* AppDelegate.m in Sources */,
 				4C6149A01C4ABE0C000DC1CF /* main.m in Sources */,
 				4C6149BA1C4ABE56000DC1CF /* GraphInstance.cpp in Sources */,
@@ -280,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "OpenGlC++Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.OpenGlC--Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "OpenGlC++Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.OpenGlC--Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -316,6 +332,7 @@
 				4C6149B41C4ABE0C000DC1CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

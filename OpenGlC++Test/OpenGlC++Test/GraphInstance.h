@@ -16,6 +16,7 @@ public:
     float x;
     void test();
     void test2();
+    GraphInstance();
 };
 
 #endif /* GraphInstance_hpp */
