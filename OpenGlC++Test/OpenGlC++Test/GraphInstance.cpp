@@ -21,12 +21,9 @@ void GraphInstance::test()
 {
     printf("%f\n", this->x);
     
-    Point firstPoint = Point(0.0, 0.0);
-    Point secondPoint = Point(100.0, 100.0);
-    
     engine.startDraw();
-    engine.drawLine(firstPoint, secondPoint, 2.0);
-    engine.startDraw();
+    engine.drawLine(Point(0.0, 0.0), Point(100.0, 100.0*this->x), 2.0);
+    engine.endDraw();
 }
 
 
