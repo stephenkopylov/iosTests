@@ -31,13 +31,10 @@
         test.x =  x;
         
         _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        GLKView *view = [[GLKView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        view.context = _context;
-        view.backgroundColor = [UIColor redColor];
-        view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-        view.delegate = self;
-        view.enableSetNeedsDisplay = YES;
-        [self addSubview:view];
+        self.context = _context;
+        self.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+        self.delegate = self;
+        self.enableSetNeedsDisplay = YES;
     }
     
     return self;
@@ -48,19 +45,11 @@
 {
     [EAGLContext setCurrentContext:_context];
     glClear(GL_COLOR_BUFFER_BIT);
-    
-    //ортодоксальная проекция, збс штука - делить вьюпорт на сегменты
-
-    
-     [EAGLContext setCurrentContext:_context];
-     test.test();
-     test.test2();
-     
 }
 
 
--(void)testFunct{
-
+- (void)testFunct
+{
 }
 
 

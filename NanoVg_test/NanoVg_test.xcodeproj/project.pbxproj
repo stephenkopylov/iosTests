@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CC8938F1C4D45E900F94575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8938E1C4D45E900F94575 /* main.m */; };
+		4CC893921C4D45E900F94575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893911C4D45E900F94575 /* AppDelegate.m */; };
+		4CC893951C4D45E900F94575 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893941C4D45E900F94575 /* ViewController.m */; };
+		4CC893981C4D45E900F94575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC893961C4D45E900F94575 /* Main.storyboard */; };
+		4CC8939A1C4D45E900F94575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC893991C4D45E900F94575 /* Assets.xcassets */; };
+		4CC8939D1C4D45E900F94575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8939B1C4D45E900F94575 /* LaunchScreen.storyboard */; };
+		4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A51C4D465E00F94575 /* PlotView.mm */; };
+		4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A71C4D467600F94575 /* GraphInstance.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4CC8938A1C4D45E900F94575 /* NanoVg_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVg_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC8938E1C4D45E900F94575 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CC893901C4D45E900F94575 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4CC893911C4D45E900F94575 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4CC893931C4D45E900F94575 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4CC893941C4D45E900F94575 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4CC893971C4D45E900F94575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4CC893991C4D45E900F94575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CC8939C1C4D45E900F94575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4CC8939E1C4D45E900F94575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC893A41C4D465E00F94575 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
+		4CC893A51C4D465E00F94575 /* PlotView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlotView.mm; sourceTree = "<group>"; };
+		4CC893A71C4D467600F94575 /* GraphInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphInstance.cpp; sourceTree = "<group>"; };
+		4CC893A81C4D467600F94575 /* GraphInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphInstance.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CC893871C4D45E900F94575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CC893811C4D45E900F94575 = {
+			isa = PBXGroup;
+			children = (
+				4CC8938C1C4D45E900F94575 /* NanoVg_test */,
+				4CC8938B1C4D45E900F94575 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CC8938B1C4D45E900F94575 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8938A1C4D45E900F94575 /* NanoVg_test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CC8938C1C4D45E900F94575 /* NanoVg_test */ = {
+			isa = PBXGroup;
+			children = (
+				4CC893901C4D45E900F94575 /* AppDelegate.h */,
+				4CC893911C4D45E900F94575 /* AppDelegate.m */,
+				4CC893931C4D45E900F94575 /* ViewController.h */,
+				4CC893941C4D45E900F94575 /* ViewController.m */,
+				4CC893A41C4D465E00F94575 /* PlotView.h */,
+				4CC893A51C4D465E00F94575 /* PlotView.mm */,
+				4CC893A71C4D467600F94575 /* GraphInstance.cpp */,
+				4CC893A81C4D467600F94575 /* GraphInstance.h */,
+				4CC893961C4D45E900F94575 /* Main.storyboard */,
+				4CC893991C4D45E900F94575 /* Assets.xcassets */,
+				4CC8939B1C4D45E900F94575 /* LaunchScreen.storyboard */,
+				4CC8939E1C4D45E900F94575 /* Info.plist */,
+				4CC8938D1C4D45E900F94575 /* Supporting Files */,
+			);
+			path = NanoVg_test;
+			sourceTree = "<group>";
+		};
+		4CC8938D1C4D45E900F94575 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC8938E1C4D45E900F94575 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CC893891C4D45E900F94575 /* NanoVg_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC893A11C4D45E900F94575 /* Build configuration list for PBXNativeTarget "NanoVg_test" */;
+			buildPhases = (
+				4CC893861C4D45E900F94575 /* Sources */,
+				4CC893871C4D45E900F94575 /* Frameworks */,
+				4CC893881C4D45E900F94575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NanoVg_test;
+			productName = NanoVg_test;
+			productReference = 4CC8938A1C4D45E900F94575 /* NanoVg_test.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CC893821C4D45E900F94575 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Stephen Kopylov - Home";
+				TargetAttributes = {
+					4CC893891C4D45E900F94575 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 4CC893851C4D45E900F94575 /* Build configuration list for PBXProject "NanoVg_test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CC893811C4D45E900F94575;
+			productRefGroup = 4CC8938B1C4D45E900F94575 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CC893891C4D45E900F94575 /* NanoVg_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CC893881C4D45E900F94575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC8939D1C4D45E900F94575 /* LaunchScreen.storyboard in Resources */,
+				4CC8939A1C4D45E900F94575 /* Assets.xcassets in Resources */,
+				4CC893981C4D45E900F94575 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CC893861C4D45E900F94575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC893951C4D45E900F94575 /* ViewController.m in Sources */,
+				4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */,
+				4CC893921C4D45E900F94575 /* AppDelegate.m in Sources */,
+				4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */,
+				4CC8938F1C4D45E900F94575 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CC893961C4D45E900F94575 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CC893971C4D45E900F94575 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4CC8939B1C4D45E900F94575 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CC8939C1C4D45E900F94575 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CC8939F1C4D45E900F94575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4CC893A01C4D45E900F94575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CC893A21C4D45E900F94575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NanoVg_test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Home.NanoVg-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4CC893A31C4D45E900F94575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NanoVg_test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Home.NanoVg-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CC893851C4D45E900F94575 /* Build configuration list for PBXProject "NanoVg_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC8939F1C4D45E900F94575 /* Debug */,
+				4CC893A01C4D45E900F94575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC893A11C4D45E900F94575 /* Build configuration list for PBXNativeTarget "NanoVg_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC893A21C4D45E900F94575 /* Debug */,
+				4CC893A31C4D45E900F94575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CC893821C4D45E900F94575 /* Project object */;
+}

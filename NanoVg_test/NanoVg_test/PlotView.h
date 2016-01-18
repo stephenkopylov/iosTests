@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-@interface PlotView : UIView <GLKViewDelegate>
+@interface PlotView : GLKView <GLKViewDelegate>
 
 - (void)testFunct;
 

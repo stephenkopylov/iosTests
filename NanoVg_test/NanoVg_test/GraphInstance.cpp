@@ -7,25 +7,27 @@
 //
 
 #include "GraphInstance.h"
-#include "Engine.h"
+//#include "Engine.h"
 
-Engine engine;
+//Engine engine;
 
 float xxx;
 
 GraphInstance::GraphInstance()
 {
-    engine = Engine();
+   // engine = Engine();
 }
 
 
 void GraphInstance::test()
 {
-    printf("%f\n", this->x);
-    
-    engine.startDraw();
-    engine.drawLine(Point(0.0, 0.0), Point(100.0, 100.0*this->x), 2.0);
-    engine.endDraw();
+    /*
+     printf("%f\n", this->x);
+     
+     engine.startDraw();
+     engine.drawLine(Point(0.0, 0.0), Point(100.0, 100.0*this->x), 2.0);
+     engine.endDraw();
+     */
 }
 
 
