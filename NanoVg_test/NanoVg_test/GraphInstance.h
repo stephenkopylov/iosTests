@@ -14,6 +14,9 @@
 class GraphInstance {
 public:
     float x;
+    float width;
+    float height;
+    float scale;
     void test();
     void test2();
     GraphInstance();

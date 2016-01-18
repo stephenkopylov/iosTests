@@ -7,6 +7,8 @@
 //
 
 #include "GraphInstance.h"
+#include "OpenGLES/ES2/glext.h"
+
 //#include "Engine.h"
 
 //Engine engine;
@@ -15,19 +17,18 @@ float xxx;
 
 GraphInstance::GraphInstance()
 {
-   // engine = Engine();
+    // engine = Engine();
 }
 
 
 void GraphInstance::test()
 {
-    /*
-     printf("%f\n", this->x);
-     
-     engine.startDraw();
-     engine.drawLine(Point(0.0, 0.0), Point(100.0, 100.0*this->x), 2.0);
-     engine.endDraw();
-     */
+    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_CULL_FACE);
+    glDisable(GL_DEPTH_TEST);
 }
 
 

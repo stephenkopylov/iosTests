@@ -15,6 +15,7 @@
 		4CC8939D1C4D45E900F94575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8939B1C4D45E900F94575 /* LaunchScreen.storyboard */; };
 		4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A51C4D465E00F94575 /* PlotView.mm */; };
 		4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A71C4D467600F94575 /* GraphInstance.cpp */; };
+		4CC893B21C4D54DF00F94575 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893AC1C4D54DF00F94575 /* nanovg.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,13 @@
 		4CC893A51C4D465E00F94575 /* PlotView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlotView.mm; sourceTree = "<group>"; };
 		4CC893A71C4D467600F94575 /* GraphInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphInstance.cpp; sourceTree = "<group>"; };
 		4CC893A81C4D467600F94575 /* GraphInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphInstance.h; sourceTree = "<group>"; };
+		4CC893AB1C4D54DF00F94575 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
+		4CC893AC1C4D54DF00F94575 /* nanovg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
+		4CC893AD1C4D54DF00F94575 /* nanovg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg.h; sourceTree = "<group>"; };
+		4CC893AE1C4D54DF00F94575 /* nanovg_gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg_gl.h; sourceTree = "<group>"; };
+		4CC893AF1C4D54DF00F94575 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg_gl_utils.h; sourceTree = "<group>"; };
+		4CC893B01C4D54DF00F94575 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		4CC893B11C4D54DF00F94575 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		4CC8938C1C4D45E900F94575 /* NanoVg_test */ = {
 			isa = PBXGroup;
 			children = (
+				4CC893AA1C4D54DF00F94575 /* src */,
 				4CC893901C4D45E900F94575 /* AppDelegate.h */,
 				4CC893911C4D45E900F94575 /* AppDelegate.m */,
 				4CC893931C4D45E900F94575 /* ViewController.h */,
@@ -87,6 +96,20 @@
 				4CC8938E1C4D45E900F94575 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CC893AA1C4D54DF00F94575 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				4CC893AB1C4D54DF00F94575 /* fontstash.h */,
+				4CC893AC1C4D54DF00F94575 /* nanovg.c */,
+				4CC893AD1C4D54DF00F94575 /* nanovg.h */,
+				4CC893AE1C4D54DF00F94575 /* nanovg_gl.h */,
+				4CC893AF1C4D54DF00F94575 /* nanovg_gl_utils.h */,
+				4CC893B01C4D54DF00F94575 /* stb_image.h */,
+				4CC893B11C4D54DF00F94575 /* stb_truetype.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +184,7 @@
 			files = (
 				4CC893951C4D45E900F94575 /* ViewController.m in Sources */,
 				4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */,
+				4CC893B21C4D54DF00F94575 /* nanovg.c in Sources */,
 				4CC893921C4D45E900F94575 /* AppDelegate.m in Sources */,
 				4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */,
 				4CC8938F1C4D45E900F94575 /* main.m in Sources */,

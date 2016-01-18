@@ -8,7 +8,11 @@
 
 #import "PlotView.h"
 #include "GraphInstance.h"
-#include <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES2/glext.h>
+#include "nanovg.h"
+#define NANOVG_GLES2_IMPLEMENTATION
+#include "nanovg_gl.h"
+#include "nanovg_gl_utils.h"
 
 @interface PlotView ()
 @end
@@ -16,6 +20,7 @@
 @implementation PlotView {
     GraphInstance test;
     EAGLContext *_context;
+    NVGcontext *vg;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -30,8 +35,11 @@
         double x = drand48();
         test.x =  x;
         
-        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+        
+        
+        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         self.context = _context;
+        [self setupGL];
         self.drawableDepthFormat = GLKViewDrawableDepthFormat24;
         self.delegate = self;
         self.enableSetNeedsDisplay = YES;
@@ -43,13 +51,39 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    [EAGLContext setCurrentContext:_context];
-    glClear(GL_COLOR_BUFFER_BIT);
+    [EAGLContext setCurrentContext:self.context];
+    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_CULL_FACE);
+    glDisable(GL_DEPTH_TEST);
+    
+    int winWidth = self.frame.size.width;
+    int winHeight = self.frame.size.height;
+    float mx = 0; // mouse x and y
+    float my = 0;
+    int blowup = 0;
+    
+    
+    nvgBeginFrame(vg, winWidth, winHeight, [[UIScreen mainScreen] scale]);
+    
+    //renderGraph(vg, 5,5, &fps);
+    
+    nvgEndFrame(vg);
 }
 
 
 - (void)testFunct
 {
+}
+
+
+- (void)setupGL
+{
+    [EAGLContext setCurrentContext:self.context];
+    vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
+    assert(vg);
 }
 
 
