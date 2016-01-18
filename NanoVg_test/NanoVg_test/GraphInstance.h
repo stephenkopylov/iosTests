@@ -11,13 +11,14 @@
 
 #include <stdio.h>
 
+
 class GraphInstance {
 public:
     float x;
     float width;
     float height;
     float scale;
-    void test();
+    void render();
     void test2();
     GraphInstance();
 private:
