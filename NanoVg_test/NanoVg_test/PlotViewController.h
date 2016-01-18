@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-@interface PlotView : GLKView <GLKViewDelegate>
+@interface PlotViewController : GLKViewController
 
 - (void)testFunct;
+@property (nonatomic) BOOL red;
 
 @end

@@ -18,6 +18,7 @@ public:
     float width;
     float height;
     float scale;
+    bool red;
     void render();
     void test2();
     GraphInstance();

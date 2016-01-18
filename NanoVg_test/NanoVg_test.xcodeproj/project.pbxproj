@@ -13,7 +13,7 @@
 		4CC893981C4D45E900F94575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC893961C4D45E900F94575 /* Main.storyboard */; };
 		4CC8939A1C4D45E900F94575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC893991C4D45E900F94575 /* Assets.xcassets */; };
 		4CC8939D1C4D45E900F94575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8939B1C4D45E900F94575 /* LaunchScreen.storyboard */; };
-		4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A51C4D465E00F94575 /* PlotView.mm */; };
+		4CC893A61C4D465E00F94575 /* PlotViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A51C4D465E00F94575 /* PlotViewController.mm */; };
 		4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893A71C4D467600F94575 /* GraphInstance.cpp */; };
 		4CC893B21C4D54DF00F94575 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CC893AC1C4D54DF00F94575 /* nanovg.c */; };
 /* End PBXBuildFile section */
@@ -29,8 +29,8 @@
 		4CC893991C4D45E900F94575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CC8939C1C4D45E900F94575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CC8939E1C4D45E900F94575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CC893A41C4D465E00F94575 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
-		4CC893A51C4D465E00F94575 /* PlotView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlotView.mm; sourceTree = "<group>"; };
+		4CC893A41C4D465E00F94575 /* PlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotViewController.h; sourceTree = "<group>"; };
+		4CC893A51C4D465E00F94575 /* PlotViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlotViewController.mm; sourceTree = "<group>"; };
 		4CC893A71C4D467600F94575 /* GraphInstance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphInstance.cpp; sourceTree = "<group>"; };
 		4CC893A81C4D467600F94575 /* GraphInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphInstance.h; sourceTree = "<group>"; };
 		4CC893AB1C4D54DF00F94575 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 				4CC893911C4D45E900F94575 /* AppDelegate.m */,
 				4CC893931C4D45E900F94575 /* ViewController.h */,
 				4CC893941C4D45E900F94575 /* ViewController.m */,
-				4CC893A41C4D465E00F94575 /* PlotView.h */,
-				4CC893A51C4D465E00F94575 /* PlotView.mm */,
+				4CC893A41C4D465E00F94575 /* PlotViewController.h */,
+				4CC893A51C4D465E00F94575 /* PlotViewController.mm */,
 				4CC893A71C4D467600F94575 /* GraphInstance.cpp */,
 				4CC893A81C4D467600F94575 /* GraphInstance.h */,
 				4CC893961C4D45E900F94575 /* Main.storyboard */,
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC893951C4D45E900F94575 /* ViewController.m in Sources */,
-				4CC893A61C4D465E00F94575 /* PlotView.mm in Sources */,
+				4CC893A61C4D465E00F94575 /* PlotViewController.mm in Sources */,
 				4CC893B21C4D54DF00F94575 /* nanovg.c in Sources */,
 				4CC893921C4D45E900F94575 /* AppDelegate.m in Sources */,
 				4CC893A91C4D467600F94575 /* GraphInstance.cpp in Sources */,
@@ -300,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NanoVg_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.NanoVg-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -311,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NanoVg_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Home.NanoVg-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";

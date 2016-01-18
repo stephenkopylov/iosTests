@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "PlotView.h"
+#import "PlotViewController.h"
 
 @interface ViewController ()
 
@@ -19,8 +19,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    PlotView *view = [[PlotView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    [self.view addSubview:view];
+    PlotViewController *plot = [PlotViewController new];
+    [self addChildViewController:plot];
+    [plot didMoveToParentViewController:self];
+    plot.view.frame = CGRectMake(0, 0, 200, 200);
+    [self.view addSubview:plot.view];
+    
+    PlotViewController *plot2 = [PlotViewController new];
+    [self addChildViewController:plot2];
+    [plot2 didMoveToParentViewController:self];
+    plot2.view.frame = CGRectMake(0, 220, 200, 200);
+    [self.view addSubview:plot2.view];
+    plot2.red = YES;
 }
 
 

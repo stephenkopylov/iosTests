@@ -12,7 +12,7 @@
 #include "nanovg.h"
 #include "nanovg_gl.h"
 #include "nanovg_gl_utils.h"
-#define ARC4RANDOM_MAX     0x100000000
+#define ARC4RANDOM_MAX 0x100000000
 
 
 //#include "Engine.h"
@@ -54,7 +54,13 @@ void GraphInstance::render()
         yVal[i] = this->height * val;
     }
     
-    bg = nvgLinearGradient(vg, 0.0, 0.0, 0.0, this->height, nvgRGBA(0, 160, 192, 0), nvgRGBA(0, 160, 192, 64));
+    if ( this->red ) {
+        bg = nvgLinearGradient(vg, 0.0, 0.0, 0.0, this->height, nvgRGBA(255, 0, 0, 255), nvgRGBA(255, 0, 0, 64));
+    }
+    else {
+        bg = nvgLinearGradient(vg, 0.0, 0.0, 0.0, this->height, nvgRGBA(0, 160, 192, 0), nvgRGBA(0, 160, 192, 64));
+    }
+    
     nvgBeginPath(vg);
     nvgMoveTo(vg, 0.0, 0.0);
     
