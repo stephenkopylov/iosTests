@@ -7,16 +7,19 @@
 //
 
 #import "PlotViewController.h"
-#include "GraphInstance.h"
+#include "Plot.h"
 #import <OpenGLES/ES2/glext.h>
+#import "PlotPoint.h"
 
 @interface PlotViewController ()
 @end
 
 @implementation PlotViewController {
-    GraphInstance test;
+    Plot *plot;
     EAGLContext *_context;
 }
+
+#pragma mark - lifecycle
 
 - (void)loadView
 {
@@ -33,36 +36,51 @@
 }
 
 
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
+- (void)viewDidAppear:(BOOL)animated
 {
-    [EAGLContext setCurrentContext:_context];
+    self.paused = NO;
+}
+
+
+#pragma mark - public methods
+
+- (void)addPoints:(NSArray *)points
+{
+    int lenght = (int)points.count;
+    double values[lenght];
+    double times[lenght];
     
-    test.width = self.view.frame.size.width;
-    test.height = self.view.frame.size.height;
-    test.scale = [[UIScreen mainScreen] scale];
-    test.render();
+    
+    for ( int i = 0; i < lenght; i++ ) {
+        PlotPoint *point = points[i];
+        
+        values[i] = point.value.doubleValue;
+        times[i] = point.time.doubleValue;
+    }
+    
+    plot->addPoints(values, times, lenght);
 }
 
 
-- (void)testFunct
-{
-}
-
+#pragma mark - private methods
 
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:_context];
-    test = GraphInstance();
-    srand48(arc4random());
-    
-    double x = drand48();
-    test.x =  x;
+    plot = new Plot();
 }
 
 
-- (void)setRed:(BOOL)red
+#pragma mark - GLKViewDelegate
+
+- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    test.red = red;
+    [EAGLContext setCurrentContext:_context];
+    
+    plot->width = self.view.frame.size.width;
+    plot->height = self.view.frame.size.height;
+    plot->scale = [[UIScreen mainScreen] scale];
+    plot->render();
 }
 
 

@@ -14,16 +14,9 @@
 #include "nanovg_gl_utils.h"
 #define ARC4RANDOM_MAX 0x100000000
 
-
-//#include "Engine.h"
-
-//Engine engine;
-
 NVGcontext *vg;
 
-float xxx;
-
-GraphInstance::GraphInstance()
+GraphInstance::GraphInstance(void)
 {
     vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
 }
@@ -89,9 +82,4 @@ void GraphInstance::render()
     
     
     nvgEndFrame(vg);
-}
-
-
-void GraphInstance::test2()
-{
 }

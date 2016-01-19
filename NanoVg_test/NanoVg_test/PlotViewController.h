@@ -11,7 +11,6 @@
 
 @interface PlotViewController : GLKViewController
 
-- (void)testFunct;
-@property (nonatomic) BOOL red;
+- (void)addPoints:(NSArray *)points;
 
 @end
