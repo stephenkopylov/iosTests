@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#import "PlotPoint.h"
 
 @interface PlotViewController : GLKViewController
 
+- (void)addPoint:(PlotPoint *)point;
 - (void)addPoints:(NSArray *)points;
 
 @end

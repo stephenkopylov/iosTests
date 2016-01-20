@@ -9,9 +9,9 @@
 #import "PlotViewController.h"
 #include "Plot.h"
 #import <OpenGLES/ES2/glext.h>
-#import "PlotPoint.h"
 
 @interface PlotViewController ()
+@property (nonatomic) UIPanGestureRecognizer *lazyPanRecognizer;
 @end
 
 @implementation PlotViewController {
@@ -31,6 +31,7 @@
     view.context = _context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+    [view addGestureRecognizer:self.lazyPanRecognizer];
     
     self.preferredFramesPerSecond = 60;
 }
@@ -43,6 +44,12 @@
 
 
 #pragma mark - public methods
+
+- (void)addPoint:(PlotPoint *)point
+{
+    plot->addPoint(point.value.doubleValue, point.time.doubleValue);
+}
+
 
 - (void)addPoints:(NSArray *)points
 {
@@ -71,6 +78,37 @@
 }
 
 
+#pragma mark - gestures
+
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer
+{
+    CGPoint point = [recognizer locationInView:self.view];
+    
+    switch ( recognizer.state )
+    {
+        case UIGestureRecognizerStateBegan: {
+            //NSLog(@"starts = %@", NSStringFromCGPoint(point));
+            plot->touchStarted(point.x, point.y);
+            break;
+        }
+            
+        case UIGestureRecognizerStateChanged: {
+            //NSLog(@"changed = %@", NSStringFromCGPoint(point));
+            plot->touchMoved(point.x, point.y);
+            break;
+        }
+            
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled: {
+            plot->touchEnded(point.x, point.y);
+            //NSLog(@"ended = %@", NSStringFromCGPoint(point));
+            break;
+        }
+    }
+}
+
+
 #pragma mark - GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -81,6 +119,19 @@
     plot->height = self.view.frame.size.height;
     plot->scale = [[UIScreen mainScreen] scale];
     plot->render();
+}
+
+
+#pragma mark - getters/setters
+
+- (UIPanGestureRecognizer *)lazyPanRecognizer
+{
+    if ( _lazyPanRecognizer == nil ) {
+        _lazyPanRecognizer = [[UIPanGestureRecognizer alloc] init];
+        [_lazyPanRecognizer addTarget:self action:@selector(handlePan:)];
+    }
+    
+    return _lazyPanRecognizer;
 }
 
 
