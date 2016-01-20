@@ -27,7 +27,6 @@
     
     _plotAnimator = PlotAnimator();
     _plotAnimator.duration = 1.0;
-    _plotAnimator.curveType = PlotAnimatorCurveLinear;
     
     // Do any additional setup after loading the view, typically from a nib.
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkEmitted)];

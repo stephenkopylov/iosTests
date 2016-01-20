@@ -13,4 +13,5 @@ PlotAnimator::PlotAnimator()
     this->value = 0.0f;
     this->fromValue = 0.0f;
     this->toValue = 0.0f;
+    this->curveType = PlotAnimatorCurveLinear;
 }
