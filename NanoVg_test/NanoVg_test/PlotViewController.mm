@@ -118,6 +118,7 @@
     plot->width = self.view.frame.size.width;
     plot->height = self.view.frame.size.height;
     plot->scale = [[UIScreen mainScreen] scale];
+    plot->ts = CACurrentMediaTime();
     plot->render();
 }
 
