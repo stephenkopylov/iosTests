@@ -62,7 +62,7 @@
         PlotPoint *point = points[i];
         
         values[i] = point.value.doubleValue;
-        times[i] = point.time.doubleValue;
+        times[i] = point.time.floatValue;
     }
     
     plot->addPoints(values, times, lenght);
@@ -114,6 +114,8 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     [EAGLContext setCurrentContext:_context];
+    
+    float ts = CACurrentMediaTime() ;
     
     plot->width = self.view.frame.size.width;
     plot->height = self.view.frame.size.height;
