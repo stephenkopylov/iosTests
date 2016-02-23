@@ -30,9 +30,19 @@ typedef NS_ENUM (NSUInteger, PullableViewSide) {
 @property (nonatomic) id<PullableViewDelegate> delegate;
 @property (nonatomic) UIView *innerView;
 @property (nonatomic) BOOL opened;
+@property (nonatomic) BOOL blurred;
+
 
 - (instancetype)initWitSide:(PullableViewSide)side andContainerView:(UIView *)view;
 - (void)open;
 - (void)close;
+
+@end
+
+@interface DynamicHub : NSObject<UIDynamicItem>
+
+@property (nonatomic, readonly) CGRect bounds;
+@property (nonatomic, readwrite) CGPoint center;
+@property (nonatomic, readwrite) CGAffineTransform transform;
 
 @end

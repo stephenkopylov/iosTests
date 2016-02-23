@@ -7,19 +7,15 @@
 //
 
 #import "PullableView.h"
-#import "DynamicHub.h"
-#import "DropDownMenuBg.h"
 
-@interface PullableView ()<DropDownMenuBgDelegate>
+@interface PullableView ()
 @property (nonatomic) NSLayoutConstraint *sizeConstraint;
 @property (nonatomic) NSLayoutConstraint *positionConstraint;
 @property (nonatomic) UIView *containerView;
-@property (nonatomic) UIVisualEffectView *lazyBlurView;
-@property (nonatomic) DropDownMenuBg *lazyBg;
 @property (nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 
-@property (nonatomic) UIDynamicAnimator *animator;
-@property (nonatomic) DynamicHub *dynamicHub;
+@property (nonatomic) UIDynamicAnimator *lazyAnimator;
+@property (nonatomic) DynamicHub *lazyDynamicHub;
 
 @property (nonatomic) UISnapBehavior *minSnap;
 @property (nonatomic) UISnapBehavior *maxSnap;
@@ -41,12 +37,6 @@
 
 - (void)removeFromSuperview
 {
-    [self.lazyBlurView removeFromSuperview];
-    _lazyBlurView = nil;
-    
-    [self.lazyBg removeFromSuperview];
-    _lazyBg = nil;
-    
     [super removeFromSuperview];
 }
 
@@ -55,98 +45,103 @@
 
 - (instancetype)initWitSide:(PullableViewSide)side andContainerView:(UIView *)view
 {
-    self = [super init];
+    self = [self init];
     
     if ( self ) {
-        self.opened = NO;
         _side = side;
         _containerView = view;
-        
-        [_containerView addSubview:self.lazyBg];
-        self.lazyBg.userInteractionEnabled = NO;
-        
-        [_containerView addSubview:self.lazyBlurView];
-        
-        self.translatesAutoresizingMaskIntoConstraints = NO;
         [_containerView addSubview:self];
-        
-        
-        NSString *vfl;
-        NSString *vflBlur;
-        
-        NSDictionary *views = @{
-                                @"container": _containerView,
-                                @"view": self,
-                                @"blurView": self.lazyBlurView,
-                                @"bg": self.lazyBg,
-                                };
-        
-        
-        NSLayoutAttribute sizeAttribute;
-        
-        if ( _side == PullableViewSideTop || _side == PullableViewSideBottom ) {
-            vfl = @"|[view]|";
-            vflBlur = @"|[blurView]|";
-            sizeAttribute = NSLayoutAttributeHeight;
-        }
-        else {
-            vfl = @"V:|[view]|";
-            vflBlur = @"V:|[blurView]|";
-            sizeAttribute = NSLayoutAttributeWidth;
-        }
-        
-        [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:views]];
-        [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflBlur options:0 metrics:nil views:views]];
-        [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[bg]|" options:0 metrics:nil views:views]];
-        [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[bg]|" options:0 metrics:nil views:views]];
-        
-        NSLayoutAttribute positionAttribute;
-        NSLayoutAttribute blurAttribute;
-        
-        switch ( _side )
-        {
-            case PullableViewSideTop: {
-                positionAttribute = NSLayoutAttributeTop;
-                blurAttribute = NSLayoutAttributeBottom;
-                break;
-            }
-                
-            case PullableViewSideRight: {
-                positionAttribute = NSLayoutAttributeRight;
-                blurAttribute = NSLayoutAttributeLeft;
-                break;
-            }
-                
-            case PullableViewSideBottom: {
-                positionAttribute = NSLayoutAttributeBottom;
-                blurAttribute = NSLayoutAttributeTop;
-                break;
-            }
-                
-            case PullableViewSideLeft: {
-                positionAttribute = NSLayoutAttributeLeft;
-                blurAttribute = NSLayoutAttributeRight;
-                break;
-            }
-        }
-        
-        _sizeConstraint = [NSLayoutConstraint constraintWithItem:self attribute:sizeAttribute relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0 constant:0.0f];
-        _positionConstraint = [NSLayoutConstraint constraintWithItem:self attribute:positionAttribute relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:positionAttribute multiplier:1.0 constant:0.0f];
-        [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.lazyBlurView attribute:positionAttribute relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:positionAttribute multiplier:1.0 constant:0.0f]];
-        NSLayoutConstraint *blurConstraint = [NSLayoutConstraint constraintWithItem:self.lazyBlurView attribute:blurAttribute relatedBy:NSLayoutRelationEqual toItem:self attribute:blurAttribute multiplier:1.0 constant:0.0f];
-        [blurConstraint setPriority:UILayoutPriorityDefaultLow];
-        [_containerView addConstraint:blurConstraint];
-        
-        [_containerView addConstraint:_sizeConstraint];
-        [_containerView addConstraint:_positionConstraint];
-        
-        _dynamicHub = [DynamicHub new];
-        _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
-        
-        [self calculateMinMax];
+        [self setup];
     }
     
     return self;
+}
+
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if ( self ) {
+        _side = PullableViewSideTop;
+    }
+    
+    return self;
+}
+
+
+- (void)didMoveToSuperview
+{
+    if ( !_containerView ) {
+        _containerView = self.superview;
+        [self setup];
+    }
+}
+
+
+- (void)setup
+{
+    self.opened = NO;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSString *vfl;
+    
+    NSDictionary *views = @{
+                            @"container": _containerView,
+                            @"view": self,
+                            };
+    
+    
+    NSLayoutAttribute sizeAttribute;
+    
+    if ( _side == PullableViewSideTop || _side == PullableViewSideBottom ) {
+        vfl = @"|[view]|";
+        sizeAttribute = NSLayoutAttributeHeight;
+    }
+    else {
+        vfl = @"V:|[view]|";
+        sizeAttribute = NSLayoutAttributeWidth;
+    }
+    
+    [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfl options:0 metrics:nil views:views]];
+    
+    NSLayoutAttribute positionAttribute;
+    NSLayoutAttribute blurAttribute;
+    
+    switch ( _side )
+    {
+        case PullableViewSideTop: {
+            positionAttribute = NSLayoutAttributeTop;
+            blurAttribute = NSLayoutAttributeBottom;
+            break;
+        }
+            
+        case PullableViewSideRight: {
+            positionAttribute = NSLayoutAttributeRight;
+            blurAttribute = NSLayoutAttributeLeft;
+            break;
+        }
+            
+        case PullableViewSideBottom: {
+            positionAttribute = NSLayoutAttributeBottom;
+            blurAttribute = NSLayoutAttributeTop;
+            break;
+        }
+            
+        case PullableViewSideLeft: {
+            positionAttribute = NSLayoutAttributeLeft;
+            blurAttribute = NSLayoutAttributeRight;
+            break;
+        }
+    }
+    
+    _sizeConstraint = [NSLayoutConstraint constraintWithItem:self attribute:sizeAttribute relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1.0 constant:0.0f];
+    _positionConstraint = [NSLayoutConstraint constraintWithItem:self attribute:positionAttribute relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:positionAttribute multiplier:1.0 constant:0.0f];
+    
+    [_containerView addConstraint:_sizeConstraint];
+    [_containerView addConstraint:_positionConstraint];
+    
+    [self calculateMinMax];
 }
 
 
@@ -175,7 +170,7 @@
     [self calculateMinMax];
     
     if ( recognizer.state == UIGestureRecognizerStateBegan ) {
-        [self.animator removeAllBehaviors];
+        [self.lazyAnimator removeAllBehaviors];
         _originalPosition = _positionConstraint.constant;
     }
     else if ( recognizer.state == UIGestureRecognizerStateChanged ) {
@@ -203,17 +198,15 @@
         CGPoint velocity = [recognizer velocityInView:self];
         
         if ( fabs(velocity.y) > 1 ) {
-            UIDynamicItemBehavior *decelerationBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.dynamicHub]];
-            [decelerationBehavior addLinearVelocity:velocity forItem:self.dynamicHub];
+            UIDynamicItemBehavior *decelerationBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.lazyDynamicHub]];
+            [decelerationBehavior addLinearVelocity:velocity forItem:self.lazyDynamicHub];
             decelerationBehavior.resistance = 2.0;
             
             
-            @weakify(self);
             [decelerationBehavior setAction:^{
-                @strongify(self);
-                CGFloat newPosition = self.dynamicHub.center.y;
+                CGFloat newPosition = self.lazyDynamicHub.center.y;
                 
-                CGFloat diff = fabs(self.dynamicHub.center.y - self.positionConstraint.constant);
+                CGFloat diff = fabs(self.lazyDynamicHub.center.y - self.positionConstraint.constant);
                 
                 if ( diff > 10 ) {
                     self.margin = newPosition;
@@ -230,7 +223,7 @@
                 }
             }];
             
-            [self.animator addBehavior:decelerationBehavior];
+            [self.lazyAnimator addBehavior:decelerationBehavior];
         }
         else {
             [self snapToClosest];
@@ -256,21 +249,18 @@
         self.closedValue = _maxValue;
     }
     
-    @weakify(self);
-    _minSnap = [[UISnapBehavior alloc] initWithItem:_dynamicHub snapToPoint:CGPointMake(0, self.minValue)];
+    _minSnap = [[UISnapBehavior alloc] initWithItem:self.lazyDynamicHub snapToPoint:CGPointMake(0, self.minValue)];
     _minSnap.damping = 0.99;
     
     [_minSnap setAction:^{
-        @strongify(self);
-        CGFloat newPosition = self.dynamicHub.center.y;
+        CGFloat newPosition = self.lazyDynamicHub.center.y;
         self.margin = newPosition;
     }];
     
-    _maxSnap = [[UISnapBehavior alloc] initWithItem:_dynamicHub snapToPoint:CGPointMake(0, self.maxValue)];
+    _maxSnap = [[UISnapBehavior alloc] initWithItem:self.lazyDynamicHub snapToPoint:CGPointMake(0, self.maxValue)];
     _minSnap.damping = 0.99;
     [_maxSnap setAction:^{
-        @strongify(self);
-        CGFloat newPosition = self.dynamicHub.center.y;
+        CGFloat newPosition = self.lazyDynamicHub.center.y;
         self.margin = newPosition;
     }];
     
@@ -289,7 +279,7 @@
 {
     CGFloat test = (self.maxValue - self.minValue) / 2 - (_positionConstraint.constant - self.minValue);
     
-    self.dynamicHub.center = CGPointMake(0, _positionConstraint.constant);
+    self.lazyDynamicHub.center = CGPointMake(0, _positionConstraint.constant);
     
     UISnapBehavior *snapTo;
     
@@ -306,16 +296,14 @@
 
 - (void)snapTo:(UISnapBehavior *)snapBehavior
 {
-    [self.animator removeAllBehaviors];
-    [self.animator addBehavior:snapBehavior];
+    [self.lazyAnimator removeAllBehaviors];
+    [self.lazyAnimator addBehavior:snapBehavior];
     
     if ( snapBehavior == _openedSnap ) {
         self.opened = YES;
-        self.lazyBg.userInteractionEnabled = YES;
     }
     else {
         self.opened = NO;
-        self.lazyBg.userInteractionEnabled = NO;
     }
 }
 
@@ -326,7 +314,7 @@
 {
     _margin = margin;
     _positionConstraint.constant = margin;
-    self.dynamicHub.center = CGPointMake(0, _margin);
+    self.lazyDynamicHub.center = CGPointMake(0, _margin);
 }
 
 
@@ -341,18 +329,6 @@
         self.margin = _closedValue;
         [self.containerView layoutIfNeeded];
     }
-}
-
-
-- (UIVisualEffectView *)lazyBlurView
-{
-    if ( !_lazyBlurView ) {
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        _lazyBlurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        _lazyBlurView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    
-    return _lazyBlurView;
 }
 
 
@@ -384,24 +360,45 @@
 }
 
 
-- (DropDownMenuBg *)lazyBg
+- (void)setBlurred:(BOOL)blurred
 {
-    if ( _lazyBg == nil ) {
-        _lazyBg = [[DropDownMenuBg alloc] init];
-        _lazyBg.translatesAutoresizingMaskIntoConstraints = NO;
-        _lazyBg.blocker = YES;
-        _lazyBg.delegate = self;
-    }
-    
-    return _lazyBg;
 }
 
 
-#pragma mark - DropDownMenuBgDelegate
-
-- (void)clickRegistered:(DropDownMenuBg *)menuBg
+- (UIDynamicAnimator *)lazyAnimator
 {
-    [self close];
+    if ( _lazyAnimator == nil ) {
+        _lazyAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
+    }
+    
+    return _lazyAnimator;
+}
+
+
+- (DynamicHub *)lazyDynamicHub
+{
+    if ( _lazyDynamicHub == nil ) {
+        _lazyDynamicHub = [DynamicHub new];
+    }
+    
+    return _lazyDynamicHub;
+}
+
+
+@end
+
+
+@implementation DynamicHub
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if ( self ) {
+        _bounds = CGRectMake(0, 0, 100, 100);
+    }
+    
+    return self;
 }
 
 

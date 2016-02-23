@@ -7,21 +7,34 @@
 //
 
 #import "ViewController.h"
+#import "PullableView.h"
 
 @interface ViewController ()
+
+@property (nonatomic) PullableView *pullableView;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    
+    _pullableView = [PullableView new];
+    [self.view addSubview:_pullableView];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
