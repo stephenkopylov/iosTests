@@ -1,0 +1,10 @@
+PODS:
+  - OAStackView (1.0.1)
+
+DEPENDENCIES:
+  - OAStackView
+
+SPEC CHECKSUMS:
+  OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
+
+COCOAPODS: 0.39.0
