@@ -15,6 +15,7 @@
 		6A8A1E7A1C8B588B00254E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A1E781C8B588B00254E30 /* LaunchScreen.storyboard */; };
 		6A8A1E851C8B588B00254E30 /* OAStackViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A1E841C8B588B00254E30 /* OAStackViewTestTests.m */; };
 		6A8A1E901C8B588B00254E30 /* OAStackViewTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A1E8F1C8B588B00254E30 /* OAStackViewTestUITests.m */; };
+		6A8A1E9F1C8B5ADC00254E30 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A1E9E1C8B5ADC00254E30 /* TestView.m */; };
 		A5A54A244AFB9C28EEB7265C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03446F714F563CD14E84DC38 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		6A8A1E8B1C8B588B00254E30 /* OAStackViewTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAStackViewTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8A1E8F1C8B588B00254E30 /* OAStackViewTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAStackViewTestUITests.m; sourceTree = "<group>"; };
 		6A8A1E911C8B588B00254E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A8A1E9D1C8B5ADC00254E30 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		6A8A1E9E1C8B5ADC00254E30 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				6A8A1E781C8B588B00254E30 /* LaunchScreen.storyboard */,
 				6A8A1E7B1C8B588B00254E30 /* Info.plist */,
 				6A8A1E6A1C8B588B00254E30 /* Supporting Files */,
+				6A8A1E9D1C8B5ADC00254E30 /* TestView.h */,
+				6A8A1E9E1C8B5ADC00254E30 /* TestView.m */,
 			);
 			path = OAStackViewTest;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8A1E9F1C8B5ADC00254E30 /* TestView.m in Sources */,
 				6A8A1E721C8B588B00254E30 /* ViewController.m in Sources */,
 				6A8A1E6F1C8B588B00254E30 /* AppDelegate.m in Sources */,
 				6A8A1E6C1C8B588B00254E30 /* main.m in Sources */,
