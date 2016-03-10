@@ -16,6 +16,7 @@
 		6A41614C1C91CC7600983203 /* OpenGLBGTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41614B1C91CC7600983203 /* OpenGLBGTestTests.m */; };
 		6A4161571C91CC7600983203 /* OpenGLBGTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4161561C91CC7600983203 /* OpenGLBGTestUITests.m */; };
 		6A4161661C91CCB000983203 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4161651C91CCB000983203 /* OpenGLView.m */; };
+		6A4161681C91D65500983203 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4161671C91D65500983203 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		6A4161581C91CC7600983203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A4161641C91CCB000983203 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		6A4161651C91CCB000983203 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		6A4161671C91D65500983203 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4161681C91D65500983203 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 		6A4161251C91CC7600983203 = {
 			isa = PBXGroup;
 			children = (
+				6A4161671C91D65500983203 /* OpenGLES.framework */,
 				6A4161301C91CC7600983203 /* OpenGLBGTest */,
 				6A41614A1C91CC7600983203 /* OpenGLBGTestTests */,
 				6A4161551C91CC7600983203 /* OpenGLBGTestUITests */,
