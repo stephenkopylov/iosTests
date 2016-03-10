@@ -76,7 +76,6 @@
         glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        
         dispatch_sync(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
             glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
