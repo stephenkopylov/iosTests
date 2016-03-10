@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSLock *renderLock;
 @property (nonatomic) CADisplayLink *displayLink;
 @property (nonatomic) GLuint colorRenderBuffer;
+@property (nonatomic) GLuint frameBuffer;
 @property (nonatomic) EAGLSharegroup *sharegroup;
 @property (nonatomic) NVGcontext *vg;
 
@@ -58,18 +59,27 @@
     [EAGLContext setCurrentContext:self.mainContext];
     GLKView *view = (GLKView *)self.view;
     view.context = self.mainContext;
-    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.view.layer];
+    
     
     dispatch_async(self.renderQueue, ^{
-        self.renderContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2 sharegroup:self.mainContext.sharegroup];
+        _renderLayer = [CAEAGLLayer new];
+        _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
+        _renderLayer.opaque = YES;
+        _renderLayer.contentsScale = 1.0;
+        _renderLayer.drawableProperties = @{
+                                            kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+                                            };
+        
+        
+        self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
         glGenRenderbuffers(1, &_colorRenderBuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+        [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
         
-        GLuint framebuffer;
-        glGenFramebuffers(1, &framebuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+        glGenFramebuffers(1, &_frameBuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
         
         _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
@@ -85,6 +95,13 @@
         glViewport(0, 0, 100.0, 100.0);
         glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        
+        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+        
+        
+        [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
+        
         nvgBeginFrame(_vg, 100.0, 100.0, 2.0);
         
         nvgStrokeColor(_vg, nvgRGB(1.0, 0.5, 1.0));
@@ -96,9 +113,11 @@
         nvgStroke(_vg);
         
         nvgEndFrame(_vg);
+        glFlush();
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
+            
             glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
             glClear(GL_COLOR_BUFFER_BIT);
             
