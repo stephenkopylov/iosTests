@@ -25,9 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     [self setup];
-    
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
     self.displayLink.frameInterval = 60;
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
@@ -37,7 +35,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -53,42 +50,41 @@
     
     self.renderLock = [[NSLock alloc] init];
     
-    //dispatch_async(self.renderQueue, ^{
-    CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
-    layer.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
-    layer.opaque = YES;
-    layer.contentsScale = 1.0;
-    layer.drawableProperties = @{
-                                 kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
-                                 };
-    self.renderLayer = layer;
-
-    _sharegroup = [EAGLSharegroup new];
-    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2 sharegroup:_sharegroup];
-    self.renderContext = context;
-    [EAGLContext setCurrentContext:context];
-    
-    glGenRenderbuffers(1, &_colorRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
-    
-    GLuint framebuffer;
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                              GL_RENDERBUFFER, _colorRenderBuffer);
-    
-    // dispatch_sync(dispatch_get_main_queue(), ^{
-    CALayer *superLayer = self.view.layer;
-    [superLayer addSublayer:layer];
-    // });
-    // });
+    dispatch_async(self.renderQueue, ^{
+        CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
+        layer.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
+        layer.opaque = YES;
+        layer.contentsScale = 1.0;
+        layer.drawableProperties = @{
+                                     kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+                                     };
+        self.renderLayer = layer;
+        
+        _sharegroup = [EAGLSharegroup new];
+        EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2 sharegroup:_sharegroup];
+        self.renderContext = context;
+        [EAGLContext setCurrentContext:context];
+        
+        glGenRenderbuffers(1, &_colorRenderBuffer);
+        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+        [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
+        
+        GLuint framebuffer;
+        glGenFramebuffers(1, &framebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                                  GL_RENDERBUFFER, _colorRenderBuffer);
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            CALayer *superLayer = self.view.layer;
+            [superLayer addSublayer:layer];
+        });
+    });
 }
 
 
 - (void)render:(BOOL)force
 {
-    /*
     if ( [self.renderLock tryLock] ) {
         [self.renderLock unlock];
     }
@@ -97,27 +93,23 @@
     }
     
     __weak typeof(self) weakself = self;
-    // dispatch_async(self.renderQueue, ^{
-    //typeof(self) self = weakself;
-    
-    if ( self == nil ) {
-        return;
-    }
-    
-    [self.renderLock lock];
-    */
-    [EAGLContext setCurrentContext:self.renderContext];
-    glViewport(0, 0, 100.0, 100.0);
-    glClearColor(0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
-    
-    //  dispatch_sync(dispatch_get_main_queue(), ^{
-    
-    //  });
-    
-   // [self.renderLock unlock];
-    //});
+    dispatch_async(self.renderQueue, ^{
+        typeof(self) self = weakself;
+        
+        if ( self == nil ) {
+            return;
+        }
+        
+        [self.renderLock lock];
+        
+        [EAGLContext setCurrentContext:self.renderContext];
+        glViewport(0, 0, 100.0, 100.0);
+        glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
+        glClear(GL_COLOR_BUFFER_BIT);
+        [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
+        
+        [self.renderLock unlock];
+    });
 }
 
 
