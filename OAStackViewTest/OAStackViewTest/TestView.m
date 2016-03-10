@@ -15,9 +15,9 @@
     self = [super init];
     
     if ( self ) {
-        _label = [UILabel new];
+        _label = [UIView new];
         _label.translatesAutoresizingMaskIntoConstraints = NO;
-        _label.numberOfLines = 0;
+        //_label.numberOfLines = 0;
         [self addSubview:_label];
         
         NSDictionary *views = @{

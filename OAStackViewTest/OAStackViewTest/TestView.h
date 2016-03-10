@@ -10,6 +10,6 @@
 
 @interface TestView : UIView
 
-@property (nonatomic) UILabel *label;
+@property (nonatomic) UIView *label;
 
 @end
