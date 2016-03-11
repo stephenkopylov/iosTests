@@ -69,19 +69,15 @@
     
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-
-    GLint max_rb_size;
-    glGetIntegerv (GL_MAX_RENDERBUFFER_SIZE, &max_rb_size);
     
-    //glGenRenderbuffers(1, &_stencilbuffer);
-    //glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-    //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, max_rb_size, max_rb_size);
+    glGenRenderbuffers(1, &_stencilbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
     
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
-    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
-   // glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
@@ -89,7 +85,6 @@
     
     if ( status == GL_FRAMEBUFFER_COMPLETE ) {
         NSLog(@"framebuffer complete");
-        //NSLog(@"failed to make complete framebuffer object %x", status);
     }
     else if ( status == GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT ) {
         NSLog(@"incomplete framebuffer attachments");
@@ -104,8 +99,6 @@
         NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
     }
     
-
-    
     dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
@@ -115,14 +108,12 @@
         }
     });
     
-    if(self.displayLink){
+    if ( self.displayLink ) {
         [self.displayLink invalidate];
     }
     
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    
-
 }
 
 
@@ -131,6 +122,7 @@
     [super layoutSublayersOfLayer:layer];
     [EAGLContext setCurrentContext:self.mainContext];
     self.mainLayer.frame = self.layer.frame;
+    
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
 }
 
@@ -144,19 +136,18 @@
         return;
     }
     
-    
     CGRect frame =  self.layer.frame;
     CGFloat scale = [UIScreen mainScreen].scale;
     
-        [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
+    
     
     dispatch_async(self.renderQueue, ^{
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        //glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-        //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
+        glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         
         glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
