@@ -6,6 +6,7 @@
 //  Copyright © 2016 Stephen Kopylov - Home. All rights reserved.
 //
 #import "GCDGLView.h"
+#import <OpenGLES/ES2/glext.h>
 
 @interface GCDGLView ()
 @property (nonatomic, strong) CAEAGLLayer *mainLayer;
@@ -68,14 +69,17 @@
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
 
-    glGenFramebuffers(1, &_stencilbuffer);
+    glGenRenderbuffers(1, &_stencilbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8, 1024.0, 1024.0);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, 1024, 1024);
     
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     
@@ -142,27 +146,24 @@
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
-   
-        
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
-        
         glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
         glClearColor(0.f, 0.f, 0.5f, 0.3);
-        glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BITS);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        glClearStencil(0);
-        glEnable(GL_STENCIL_TEST);
-        
-        glStencilFunc(GL_ALWAYS, 1, 1);
-        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+//        glClearStencil(0);
+//        glEnable(GL_STENCIL_TEST);
+//        
+//        glStencilFunc(GL_ALWAYS, 1, 1);
+//        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
         
         if ( [self.delegate respondsToSelector:@selector(drawInRect:forView:)] ) {
             [self.delegate drawInRect:frame forView:self];
         }
         
-        glDisable(GL_STENCIL_TEST);
+//        glDisable(GL_STENCIL_TEST);
         
         glFlush();
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
