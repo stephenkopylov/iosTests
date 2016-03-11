@@ -92,13 +92,13 @@
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
         
+        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+        glBindRenderbuffer(GL_FRAMEBUFFER, _frameBuffer);
+        
+        
         glViewport(0, 0, 100.0, 100.0);
         glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
-        
-        
-        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-        
         
         [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
         
@@ -113,10 +113,12 @@
         nvgStroke(_vg);
         
         nvgEndFrame(_vg);
-        glFlush();
+        
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
+            
+            glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
             
             glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
             glClear(GL_COLOR_BUFFER_BIT);
