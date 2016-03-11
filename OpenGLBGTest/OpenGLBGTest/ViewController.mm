@@ -26,6 +26,8 @@
 @property (nonatomic) GLuint framebuffer;
 @property (nonatomic) EAGLSharegroup *sharegroup;
 @property (nonatomic) NVGcontext *vg;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
 
 @end
 
@@ -90,6 +92,18 @@
 }
 
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.mainLayer.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
+    CGSize size = self.view.frame.size;
+    dispatch_async(self.renderQueue, ^{
+        self.width = size.width;
+        self.height = size.height;
+    });
+}
+
+
 - (void)render
 {
     if ( [self.renderLock tryLock] ) {
@@ -121,12 +135,12 @@
         nvgStroke(_vg);
         
         nvgEndFrame(_vg);
-        
+        glFlush();
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        xshift += 1.0f;
+        xshift += 0.1f;
         
-        glFlush();
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
             [self.mainContext presentRenderbuffer:_renderbuffer];
