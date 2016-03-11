@@ -21,8 +21,11 @@
 @property (nonatomic, strong) EAGLContext *mainContext;
 @property (nonatomic, strong) NSLock *renderLock;
 @property (nonatomic) CADisplayLink *displayLink;
-@property (nonatomic) GLuint renderbuffer;
+
 @property (nonatomic) GLuint framebuffer;
+@property (nonatomic) GLuint renderbuffer;
+@property (nonatomic) GLuint depthbuffer;
+
 @property (nonatomic) NVGcontext *vg;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
@@ -68,12 +71,18 @@
     self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
     [self.view.layer addSublayer:self.mainLayer];
     
-    glGenRenderbuffers(1, &_renderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-    
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
+    
+    glGenRenderbuffers(1, &_renderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, 1000.0, 1000.0);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+    
+    //    glGenRenderbuffers(1, &_depthbuffer);
+    //    glBindRenderbuffer(GL_RENDERBUFFER, _depthbuffer);
+    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_DEPTH_COMPONENT16, 1000.0, 1000.0);
+    //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthbuffer);
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
     
@@ -116,6 +125,7 @@
     dispatch_async(self.renderQueue, ^{
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
+        
         
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
