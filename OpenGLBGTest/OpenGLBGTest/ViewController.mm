@@ -21,8 +21,8 @@
 @property (nonatomic, strong) EAGLContext *mainContext;
 @property (nonatomic, strong) NSLock *renderLock;
 @property (nonatomic) CADisplayLink *displayLink;
-@property (nonatomic) GLuint colorRenderBuffer;
-@property (nonatomic) GLuint frameBuffer;
+@property (nonatomic) GLint defaultRenderbuffer;
+@property (nonatomic) GLint defaultFramebuffer;
 @property (nonatomic) EAGLSharegroup *sharegroup;
 @property (nonatomic) NVGcontext *vg;
 
@@ -63,53 +63,70 @@
     [EAGLContext setCurrentContext:self.mainContext];
     
     _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
+    
+    glGetIntegerv(GL_RENDERBUFFER, &_defaultRenderbuffer);
+    
+    glGetIntegerv(GL_FRAMEBUFFER, &_defaultFramebuffer);
+    
     dispatch_async(self.renderQueue, ^{
+        
+                 self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
+        
         /*
-        _renderLayer = [CAEAGLLayer new];
-        _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
-        _renderLayer.opaque = YES;
-        _renderLayer.contentsScale = 1.0;
-        _renderLayer.drawableProperties = @{
-                                            kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
-                                            };
-        
-        
-        self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
-        [EAGLContext setCurrentContext:self.renderContext];
-        
-        glGenRenderbuffers(1, &_colorRenderBuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-        [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
-        
-        glGenFramebuffers(1, &_frameBuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
-        */
-        
+         _renderLayer = [CAEAGLLayer new];
+         _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
+         _renderLayer.opaque = YES;
+         _renderLayer.contentsScale = 1.0;
+         _renderLayer.drawableProperties = @{
+         kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+         };
+         
+         
+
+         [EAGLContext setCurrentContext:self.renderContext];
+         
+         glGenRenderbuffers(1, &_colorRenderBuffer);
+         glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+         [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
+         
+         glGenFramebuffers(1, &_frameBuffer);
+         glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+         */
     });
 }
 
 
 - (void)render:(BOOL)force
 {
+    [EAGLContext setCurrentContext:self.mainContext];
+    
+    
+    
+    
+    
+    
     dispatch_async(self.renderQueue, ^{
-        [EAGLContext setCurrentContext:self.renderContext];
         /*
-        glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-        glBindRenderbuffer(GL_FRAMEBUFFER, _frameBuffer);
+         [EAGLContext setCurrentContext:self.renderContext];
+         
+         glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+         glBindRenderbuffer(GL_FRAMEBUFFER, _frameBuffer);
+         
+         
+         glViewport(0, 0, 100.0, 100.0);
+         glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
+         glClear(GL_COLOR_BUFFER_BIT);
+         
+         [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
+         */
         
-        
-        glViewport(0, 0, 100.0, 100.0);
-        glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
-        glClear(GL_COLOR_BUFFER_BIT);
-        
-        [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
-        */
-
         
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
+            
+            
             
             glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
             glClear(GL_COLOR_BUFFER_BIT);
