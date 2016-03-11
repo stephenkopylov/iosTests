@@ -121,9 +121,21 @@
 {
     [super layoutSublayersOfLayer:layer];
     [EAGLContext setCurrentContext:self.mainContext];
+    CGRect frame =  self.layer.frame;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
+    
     self.mainLayer.frame = self.layer.frame;
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
+    
+    dispatch_async(self.renderQueue, ^{
+        [EAGLContext setCurrentContext:self.renderContext];
+        glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
+        
+        glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
+    });
 }
 
 
@@ -139,18 +151,13 @@
     CGRect frame =  self.layer.frame;
     CGFloat scale = [UIScreen mainScreen].scale;
     
-    
-    
     dispatch_async(self.renderQueue, ^{
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         
-        glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
         glClearColor(0.f, 0.f, 0.5f, 0.3);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -159,9 +166,6 @@
         }
         
         glFlush();
-        glBindRenderbuffer(GL_RENDERBUFFER, 0);
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
             [self.mainContext presentRenderbuffer:_renderbuffer];
