@@ -10,7 +10,7 @@
 #include <OpenGLES/ES2/gl.h>
 
 @interface GCDGLView ()
-@property (nonatomic, strong) CAEAGLLayer *mainLayer;
+//@property (nonatomic, strong) CAEAGLLayer *mainLayer;
 @property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, strong) EAGLContext *renderContext;
 @property (nonatomic, strong) EAGLContext *mainContext;
@@ -22,8 +22,7 @@
 @property (nonatomic) GLuint renderbuffer;
 @property (nonatomic) GLuint depthbuffer;
 
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) CGFloat scale;
 @end
 
 @implementation GCDGLView
@@ -54,18 +53,23 @@
 }
 
 
++ (Class)layerClass
+{
+    return [CAEAGLLayer class];
+}
+
+
 - (void)setup
 {
+    self.scale = [UIScreen mainScreen].scale;
+    
     self.renderLock = [[NSLock alloc] init];
     
     self.mainContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:self.mainContext];
     
-    self.mainLayer = [CAEAGLLayer new];
-    self.mainLayer.frame = CGRectMake(0, 0, 100, 100);
-    self.mainLayer.opaque = NO;
-    self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
-    [self.layer addSublayer:self.mainLayer];
+    ((CAEAGLLayer *)self.layer).opaque = NO;
+    ((CAEAGLLayer *)self.layer).contentsScale = _scale;
     
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
@@ -121,20 +125,17 @@
 {
     [super layoutSublayersOfLayer:layer];
     [EAGLContext setCurrentContext:self.mainContext];
-    CGRect frame =  self.layer.frame;
-    CGFloat scale = [UIScreen mainScreen].scale;
-    glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
     
-    self.mainLayer.frame = self.layer.frame;
+    glViewport(0, 0, self.frame.size.width * _scale, self.frame.size.height * _scale);
     
-    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
+    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
     
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
-        glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
+        glViewport(0, 0, self.frame.size.width * _scale, self.frame.size.height * _scale);
         
         glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, self.frame.size.width * _scale, self.frame.size.height * _scale);
     });
 }
 
@@ -148,9 +149,6 @@
         return;
     }
     
-    CGRect frame =  self.layer.frame;
-    CGFloat scale = [UIScreen mainScreen].scale;
-    
     dispatch_async(self.renderQueue, ^{
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
@@ -162,7 +160,7 @@
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         if ( [self.delegate respondsToSelector:@selector(drawInRect:forView:)] ) {
-            [self.delegate drawInRect:frame forView:self];
+            [self.delegate drawInRect:self.frame forView:self];
         }
         
         glFlush();
