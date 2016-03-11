@@ -76,8 +76,8 @@
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
@@ -116,8 +116,7 @@
         }
     });
     
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
-    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+
 }
 
 
@@ -127,6 +126,13 @@
     [EAGLContext setCurrentContext:self.mainContext];
     self.mainLayer.frame = self.layer.frame;
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
+    
+    if(self.displayLink){
+        [self.displayLink invalidate];
+    }
+    
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
+    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 
@@ -153,17 +159,17 @@
         glClearColor(0.f, 0.f, 0.5f, 0.3);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-//        glClearStencil(0);
-//        glEnable(GL_STENCIL_TEST);
-//        
-//        glStencilFunc(GL_ALWAYS, 1, 1);
-//        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        glClearStencil(0);
+        glEnable(GL_STENCIL_TEST);
+        
+        glStencilFunc(GL_ALWAYS, 1, 1);
+        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
         
         if ( [self.delegate respondsToSelector:@selector(drawInRect:forView:)] ) {
             [self.delegate drawInRect:frame forView:self];
         }
         
-//        glDisable(GL_STENCIL_TEST);
+        glDisable(GL_STENCIL_TEST);
         
         glFlush();
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
