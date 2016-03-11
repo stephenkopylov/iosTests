@@ -73,15 +73,15 @@
     GLint max_rb_size;
     glGetIntegerv (GL_MAX_RENDERBUFFER_SIZE, &max_rb_size);
     
-    glGenRenderbuffers(1, &_stencilbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, max_rb_size, max_rb_size);
+    //glGenRenderbuffers(1, &_stencilbuffer);
+    //glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+    //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, max_rb_size, max_rb_size);
     
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+   // glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
@@ -104,7 +104,7 @@
         NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
     }
     
-    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
+
     
     dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
@@ -144,16 +144,19 @@
         return;
     }
     
+    
     CGRect frame =  self.layer.frame;
     CGFloat scale = [UIScreen mainScreen].scale;
+    
+        [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
     
     dispatch_async(self.renderQueue, ^{
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
+        //glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+        //glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, frame.size.width * scale, frame.size.height * scale);
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         
         glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
