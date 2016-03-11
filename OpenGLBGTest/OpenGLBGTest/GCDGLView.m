@@ -20,7 +20,6 @@
 @property (nonatomic) GLuint framebuffer;
 @property (nonatomic) GLuint stencilbuffer;
 @property (nonatomic) GLuint renderbuffer;
-@property (nonatomic) GLuint depthbuffer;
 
 @property (nonatomic) CGFloat scale;
 @end
@@ -126,16 +125,19 @@
     [super layoutSublayersOfLayer:layer];
     [EAGLContext setCurrentContext:self.mainContext];
     
-    glViewport(0, 0, self.frame.size.width * _scale, self.frame.size.height * _scale);
+    CGFloat width = self.frame.size.width * _scale;
+    CGFloat height = self.frame.size.height * _scale;
+    
+    glViewport(0, 0, width, height);
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
     
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
-        glViewport(0, 0, self.frame.size.width * _scale, self.frame.size.height * _scale);
+        glViewport(0, 0, width, height);
         
         glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, self.frame.size.width * _scale, self.frame.size.height * _scale);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
     });
 }
 
