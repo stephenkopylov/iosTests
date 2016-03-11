@@ -15,7 +15,6 @@
 
 
 @interface ViewController ()
-@property (nonatomic, strong) CAEAGLLayer *renderLayer;
 @property (nonatomic, strong) CAEAGLLayer *mainLayer;
 @property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, strong) EAGLContext *renderContext;
@@ -24,7 +23,6 @@
 @property (nonatomic) CADisplayLink *displayLink;
 @property (nonatomic) GLuint renderbuffer;
 @property (nonatomic) GLuint framebuffer;
-@property (nonatomic) EAGLSharegroup *sharegroup;
 @property (nonatomic) NVGcontext *vg;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
@@ -41,6 +39,7 @@
     [self setup];
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    self.view.backgroundColor = [UIColor grayColor];
 }
 
 
@@ -65,12 +64,9 @@
     [EAGLContext setCurrentContext:self.mainContext];
     
     self.mainLayer = [CAEAGLLayer new];
-    self.mainLayer.frame = CGRectMake(0.0, 0.0, 100.0, 300.0);
-    self.mainLayer.opaque = YES;
+    self.mainLayer.frame = CGRectMake(0.0, 0.0, 300.0, 300.0);
+    self.mainLayer.opaque = NO;
     self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
-    self.mainLayer.drawableProperties = @{
-                                          kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
-                                          };
     [self.view.layer addSublayer:self.mainLayer];
     
     glGenRenderbuffers(1, &_renderbuffer);
@@ -95,8 +91,9 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.mainLayer.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     CGSize size = self.view.frame.size;
+    self.mainLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    
     dispatch_async(self.renderQueue, ^{
         self.width = size.width;
         self.height = size.height;
@@ -120,14 +117,14 @@
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
-        glViewport(0, 0, 300.0 *[UIScreen mainScreen].scale, 300.0 *[UIScreen mainScreen].scale);
-        glClearColor(100.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glViewport(0, 0, self.width, self.height);
+        glClearColor(.2f, 0, 0, 0.2);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        nvgBeginFrame(_vg, 300.0, 300.0, [UIScreen mainScreen].scale);
+        nvgBeginFrame(_vg,   self.width,  self.height, [UIScreen mainScreen].scale);
         
         nvgStrokeColor(_vg, nvgRGB(255.0, 1.0, 1.0));
-        nvgStrokeWidth(_vg, 0.5f);
+        nvgStrokeWidth(_vg, 1.5f);
         
         nvgBeginPath(_vg);
         nvgMoveTo(_vg, 0.0 + xshift, 0.0);
@@ -139,7 +136,6 @@
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
         xshift += 0.1f;
-        
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
