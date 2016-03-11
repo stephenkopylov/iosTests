@@ -39,7 +39,7 @@
     [self setup];
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -64,7 +64,6 @@
     [EAGLContext setCurrentContext:self.mainContext];
     
     self.mainLayer = [CAEAGLLayer new];
-    self.mainLayer.frame = CGRectMake(0.0, 0.0, 300.0, 300.0);
     self.mainLayer.opaque = NO;
     self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
     [self.view.layer addSublayer:self.mainLayer];
@@ -91,8 +90,12 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+    [EAGLContext setCurrentContext:self.mainContext];
     CGSize size = self.view.frame.size;
     self.mainLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    
+    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
     
     dispatch_async(self.renderQueue, ^{
         self.width = size.width;
@@ -117,18 +120,24 @@
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
-        glViewport(0, 0, self.width, self.height);
+        glViewport(0, 0, self.width *[UIScreen mainScreen].scale, self.height *[UIScreen mainScreen].scale);
         glClearColor(.2f, 0, 0, 0.2);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         nvgBeginFrame(_vg,   self.width,  self.height, [UIScreen mainScreen].scale);
         
-        nvgStrokeColor(_vg, nvgRGB(255.0, 1.0, 1.0));
-        nvgStrokeWidth(_vg, 1.5f);
+        nvgStrokeColor(_vg, nvgRGB(0.0, 0.0, 0.0));
+        nvgStrokeWidth(_vg, 1.f);
         
         nvgBeginPath(_vg);
         nvgMoveTo(_vg, 0.0 + xshift, 0.0);
-        nvgLineTo(_vg, 100.0 + xshift, 100.0);
+        nvgLineTo(_vg, 90.0 + xshift, 100.0);
+        nvgStroke(_vg);
+        
+        nvgBeginPath(_vg);
+        nvgStrokeColor(_vg, nvgRGB(0.0, 0.0, 8.0));
+        nvgMoveTo(_vg, 0.0 + xshift, 0.0);
+        nvgLineTo(_vg, 30.0, 1000.0);
         nvgStroke(_vg);
         
         nvgEndFrame(_vg);
