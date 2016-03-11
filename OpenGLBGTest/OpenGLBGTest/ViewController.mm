@@ -29,7 +29,9 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    CGFloat xshift;
+}
 
 - (void)viewDidLoad
 {
@@ -48,22 +50,22 @@
 
 - (void)refresh
 {
-    [self render:NO];
+    [self render];
 }
 
 
 - (void)setup
 {
     self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
+    self.renderLock = [[NSLock alloc] init];
     
     self.mainContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    
     [EAGLContext setCurrentContext:self.mainContext];
     
     self.mainLayer = [CAEAGLLayer new];
-    self.mainLayer.frame = CGRectMake(0.0, 0.0, 300.0, 300.0);
+    self.mainLayer.frame = CGRectMake(0.0, 0.0, 100.0, 300.0);
     self.mainLayer.opaque = YES;
-    self.mainLayer.contentsScale = 1.0;
+    self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
     self.mainLayer.drawableProperties = @{
                                           kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
                                           };
@@ -78,62 +80,59 @@
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
     
-    _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
-    
     dispatch_async(self.renderQueue, ^{
+        xshift = 0.0f;
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
-        _renderLayer = [CAEAGLLayer new];
-        _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
-        _renderLayer.opaque = YES;
-        _renderLayer.contentsScale = 1.0;
-        _renderLayer.drawableProperties = @{
-                                            kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
-                                            };
-        
-        
-        [EAGLContext setCurrentContext:self.renderContext];
-        
-        [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
+        _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
     });
 }
 
 
-- (void)render:(BOOL)force
+- (void)render
 {
+    if ( [self.renderLock tryLock] ) {
+        [self.renderLock unlock];
+    }
+    else {
+        return;
+    }
+    
     dispatch_async(self.renderQueue, ^{
+        [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
-   
+        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        glViewport(0, 0, 300.0 *[UIScreen mainScreen].scale, 300.0 *[UIScreen mainScreen].scale);
+        glClearColor(100.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        nvgBeginFrame(_vg, 300.0, 300.0, [UIScreen mainScreen].scale);
+        
+        nvgStrokeColor(_vg, nvgRGB(255.0, 1.0, 1.0));
+        nvgStrokeWidth(_vg, 0.5f);
+        
+        nvgBeginPath(_vg);
+        nvgMoveTo(_vg, 0.0 + xshift, 0.0);
+        nvgLineTo(_vg, 100.0 + xshift, 100.0);
+        nvgStroke(_vg);
+        
+        nvgEndFrame(_vg);
+        
+        glBindRenderbuffer(GL_RENDERBUFFER, 0);
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        xshift += 1.0f;
+        
+        glFlush();
+        dispatch_async(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
-         
-            glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-            glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-            
-            glViewport(0, 0, 300, 300);
-            glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
-            glClear(GL_COLOR_BUFFER_BIT);
-            
-            nvgBeginFrame(_vg, 300.0, 300.0, 1.0);
-            
-            nvgStrokeColor(_vg, nvgRGB(255.0, 1.0, 1.0));
-            nvgStrokeWidth(_vg, 1.5f);
-            
-            nvgBeginPath(_vg);
-            nvgMoveTo(_vg, 0.0, 0.0);
-            nvgLineTo(_vg, 100.0, 100.0);
-            nvgStroke(_vg);
-            
-            nvgEndFrame(_vg);
-            
-            [self.mainContext presentRenderbuffer:GL_RENDERBUFFER];
-            
-            glBindRenderbuffer(GL_RENDERBUFFER, 0);
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            [self.mainContext presentRenderbuffer:_renderbuffer];
+            glFlush();
         });
+        [self.renderLock unlock];
     });
 }
 
