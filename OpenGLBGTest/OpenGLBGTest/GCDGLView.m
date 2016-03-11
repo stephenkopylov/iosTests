@@ -65,27 +65,43 @@
     self.mainLayer.contentsScale = [UIScreen mainScreen].scale;
     [self.layer addSublayer:self.mainLayer];
     
-    glGenFramebuffers(1, &_framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-    
-//    glGenRenderbuffers(1, &_stencilbuffer);
-//    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-//    glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8, GL_MAX_RENDERBUFFER_SIZE, GL_MAX_RENDERBUFFER_SIZE);
-//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
-    
-    //    glGenRenderbuffers(1, &_depthbuffer);
-    //    glBindRenderbuffer(GL_RENDERBUFFER, _depthbuffer);
-    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_DEPTH_COMPONENT16, 1000.0, 1000.0);
-    //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthbuffer);
-    
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, 1000.0, 1000.0);
+
+    glGenFramebuffers(1, &_stencilbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8, 1024.0, 1024.0);
+    
+    glGenFramebuffers(1, &_framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    
+    if(status == GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"framebuffer complete");
+        //NSLog(@"failed to make complete framebuffer object %x", status);
+    }
+    else if(status == GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT)
+    {
+        NSLog(@"incomplete framebuffer attachments");
+    }
+    else if(status == GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT)
+    {
+        NSLog(@"incomplete missing framebuffer attachments");
+    }
+    else if(status == GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS)
+    {
+        NSLog(@"incomplete framebuffer attachments dimensions");
+    }
+    else if(status == GL_FRAMEBUFFER_UNSUPPORTED)
+    {
+        NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
+    }
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
-    
-    
     
     dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
@@ -126,16 +142,27 @@
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
+   
+        
         glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
+        
         glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
-        glClearColor(.2f, 0, 0, 0.2);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
+        glClearColor(0.f, 0.f, 0.5f, 0.3);
+        glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BITS);
+        
+        glClearStencil(0);
+        glEnable(GL_STENCIL_TEST);
+        
+        glStencilFunc(GL_ALWAYS, 1, 1);
+        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        
         if ( [self.delegate respondsToSelector:@selector(drawInRect:forView:)] ) {
             [self.delegate drawInRect:frame forView:self];
         }
+        
+        glDisable(GL_STENCIL_TEST);
         
         glFlush();
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
