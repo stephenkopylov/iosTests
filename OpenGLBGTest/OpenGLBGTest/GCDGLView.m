@@ -21,6 +21,10 @@
 @property (nonatomic) GLuint stencilbuffer;
 @property (nonatomic) GLuint renderbuffer;
 
+@property (nonatomic) GLuint sampleframebuffer;
+@property (nonatomic) GLuint samplestencilbuffer;
+@property (nonatomic) GLuint samplerenderbuffer;
+
 @property (nonatomic) CGFloat scale;
 @end
 
@@ -82,6 +86,20 @@
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
+    //----multisampling
+    
+    glGenRenderbuffers(1, &_samplerenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+    
+    glGenRenderbuffers(1, &_samplestencilbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+    
+    glGenFramebuffers(1, &_sampleframebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _samplerenderbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
+    
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
@@ -138,6 +156,12 @@
         
         glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
+        
+        glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+        glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, width, height);
+        
+        glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+        glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_DEPTH24_STENCIL8_OES, width, height);
     });
 }
 
@@ -155,8 +179,10 @@
         [self.renderLock lock];
         [EAGLContext setCurrentContext:self.renderContext];
         
-        glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+        glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+        glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
+        
         
         glClearColor(0.f, 0.f, 0.5f, 0.3);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -165,9 +191,17 @@
             [self.delegate drawInRect:self.frame forView:self];
         }
         
+        glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, _framebuffer);
+        glResolveMultisampleFramebufferAPPLE();
+        
+        const GLenum discards[]  = { GL_COLOR_ATTACHMENT0, GL_DEPTH_ATTACHMENT };
+        glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, 2, discards);
+        
         glFlush();
         dispatch_async(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
+            
             [self.mainContext presentRenderbuffer:_renderbuffer];
             glFlush();
         });
