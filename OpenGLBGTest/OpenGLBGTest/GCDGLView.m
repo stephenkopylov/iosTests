@@ -16,6 +16,7 @@
 @property (nonatomic) CADisplayLink *displayLink;
 
 @property (nonatomic) GLuint framebuffer;
+@property (nonatomic) GLuint stencilbuffer;
 @property (nonatomic) GLuint renderbuffer;
 @property (nonatomic) GLuint depthbuffer;
 
@@ -25,11 +26,25 @@
 
 @implementation GCDGLView
 
+- (instancetype)initWithRenderQueue:(dispatch_queue_t)renderQueue
+{
+    self = [super init];
+    
+    if ( self ) {
+        self.renderQueue = renderQueue;
+        [self setup];
+    }
+    
+    return self;
+}
+
+
 - (instancetype)init
 {
     self = [super init];
     
     if ( self ) {
+        self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
         [self setup];
     }
     
@@ -39,7 +54,6 @@
 
 - (void)setup
 {
-    self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
     self.renderLock = [[NSLock alloc] init];
     
     self.mainContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
@@ -54,15 +68,20 @@
     glGenFramebuffers(1, &_framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
     
-    glGenRenderbuffers(1, &_renderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, 1000.0, 1000.0);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+//    glGenRenderbuffers(1, &_stencilbuffer);
+//    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+//    glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8, GL_MAX_RENDERBUFFER_SIZE, GL_MAX_RENDERBUFFER_SIZE);
+//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
     //    glGenRenderbuffers(1, &_depthbuffer);
     //    glBindRenderbuffer(GL_RENDERBUFFER, _depthbuffer);
     //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_DEPTH_COMPONENT16, 1000.0, 1000.0);
     //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthbuffer);
+    
+    glGenRenderbuffers(1, &_renderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+    //    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 4, GL_RGBA8_OES, 1000.0, 1000.0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
     
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mainLayer];
     
@@ -79,7 +98,6 @@
     
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    self.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -113,8 +131,8 @@
         
         glViewport(0, 0, frame.size.width * scale, frame.size.height * scale);
         glClearColor(.2f, 0, 0, 0.2);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
         if ( [self.delegate respondsToSelector:@selector(drawInRect:forView:)] ) {
             [self.delegate drawInRect:frame forView:self];
         }

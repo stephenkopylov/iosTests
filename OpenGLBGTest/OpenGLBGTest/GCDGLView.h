@@ -20,6 +20,8 @@
 
 @interface GCDGLView : UIView
 
+- (instancetype)initWithRenderQueue:(dispatch_queue_t)renderQueue;
+
 @property (nonatomic, weak) id<GCDGLViewDelegate> delegate;
 
 @end

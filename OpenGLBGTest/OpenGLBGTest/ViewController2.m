@@ -29,7 +29,7 @@
 - (void)loadView
 {
     [super loadView];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     _glView = [GCDGLView new];
     _glView.delegate = self;
     _glView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -71,7 +71,7 @@
     
     nvgEndFrame(_vg);
     
-    //_xshift += 0.5;
+    _xshift += 0.2;
 }
 
 
