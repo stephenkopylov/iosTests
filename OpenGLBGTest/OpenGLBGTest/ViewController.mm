@@ -60,80 +60,60 @@
     GLKView *view = (GLKView *)self.view;
     view.context = self.mainContext;
     
-    [EAGLContext setCurrentContext:self.mainContext];
-    
-    _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
-    
-    glGetIntegerv(GL_RENDERBUFFER, &_defaultRenderbuffer);
-    
-    glGetIntegerv(GL_FRAMEBUFFER, &_defaultFramebuffer);
-    
     dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
-        
-        
-        _renderLayer = [CAEAGLLayer new];
-        _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
-        _renderLayer.opaque = YES;
-        _renderLayer.contentsScale = 1.0;
-        _renderLayer.drawableProperties = @{
-                                            kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
-                                            };
-        
-        
         [EAGLContext setCurrentContext:self.renderContext];
-        
-        glBindRenderbuffer(GL_RENDERBUFFER, _defaultRenderbuffer);
-        [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
-        
-        glBindFramebuffer(GL_FRAMEBUFFER, _defaultRenderbuffer);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _defaultRenderbuffer);
+         [view bindDrawable];
+        _vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
+        /*
+         _renderLayer = [CAEAGLLayer new];
+         _renderLayer.frame = CGRectMake(0.0, 0.0, 100., 100.0);
+         _renderLayer.opaque = YES;
+         _renderLayer.contentsScale = 1.0;
+         _renderLayer.drawableProperties = @{
+         kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+         };
+         
+         
+         
+         [EAGLContext setCurrentContext:self.renderContext];
+         
+         glBindRenderbuffer(GL_RENDERBUFFER, _defaultRenderbuffer);
+         [self.renderContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_renderLayer];
+         
+         glBindFramebuffer(GL_FRAMEBUFFER, _defaultRenderbuffer);
+         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _defaultRenderbuffer);
+         */
     });
 }
 
 
 - (void)render:(BOOL)force
 {
-    [EAGLContext setCurrentContext:self.mainContext];
-    
-    
-    
-    
-    
+    GLKView *view = (GLKView *)self.view;
     
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
+        [view bindDrawable];
         
-        glBindRenderbuffer(GL_RENDERBUFFER, _defaultRenderbuffer);
-        glBindRenderbuffer(GL_FRAMEBUFFER, _defaultRenderbuffer);
-        /*
-         
-         glViewport(0, 0, 100.0, 100.0);
-         glClearColor(10.0, 104.0 / 255.0, 55.0 / 255.0, 1.0);
-         glClear(GL_COLOR_BUFFER_BIT);
-         
-         [self.renderContext presentRenderbuffer:GL_RENDERBUFFER];
-         */
+        nvgBeginFrame(_vg, 100.0, 100.0, 2.0);
         
+        nvgStrokeColor(_vg, nvgRGB(1.0, 0.5, 1.0));
+        nvgStrokeWidth(_vg, 1.5f);
         
+        nvgBeginPath(_vg);
+        nvgMoveTo(_vg, 0.0, 0.0);
+        nvgLineTo(_vg, 100.0, 100.0);
+        nvgStroke(_vg);
         
+        nvgEndFrame(_vg);
         dispatch_sync(dispatch_get_main_queue(), ^{
             [EAGLContext setCurrentContext:self.mainContext];
             
+            [view bindDrawable];
+            
             glClearColor(10.0 / 255.0, 10.0 / 255.0, 100.0 / 255.0, 0.0);
             glClear(GL_COLOR_BUFFER_BIT);
-            
-            nvgBeginFrame(_vg, 100.0, 100.0, 2.0);
-            
-            nvgStrokeColor(_vg, nvgRGB(1.0, 0.5, 1.0));
-            nvgStrokeWidth(_vg, 1.5f);
-            
-            nvgBeginPath(_vg);
-            nvgMoveTo(_vg, 0.0, 0.0);
-            nvgLineTo(_vg, 100.0, 100.0);
-            nvgStroke(_vg);
-            
-            nvgEndFrame(_vg);
             
             [self.mainContext presentRenderbuffer:GL_RENDERBUFFER];
         });
