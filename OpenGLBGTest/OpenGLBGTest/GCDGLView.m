@@ -168,6 +168,10 @@
 
 - (void)render
 {
+    if ( self.frame.size.width == 0 || self.frame.size.height == 0 || self.isHidden || [UIApplication sharedApplication].applicationState != UIApplicationStateActive ) {
+        return;
+    }
+    
     if ( [self.renderLock tryLock] ) {
         [self.renderLock unlock];
     }
