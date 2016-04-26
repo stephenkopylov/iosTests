@@ -69,6 +69,17 @@
     nvgLineTo(_vg, 30.0 + _xshift, 1000.0);
     nvgStroke(_vg);
     
+    nvgFillColor(_vg, nvgRGB(0.0, 0.0, 255.0));
+    nvgBeginPath(_vg);
+    nvgMoveTo(_vg, 0.0, 0.0);
+    nvgLineTo(_vg, 100.0, 0.0);
+    nvgLineTo(_vg, 100.0, 100.0);
+    nvgLineTo(_vg, 50.0, 50.0);
+    nvgLineTo(_vg, 0.0, 100.0);
+    nvgClosePath(_vg);
+    nvgFill(_vg);
+    nvgStroke(_vg);
+    
     nvgEndFrame(_vg);
     
     _xshift += 0.2;

@@ -62,6 +62,8 @@
 		F415B43B1C92399500010BE0 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg_gl_utils.h; sourceTree = "<group>"; };
 		F415B43C1C92399500010BE0 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		F415B43D1C92399500010BE0 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		F4740D1D1C93292C00062DF8 /* 123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 123.h; path = nvg/123.h; sourceTree = "<group>"; };
+		F4740D1E1C93292C00062DF8 /* 123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = 123.m; path = nvg/123.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,8 @@
 				6A4161311C91CC7600983203 /* Supporting Files */,
 				6A4161691C92C73B00983203 /* GCDGLView.h */,
 				6A41616A1C92C73B00983203 /* GCDGLView.m */,
+				F4740D1D1C93292C00062DF8 /* 123.h */,
+				F4740D1E1C93292C00062DF8 /* 123.m */,
 				6A41616C1C92C87700983203 /* ViewController2.h */,
 				6A41616D1C92C87700983203 /* ViewController2.m */,
 			);
@@ -439,6 +443,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OpenGLBGTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.OpenGLBGTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,6 +458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OpenGLBGTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-23.OpenGLBGTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
