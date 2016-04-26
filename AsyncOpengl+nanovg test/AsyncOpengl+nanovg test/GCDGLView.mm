@@ -84,18 +84,6 @@
 
 - (void)dealloc
 {
-    [self removeBuffers];
-    
-    if ( _displayLink ) {
-        [_displayLink invalidate];
-        _displayLink = nil;
-    }
-    
-    if ( [EAGLContext currentContext] == _mainContext ) {
-        [EAGLContext setCurrentContext:nil];
-    }
-    
-    _mainContext = nil;
 }
 
 
@@ -191,11 +179,6 @@
         self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ( self.displayLink ) {
-                [self.displayLink invalidate];
-                self.displayLink = nil;
-            }
-            
             RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
             self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
             [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
@@ -204,38 +187,16 @@
 }
 
 
-- (void)removeBuffers
-{
-    if ( _framebuffer != 0 ) {
-        glDeleteFramebuffers(1, &_framebuffer);
-        _framebuffer =  0;
-    }
-    
-    if ( _stencilbuffer != 0 ) {
-        glDeleteRenderbuffers(1, &_stencilbuffer);
-        _stencilbuffer =  0;
-    }
-    
-    if ( _renderbuffer != 0 ) {
-        glDeleteRenderbuffers(1, &_renderbuffer);
-        _renderbuffer =  0;
-    }
-    
-    if ( _sampleframebuffer != 0 ) {
-        glDeleteFramebuffers(1, &_sampleframebuffer);
-        _sampleframebuffer =  0;
-    }
-    
-    if ( _samplestencilbuffer != 0 ) {
-        glDeleteRenderbuffers(1, &_samplestencilbuffer);
-        _samplestencilbuffer =  0;
-    }
-    
-    if ( _samplerenderbuffer != 0 ) {
-        glDeleteRenderbuffers(1, &_samplerenderbuffer);
-        _samplerenderbuffer =  0;
-    }
-}
+//- (void)removeBuffers
+//{
+//
+//    dispatch_async(self.renderQueue, ^{
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//
+//        });
+//    });
+//}
 
 
 - (void)layoutSubviews
@@ -247,10 +208,60 @@
 
 - (void)removeFromSuperview
 {
+    if ( _displayLink ) {
+        [_displayLink invalidate];
+        _displayLink = nil;
+    }
+    
     dispatch_async(self.renderQueue, ^{
         glFinish();
         nvgDeleteGLES2(self.vg);
+        
+        //        [self removeBuffers];
+        
+        if ( _framebuffer != 0 ) {
+            glDeleteFramebuffers(1, &_framebuffer);
+            _framebuffer =  0;
+        }
+        
+        if ( _stencilbuffer != 0 ) {
+            glDeleteRenderbuffers(1, &_stencilbuffer);
+            _stencilbuffer =  0;
+        }
+        
+        if ( _sampleframebuffer != 0 ) {
+            glDeleteFramebuffers(1, &_sampleframebuffer);
+            _sampleframebuffer =  0;
+        }
+        
+        if ( _samplestencilbuffer != 0 ) {
+            glDeleteRenderbuffers(1, &_samplestencilbuffer);
+            _samplestencilbuffer =  0;
+        }
+        
+        if ( _samplerenderbuffer != 0 ) {
+            glDeleteRenderbuffers(1, &_samplerenderbuffer);
+            _samplerenderbuffer =  0;
+        }
+        
+        if ( [EAGLContext currentContext] == _renderContext ) {
+            [EAGLContext setCurrentContext:nil];
+        }
+        
+        _renderContext = nil;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            if ( _renderbuffer != 0 ) {
+                glDeleteRenderbuffers(1, &_renderbuffer);
+                _renderbuffer =  0;
+            }
+            
+            if ( [EAGLContext currentContext] == _mainContext ) {
+                [EAGLContext setCurrentContext:nil];
+            }
+            
+            _mainContext = nil;
+            
             [super removeFromSuperview];
         });
     });
