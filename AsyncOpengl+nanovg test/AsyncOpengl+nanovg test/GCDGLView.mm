@@ -43,6 +43,10 @@
     UIButton *_closeButton;
 }
 
++(void)load{
+    
+}
+
 - (instancetype)initWithRenderQueue:(dispatch_queue_t)renderQueue
 {
     self = [super init];
@@ -84,6 +88,7 @@
 
 - (void)dealloc
 {
+    NSLog(@"dealloc %@", self);
 }
 
 
@@ -97,6 +102,9 @@
 {
     self.scale = [UIScreen mainScreen].scale;
     
+    ((CAEAGLLayer *)self.layer).opaque = NO;
+    ((CAEAGLLayer *)self.layer).contentsScale = _scale;
+    
     [self createBuffers];
 }
 
@@ -105,9 +113,6 @@
 {
     self.mainContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:self.mainContext];
-    
-    ((CAEAGLLayer *)self.layer).opaque = NO;
-    ((CAEAGLLayer *)self.layer).contentsScale = _scale;
     
     CGFloat width = 10.f;
     CGFloat height = 10.f;
@@ -214,6 +219,8 @@
     }
     
     dispatch_async(self.renderQueue, ^{
+        NSLog(@"removeFromSuperviewBackgroud %@", self);
+        
         glFinish();
         nvgDeleteGLES2(self.vg);
         
@@ -251,6 +258,8 @@
         _renderContext = nil;
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"removeFromSuperview %@", self);
+            
             if ( _renderbuffer != 0 ) {
                 glDeleteRenderbuffers(1, &_renderbuffer);
                 _renderbuffer =  0;
@@ -312,13 +321,14 @@
         glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
         
         glClearColor(0.f, 0.f, 1.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        //        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         
         int randNum = rand() % (255 - 0) + 0;
+        int randNum2 = rand() % (5 - 0) + 0;
         
         nvgBeginFrame(self.vg, roundf(self.frame.size.width), roundf(self.frame.size.height), [UIScreen mainScreen].scale);
         nvgStrokeColor(self.vg, nvgRGB(randNum, 0, 0));
-        nvgStrokeWidth(self.vg, 1.0f);
+        nvgStrokeWidth(self.vg, randNum2);
         nvgBeginPath(self.vg);
         nvgMoveTo(self.vg, 0.0, 0.0);
         nvgLineTo(self.vg, 100.0, 100.0);
