@@ -43,9 +43,10 @@
     UIButton *_closeButton;
 }
 
-+(void)load{
-    
++ (void)load
+{
 }
+
 
 - (instancetype)initWithRenderQueue:(dispatch_queue_t)renderQueue
 {
@@ -222,7 +223,7 @@
         NSLog(@"removeFromSuperviewBackgroud %@", self);
         
         glFinish();
-        nvgDeleteGLES2(self.vg);
+        
         
         //        [self removeBuffers];
         
@@ -251,23 +252,27 @@
             _samplerenderbuffer =  0;
         }
         
-        if ( [EAGLContext currentContext] == _renderContext ) {
-            [EAGLContext setCurrentContext:nil];
-        }
+        //
+        //        if ( [EAGLContext currentContext] == _renderContext ) {
+        //            [EAGLContext setCurrentContext:nil];
+        //        }
+        
+        nvgDeleteGLES2(self.vg);
         
         _renderContext = nil;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"removeFromSuperview %@", self);
+            glFinish();
             
             if ( _renderbuffer != 0 ) {
                 glDeleteRenderbuffers(1, &_renderbuffer);
                 _renderbuffer =  0;
             }
             
-            if ( [EAGLContext currentContext] == _mainContext ) {
-                [EAGLContext setCurrentContext:nil];
-            }
+            //            if ( [EAGLContext currentContext] == _mainContext ) {
+            //                [EAGLContext setCurrentContext:nil];
+            //            }
             
             _mainContext = nil;
             
@@ -283,10 +288,8 @@
         return;
     }
     
-    @synchronized(self) {
-        if ( _rendering ) {
-            return;
-        }
+    if ( _rendering ) {
+        return;
     }
     
     CGFloat width = self.frame.size.width * _scale;
@@ -359,10 +362,12 @@
             
             [self.mainContext presentRenderbuffer:_renderbuffer];
             glFlush();
+            
+            //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((1.0 / 60) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //                [self render];
+            //            });
         });
-        @synchronized(self) {
-            _rendering = NO;
-        }
+        _rendering = NO;
     });
 }
 
