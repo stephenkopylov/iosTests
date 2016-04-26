@@ -35,7 +35,7 @@
 {
     GCDGLView *view = [GCDGLView new];
     
-    view.frame = CGRectMake(0+10*num, 100+10*num, 100, 100);
+    view.frame = CGRectMake(0+50*num, 100+50*num, 100, 100);
     [self.view addSubview:view];
     
     num++;

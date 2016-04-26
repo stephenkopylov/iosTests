@@ -7,7 +7,7 @@
 //
 #define NANOVG_GLES2_IMPLEMENTATION
 #import "GCDGLView.h"
-#import <OpenGLES/ES2/glext.h>
+#include <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <RDRIntermediateTarget.h>
 #import "nanovg/nanovg.c"
@@ -130,8 +130,6 @@
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
     dispatch_async(self.renderQueue, ^{
-        self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
-        
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
@@ -190,6 +188,8 @@
             [self.delegate setupGL:self];
         }
         
+        self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if ( self.displayLink ) {
                 [self.displayLink invalidate];
@@ -245,6 +245,18 @@
 }
 
 
+- (void)removeFromSuperview
+{
+    dispatch_async(self.renderQueue, ^{
+        glFinish();
+        nvgDeleteGLES2(self.vg);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [super removeFromSuperview];
+        });
+    });
+}
+
+
 - (void)render
 {
     if ( !self.renderable ) {
@@ -272,6 +284,7 @@
         [EAGLContext setCurrentContext:self.renderContext];
         glViewport(0, 0, width, height);
         
+        
         glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
         GLint samples;
@@ -290,16 +303,15 @@
         glClearColor(0.f, 0.f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         
-        NSLog(@"%f %f %f", self.frame.size.width, self.frame.size.height, [UIScreen mainScreen].scale);
+        int randNum = rand() % (255 - 0) + 0;
         
         nvgBeginFrame(self.vg, roundf(self.frame.size.width), roundf(self.frame.size.height), [UIScreen mainScreen].scale);
-        
-        nvgStrokeColor(self.vg, nvgRGB(255, 0, 0));
-        nvgStrokeWidth(self.vg, 2.0);
+        nvgStrokeColor(self.vg, nvgRGB(randNum, 0, 0));
+        nvgStrokeWidth(self.vg, 1.0f);
+        nvgBeginPath(self.vg);
         nvgMoveTo(self.vg, 0.0, 0.0);
         nvgLineTo(self.vg, 100.0, 100.0);
         nvgStroke(self.vg);
-        
         nvgEndFrame(self.vg);
         
         glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);

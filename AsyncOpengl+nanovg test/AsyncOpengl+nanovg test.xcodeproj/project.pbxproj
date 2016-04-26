@@ -15,6 +15,7 @@
 		6A00EFF31CCF7DF600DF53D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A00EFF11CCF7DF600DF53D2 /* LaunchScreen.storyboard */; };
 		6A00EFFC1CCF859000DF53D2 /* GCDGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A00EFFB1CCF859000DF53D2 /* GCDGLView.mm */; };
 		6A00EFFE1CCFB01500DF53D2 /* nanovg in Resources */ = {isa = PBXBuildFile; fileRef = 6A00EFFD1CCFB01500DF53D2 /* nanovg */; };
+		6A00F0001CCFC17F00DF53D2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A00EFFF1CCFC17F00DF53D2 /* GLKit.framework */; };
 		E3ACEB6BD355618BD6F71B91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51457614C487777BD29BC263 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		6A00EFFA1CCF859000DF53D2 /* GCDGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGLView.h; sourceTree = "<group>"; };
 		6A00EFFB1CCF859000DF53D2 /* GCDGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCDGLView.mm; sourceTree = "<group>"; };
 		6A00EFFD1CCFB01500DF53D2 /* nanovg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nanovg; sourceTree = "<group>"; };
+		6A00EFFF1CCFC17F00DF53D2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		C703F3F90F2B9DC48C5F45F0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A00F0001CCFC17F00DF53D2 /* GLKit.framework in Frameworks */,
 				E3ACEB6BD355618BD6F71B91 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +55,7 @@
 		3AEDAED705E87407170BC929 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A00EFFF1CCFC17F00DF53D2 /* GLKit.framework */,
 				51457614C487777BD29BC263 /* libPods.a */,
 			);
 			name = Frameworks;
