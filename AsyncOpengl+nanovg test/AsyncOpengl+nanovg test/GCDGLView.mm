@@ -5,10 +5,15 @@
 //  Created by Stephen Kopylov - Home on 11/03/16.
 //  Copyright © 2016 Stephen Kopylov - Home. All rights reserved.
 //
+#define NANOVG_GLES2_IMPLEMENTATION
 #import "GCDGLView.h"
 #import <OpenGLES/ES2/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <RDRIntermediateTarget.h>
+#import "nanovg/nanovg.c"
+#import "nanovg/nanovg.h"
+#import "nanovg/nanovg_gl.h"
+#import "nanovg/nanovg_gl_utils.h"
 
 @interface GCDGLView ()
 @property (nonatomic, strong) dispatch_queue_t renderQueue;
@@ -29,6 +34,8 @@
 @property (nonatomic) BOOL renderable;
 
 @property (nonatomic) BOOL rendering;
+
+@property (nonatomic)  NVGcontext *vg;
 
 @end
 
@@ -123,6 +130,8 @@
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
     dispatch_async(self.renderQueue, ^{
+        self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
+        
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
@@ -180,16 +189,18 @@
         if ( [self.delegate respondsToSelector:@selector(setupGL:)] ) {
             [self.delegate setupGL:self];
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ( self.displayLink ) {
+                [self.displayLink invalidate];
+                self.displayLink = nil;
+            }
+            
+            RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
+            self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
+            [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        });
     });
-    
-    if ( self.displayLink ) {
-        [self.displayLink invalidate];
-        self.displayLink = nil;
-    }
-    
-    RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
-    self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 
@@ -231,25 +242,6 @@
 {
     [super layoutSubviews];
     [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-}
-
-
-- (void)removeFromSuperview
-{
-    [super removeFromSuperview];
-    
-    //    if ( _debug ) {
-    //        NSLog(@"removeFromSuperview");
-    //    }
-    
-    glFinish();
-    
-    if ( _displayLink ) {
-        [_displayLink invalidate];
-        _displayLink = nil;
-    }
-    
-    glFinish();
 }
 
 
@@ -295,10 +287,20 @@
         glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
         
-        
         glClearColor(0.f, 0.f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         
+        NSLog(@"%f %f %f", self.frame.size.width, self.frame.size.height, [UIScreen mainScreen].scale);
+        
+        nvgBeginFrame(self.vg, roundf(self.frame.size.width), roundf(self.frame.size.height), [UIScreen mainScreen].scale);
+        
+        nvgStrokeColor(self.vg, nvgRGB(255, 0, 0));
+        nvgStrokeWidth(self.vg, 2.0);
+        nvgMoveTo(self.vg, 0.0, 0.0);
+        nvgLineTo(self.vg, 100.0, 100.0);
+        nvgStroke(self.vg);
+        
+        nvgEndFrame(self.vg);
         
         glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, _framebuffer);
