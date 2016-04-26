@@ -30,16 +30,3 @@
 @property (nonatomic) BOOL debug;
 
 @end
-
-
-@interface GCDGLRenderEmitter : NSObject
-
-@property (nonatomic, strong) dispatch_queue_t renderQueue;
-
-+ (instancetype)sharedManager;
-
-- (void)addView:(GCDGLView *)view;
-
-- (void)removeView:(GCDGLView *)view;
-
-@end

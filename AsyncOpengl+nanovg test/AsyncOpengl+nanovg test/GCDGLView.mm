@@ -16,6 +16,8 @@
 #import "nanovg/nanovg_gl_utils.h"
 
 @interface GCDGLView ()
+@property (nonatomic) CADisplayLink *displayLink;
+@property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, strong) EAGLContext *renderContext;
 @property (nonatomic, strong) EAGLContext *mainContext;
 
@@ -81,16 +83,12 @@
 
 - (void)buttonTapped
 {
-    if ( !_removing ) {
-        _removing = YES;
-        [self removeFromSuperview];
-    }
+    [self.superview removeFromSuperview];
 }
 
 
 - (void)dealloc
 {
-    NSLog(@"dealloc %@", self);
 }
 
 
@@ -104,6 +102,8 @@
 {
     _removing = NO;
     self.scale = [UIScreen mainScreen].scale;
+    
+    self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
     
     ((CAEAGLLayer *)self.layer).opaque = NO;
     ((CAEAGLLayer *)self.layer).contentsScale = _scale;
@@ -125,7 +125,7 @@
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
-    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
+    dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
@@ -187,22 +187,12 @@
         self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[GCDGLRenderEmitter sharedManager] addView:self];
+            RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
+            self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
+            [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         });
     });
 }
-
-
-//- (void)removeBuffers
-//{
-//
-//    dispatch_async(self.renderQueue, ^{
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//
-//        });
-//    });
-//}
 
 
 - (void)layoutSubviews
@@ -214,14 +204,18 @@
 
 - (void)removeFromSuperview
 {
-    [[GCDGLRenderEmitter sharedManager] removeView:self];
-    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
-        NSLog(@"removeFromSuperviewBackgroud %@", self);
-        
+    @synchronized(self) {
+        _removing = YES;
+    }
+    
+    if ( _displayLink ) {
+        [_displayLink invalidate];
+        _displayLink = nil;
+    }
+    
+    dispatch_async(self.renderQueue, ^{
+        [EAGLContext setCurrentContext:self.renderContext];
         glFinish();
-        
-        
-        //        [self removeBuffers];
         
         if ( _framebuffer != 0 ) {
             glDeleteFramebuffers(1, &_framebuffer);
@@ -248,17 +242,12 @@
             _samplerenderbuffer =  0;
         }
         
-        //
-        //        if ( [EAGLContext currentContext] == _renderContext ) {
-        //            [EAGLContext setCurrentContext:nil];
-        //        }
-        
         nvgDeleteGLES2(self.vg);
         
         _renderContext = nil;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"removeFromSuperview %@", self);
+            [EAGLContext setCurrentContext:self.mainContext];
             glFinish();
             
             if ( _renderbuffer != 0 ) {
@@ -266,13 +255,9 @@
                 _renderbuffer =  0;
             }
             
-            //            if ( [EAGLContext currentContext] == _mainContext ) {
-            //                [EAGLContext setCurrentContext:nil];
-            //            }
-            
             _mainContext = nil;
             
-            [super removeFromSuperview];
+            //            [super removeFromSuperview];
         });
     });
 }
@@ -280,18 +265,18 @@
 
 - (void)render
 {
-    if ( !self.renderable ) {
+    if ( _rendering ) {
         return;
     }
     
-    if ( _rendering ) {
+    if ( !self.renderable ) {
         return;
     }
     
     CGFloat width = self.frame.size.width * _scale;
     CGFloat height = self.frame.size.height * _scale;
     
-    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
+    dispatch_async(self.renderQueue, ^{
         if ( !self.renderable ) {
             return;
         }
@@ -302,7 +287,6 @@
         
         [EAGLContext setCurrentContext:self.renderContext];
         glViewport(0, 0, width, height);
-        
         
         glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
@@ -320,18 +304,21 @@
         glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
         
         glClearColor(0.f, 0.f, 1.0f, 1.0f);
-        //        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-        
-        int randNum = rand() % (255 - 0) + 0;
-        int randNum2 = rand() % (5 - 0) + 0;
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         
         nvgBeginFrame(self.vg, roundf(self.frame.size.width), roundf(self.frame.size.height), [UIScreen mainScreen].scale);
-        nvgStrokeColor(self.vg, nvgRGB(randNum, 0, 0));
-        nvgStrokeWidth(self.vg, randNum2);
-        nvgBeginPath(self.vg);
-        nvgMoveTo(self.vg, 0.0, 0.0);
-        nvgLineTo(self.vg, 100.0, 100.0);
-        nvgStroke(self.vg);
+        
+        for ( int i = 0; i < 30; i++ ) {
+            int randNum = rand() % (255 - 0) + 0;
+            int randNum2 = rand() % (5 - 0) + 0;
+            nvgStrokeColor(self.vg, nvgRGB(randNum, 0, 0));
+            nvgStrokeWidth(self.vg, randNum2);
+            nvgBeginPath(self.vg);
+            nvgMoveTo(self.vg, 0.0, 0.0 + i * 2);
+            nvgLineTo(self.vg, 100.0, 100.0 + i * 2);
+            nvgStroke(self.vg);
+        }
+        
         nvgEndFrame(self.vg);
         
         glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
@@ -358,19 +345,17 @@
             
             [self.mainContext presentRenderbuffer:_renderbuffer];
             glFlush();
-            
-            //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((1.0 / 60) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            //                [self render];
-            //            });
         });
-        _rendering = NO;
+        @synchronized(self) {
+            _rendering = NO;
+        }
     });
 }
 
 
 - (BOOL)renderable
 {
-    if ( self.frame.size.width == 0.0f || self.frame.size.height == 0.0f || self.isHidden || [UIApplication sharedApplication].applicationState != UIApplicationStateActive || !self.superview || self.layer.frame.size.width == 0.0f || self.layer.frame.size.height == 0.0f ) {
+    if ( _removing || self.frame.size.width == 0.0f || self.frame.size.height == 0.0f || self.isHidden || [UIApplication sharedApplication].applicationState != UIApplicationStateActive || !self.superview || self.layer.frame.size.width == 0.0f || self.layer.frame.size.height == 0.0f ) {
         @synchronized(self) {
             _rendering = NO;
         }
@@ -378,68 +363,6 @@
     }
     
     return YES;
-}
-
-
-@end
-
-
-@interface GCDGLRenderEmitter ()
-
-@property (nonatomic) CADisplayLink *displayLink;
-@property (nonatomic) NSMutableArray *views;
-
-@end
-
-@implementation GCDGLRenderEmitter
-
-+ (instancetype)sharedManager
-{
-    static GCDGLRenderEmitter *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[GCDGLRenderEmitter alloc] init];
-    });
-    return sharedInstance;
-}
-
-
-- (instancetype)init
-{
-    self = [super init];
-    
-    if ( self ) {
-        self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
-        
-        self.views = @[].mutableCopy;
-        
-        RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
-        self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(emmitRender)];
-        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    }
-    
-    return self;
-}
-
-
-- (void)addView:(GCDGLView *)view
-{
-    [self.views addObject:view];
-}
-
-
-- (void)removeView:(GCDGLView *)view
-{
-    [self.views removeObject:view];
-}
-
-
-- (void)emmitRender
-{
-    [_views enumerateObjectsUsingBlock:^(GCDGLView *view, NSUInteger idx, BOOL *_Nonnull stop) {
-        [view render];
-    }];
 }
 
 
