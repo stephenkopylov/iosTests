@@ -16,10 +16,8 @@
 #import "nanovg/nanovg_gl_utils.h"
 
 @interface GCDGLView ()
-@property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, strong) EAGLContext *renderContext;
 @property (nonatomic, strong) EAGLContext *mainContext;
-@property (nonatomic) CADisplayLink *displayLink;
 
 @property (nonatomic) GLuint framebuffer;
 @property (nonatomic) GLuint stencilbuffer;
@@ -37,6 +35,8 @@
 
 @property (nonatomic)  NVGcontext *vg;
 
+@property (nonatomic) BOOL removing;
+
 @end
 
 @implementation GCDGLView {
@@ -53,7 +53,7 @@
     self = [super init];
     
     if ( self ) {
-        self.renderQueue = renderQueue;
+        //        self.renderQueue = renderQueue;
         [self setup];
     }
     
@@ -66,8 +66,6 @@
     self = [super init];
     
     if ( self ) {
-        self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
-        
         [self setup];
         
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -83,7 +81,10 @@
 
 - (void)buttonTapped
 {
-    [self removeFromSuperview];
+    if ( !_removing ) {
+        _removing = YES;
+        [self removeFromSuperview];
+    }
 }
 
 
@@ -101,6 +102,7 @@
 
 - (void)setup
 {
+    _removing = NO;
     self.scale = [UIScreen mainScreen].scale;
     
     ((CAEAGLLayer *)self.layer).opaque = NO;
@@ -123,7 +125,7 @@
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
-    dispatch_async(self.renderQueue, ^{
+    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         [EAGLContext setCurrentContext:self.renderContext];
         
@@ -185,9 +187,7 @@
         self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
-            self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
-            [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+            [[GCDGLRenderEmitter sharedManager] addView:self];
         });
     });
 }
@@ -214,12 +214,8 @@
 
 - (void)removeFromSuperview
 {
-    if ( _displayLink ) {
-        [_displayLink invalidate];
-        _displayLink = nil;
-    }
-    
-    dispatch_async(self.renderQueue, ^{
+    [[GCDGLRenderEmitter sharedManager] removeView:self];
+    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
         NSLog(@"removeFromSuperviewBackgroud %@", self);
         
         glFinish();
@@ -295,7 +291,7 @@
     CGFloat width = self.frame.size.width * _scale;
     CGFloat height = self.frame.size.height * _scale;
     
-    dispatch_async(self.renderQueue, ^{
+    dispatch_async([GCDGLRenderEmitter sharedManager].renderQueue, ^{
         if ( !self.renderable ) {
             return;
         }
@@ -382,6 +378,68 @@
     }
     
     return YES;
+}
+
+
+@end
+
+
+@interface GCDGLRenderEmitter ()
+
+@property (nonatomic) CADisplayLink *displayLink;
+@property (nonatomic) NSMutableArray *views;
+
+@end
+
+@implementation GCDGLRenderEmitter
+
++ (instancetype)sharedManager
+{
+    static GCDGLRenderEmitter *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[GCDGLRenderEmitter alloc] init];
+    });
+    return sharedInstance;
+}
+
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if ( self ) {
+        self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
+        
+        self.views = @[].mutableCopy;
+        
+        RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
+        self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(emmitRender)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    }
+    
+    return self;
+}
+
+
+- (void)addView:(GCDGLView *)view
+{
+    [self.views addObject:view];
+}
+
+
+- (void)removeView:(GCDGLView *)view
+{
+    [self.views removeObject:view];
+}
+
+
+- (void)emmitRender
+{
+    [_views enumerateObjectsUsingBlock:^(GCDGLView *view, NSUInteger idx, BOOL *_Nonnull stop) {
+        [view render];
+    }];
 }
 
 
