@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8EC7A943ECCD38986B33EF21'
+               BlueprintIdentifier = '8179A664B8C37DA1B471A18F'
                BlueprintName = 'SKAsyncGLViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libSKAsyncGLViewController.a'>

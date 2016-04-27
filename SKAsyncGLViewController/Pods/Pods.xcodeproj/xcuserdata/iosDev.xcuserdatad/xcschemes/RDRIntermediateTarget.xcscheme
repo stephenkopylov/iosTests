@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'ECD270753FC9289E75BF173C'
+               BlueprintIdentifier = 'B48614176533D4148C0CCCAF'
                BlueprintName = 'RDRIntermediateTarget'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRDRIntermediateTarget.a'>

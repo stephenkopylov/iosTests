@@ -7,7 +7,7 @@
 //
 
 #import "SKAsyncGLViewController.h"
-#import <RDRIntermediateTarget.h>
+#import "RDRIntermediateTarget.h"
 
 @interface SKAsyncGLViewController ()
 @property (nonatomic) CADisplayLink *displayLink;

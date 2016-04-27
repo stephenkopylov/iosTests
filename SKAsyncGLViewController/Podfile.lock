@@ -12,11 +12,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SKAsyncGLViewController:
-    :commit: 8d30392030f864513e94a6ea62cf73b18de2a4e5
+    :commit: a39cd1098e6658ce96ddd600a0f3b21c88af6563
     :git: https://github.com/stephenkopylov/SKAsyncGLViewController.git
 
 SPEC CHECKSUMS:
   RDRIntermediateTarget: 745364d1a90a3635431775b88d69d1207aaeaa6f
-  SKAsyncGLViewController: bb765df247bee61b55b2e8bf115df66f2a8ed9af
+  SKAsyncGLViewController: 83c74b40052dcc9093caa24a2cad161a981a730b
 
 COCOAPODS: 0.39.0
