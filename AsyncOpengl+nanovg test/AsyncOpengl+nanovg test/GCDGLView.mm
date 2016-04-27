@@ -89,6 +89,7 @@
 
 - (void)dealloc
 {
+    
     if ( _displayLink ) {
         [_displayLink invalidate];
         _displayLink = nil;
