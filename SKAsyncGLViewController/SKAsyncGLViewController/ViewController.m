@@ -86,4 +86,35 @@
 }
 
 
+- (void)drawInRect:(CGRect)rect
+{
+    glViewport(0, 0, rect.size.width, rect.size.height);
+    
+//    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+//    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, rect.size.width, rect.size.height);
+//    GLint samples;
+//    glGetIntegerv(GL_MAX_SAMPLES_APPLE, &samples);
+//    
+//    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+//    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_RGBA8_OES, rect.size.width, rect.size.height);
+//    
+//    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+//    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_DEPTH24_STENCIL8_OES, rect.size.width, rect.size.height);
+//    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+//    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+//    glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
+//    
+    glClearColor(0.f, 0.f, 1.0f, 1.0f);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    
+//    glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
+    //     glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, _framebuffer);
+    //     glResolveMultisampleFramebufferAPPLE();
+    
+//    const GLenum discards[]  = { GL_COLOR_ATTACHMENT0, GL_DEPTH_ATTACHMENT };
+//    glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, 2, discards);
+    glFlush();
+}
+
+
 @end

@@ -13,7 +13,9 @@
 
 @protocol SKAsyncGLViewDelegate <NSObject>
 
-- (void)createBuffers:(SKAsyncGLView *)asyncView;
+- (void)createBuffersForView:(SKAsyncGLView *)asyncView;
+
+- (void)drawInRect:(CGRect)rect;
 
 @end
 
@@ -21,5 +23,7 @@
 
 @property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, weak) id<SKAsyncGLViewDelegate> delegate;
+
+- (void)render;
 
 @end

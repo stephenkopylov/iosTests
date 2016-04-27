@@ -89,7 +89,6 @@
 
 - (void)dealloc
 {
-    
     if ( _displayLink ) {
         [_displayLink invalidate];
         _displayLink = nil;
@@ -164,8 +163,6 @@
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _samplerenderbuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
-        
-        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
         
         GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
         

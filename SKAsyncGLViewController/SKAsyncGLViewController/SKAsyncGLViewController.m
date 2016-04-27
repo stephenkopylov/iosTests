@@ -22,9 +22,15 @@
 }
 
 
+- (void)render
+{
+    [self.view render];
+}
+
+
 #pragma mark - SKAsyncGLViewDelegate
 
-- (void)createBuffers:(SKAsyncGLView *)asyncView
+- (void)createBuffersForView:(SKAsyncGLView *)asyncView
 {
     if ( [_delegate respondsToSelector:@selector(createBuffers:)] ) {
         [_delegate createBuffers:self];
