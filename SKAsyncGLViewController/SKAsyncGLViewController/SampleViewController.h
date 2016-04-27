@@ -6,8 +6,8 @@
 //  Copyright © 2016 test. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SKAsyncGLViewController.h"
 
-@interface ViewController : UIViewController
+@interface SampleViewController : SKAsyncGLViewController
 
 @end

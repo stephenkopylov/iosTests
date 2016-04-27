@@ -22,6 +22,17 @@
 }
 
 
+- (void)removeFromParentViewController
+{
+    [super removeFromParentViewController];
+    
+    if ( self.displayLink ) {
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }
+}
+
+
 - (void)render
 {
     [self.view render];
@@ -49,6 +60,12 @@
     if ( [_delegate respondsToSelector:@selector(removeBuffers:)] ) {
         [_delegate removeBuffers:self];
     }
+}
+
+
+- (void)drawInRect:(CGRect)rect
+{
+    [NSException raise:NSInternalInconsistencyException format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
 

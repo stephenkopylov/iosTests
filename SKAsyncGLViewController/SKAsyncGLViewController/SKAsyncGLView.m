@@ -163,6 +163,8 @@
 
 - (void)removeFromSuperview
 {
+    [super removeFromSuperview];
+    
     @synchronized(self) {
         _removing = YES;
     }
