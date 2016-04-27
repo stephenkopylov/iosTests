@@ -7,9 +7,10 @@
 //
 
 #import "SKAsyncGLViewController.h"
+#import <RDRIntermediateTarget.h>
 
 @interface SKAsyncGLViewController ()<SKAsyncGLViewDelegate>
-
+@property (nonatomic) CADisplayLink *displayLink;
 @end
 
 @implementation SKAsyncGLViewController
@@ -28,6 +29,12 @@
     if ( [_delegate respondsToSelector:@selector(createBuffers:)] ) {
         [_delegate createBuffers:self];
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        RDRIntermediateTarget *target = [RDRIntermediateTarget intermediateTargetWithTarget:self];
+        self.displayLink = [CADisplayLink displayLinkWithTarget:target selector:@selector(render)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    });
 }
 
 

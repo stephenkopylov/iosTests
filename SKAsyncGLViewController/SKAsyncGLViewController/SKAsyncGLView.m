@@ -12,6 +12,7 @@
 @property (nonatomic, strong) EAGLContext *mainContext;
 @property (nonatomic, strong) EAGLContext *renderContext;
 @property (nonatomic) GLuint renderbuffer;
+@property (nonatomic) GLuint framebuffer;
 @end
 
 @implementation SKAsyncGLView
@@ -58,6 +59,9 @@
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
+        
+        glGenFramebuffers(1, &_framebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
         if ( [_delegate respondsToSelector:@selector(createBuffers:)] ) {
             [_delegate createBuffers:self];
