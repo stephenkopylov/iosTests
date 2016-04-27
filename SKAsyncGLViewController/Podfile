@@ -1,1 +1,1 @@
-pod "RDRIntermediateTarget"
+pod "SKAsyncGLViewController", :git => "https://github.com/stephenkopylov/SKAsyncGLViewController.git"

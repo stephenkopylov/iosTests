@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/RDRIntermediateTarget"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/RDRIntermediateTarget"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"RDRIntermediateTarget"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/RDRIntermediateTarget" "${PODS_ROOT}/Headers/Public/SKAsyncGLViewController"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/RDRIntermediateTarget" -isystem "${PODS_ROOT}/Headers/Public/SKAsyncGLViewController"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"RDRIntermediateTarget" -l"SKAsyncGLViewController"
 PODS_ROOT = ${SRCROOT}/Pods

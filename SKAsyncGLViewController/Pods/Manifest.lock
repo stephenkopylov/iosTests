@@ -1,10 +1,22 @@
 PODS:
   - RDRIntermediateTarget (0.0.1)
+  - SKAsyncGLViewController (0.0.1):
+    - RDRIntermediateTarget
 
 DEPENDENCIES:
-  - RDRIntermediateTarget
+  - SKAsyncGLViewController (from `https://github.com/stephenkopylov/SKAsyncGLViewController.git`)
+
+EXTERNAL SOURCES:
+  SKAsyncGLViewController:
+    :git: https://github.com/stephenkopylov/SKAsyncGLViewController.git
+
+CHECKOUT OPTIONS:
+  SKAsyncGLViewController:
+    :commit: 8d30392030f864513e94a6ea62cf73b18de2a4e5
+    :git: https://github.com/stephenkopylov/SKAsyncGLViewController.git
 
 SPEC CHECKSUMS:
   RDRIntermediateTarget: 745364d1a90a3635431775b88d69d1207aaeaa6f
+  SKAsyncGLViewController: bb765df247bee61b55b2e8bf115df66f2a8ed9af
 
 COCOAPODS: 0.39.0

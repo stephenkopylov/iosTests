@@ -6,7 +6,7 @@
 //  Copyright © 2016 test. All rights reserved.
 //
 
-#import "SKAsyncGLViewController.h"
+#import <SKAsyncGLViewController.h>
 
 @interface SampleViewController : SKAsyncGLViewController
 
