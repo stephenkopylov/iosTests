@@ -11,8 +11,9 @@
 @interface SKAsyncGLView ()
 @property (nonatomic, strong) EAGLContext *mainContext;
 @property (nonatomic, strong) EAGLContext *renderContext;
-@property (nonatomic) GLuint renderbuffer;
-@property (nonatomic) GLuint framebuffer;
+@property (nonatomic, getter = isRenderable) BOOL renderable;
+@property (nonatomic) BOOL rendering;
+@property (nonatomic) BOOL removing;
 @end
 
 @implementation SKAsyncGLView
@@ -29,6 +30,7 @@
     
     if ( self ) {
         self.renderQueue = dispatch_queue_create("Render-Queue", DISPATCH_QUEUE_SERIAL);
+        
         ((CAEAGLLayer *)self.layer).opaque = NO;
         ((CAEAGLLayer *)self.layer).contentsScale = [UIScreen mainScreen].scale;
         
@@ -39,17 +41,9 @@
 }
 
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-}
-
-
 - (void)createContexts
 {
     self.mainContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    
     dispatch_async(self.renderQueue, ^{
         self.renderContext = [[EAGLContext alloc] initWithAPI:self.mainContext.API sharegroup:self.mainContext.sharegroup];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -62,22 +56,22 @@
 - (void)createBuffers
 {
     [EAGLContext setCurrentContext:self.mainContext];
-    glViewport(0, 0, 10.0, 10.0);
+    
     glGenRenderbuffers(1, &_renderbuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     
+    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
+    
     dispatch_async(self.renderQueue, ^{
         [EAGLContext setCurrentContext:self.renderContext];
-        glViewport(0, 0, 10.0, 10.0);
+        
         glGenFramebuffers(1, &_framebuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _framebuffer);
         
-//            glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-        
-        //        if ( [_delegate respondsToSelector:@selector(createBuffersForView:)] ) {
-        //            [_delegate createBuffersForView:self];
-        //        }
+        if ( [_delegate respondsToSelector:@selector(createBuffersForView:)] ) {
+            [_delegate createBuffersForView:self];
+        }
         
         GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
         
@@ -96,50 +90,106 @@
         else if ( status == GL_FRAMEBUFFER_UNSUPPORTED ) {
             NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-        });
     });
 }
 
 
 - (void)render
 {
+    if ( _rendering ) {
+        return;
+    }
+    
+    if ( !self.renderable ) {
+        return;
+    }
+    
     CGFloat width = self.frame.size.width * [UIScreen mainScreen].scale;
     CGFloat height = self.frame.size.height *  [UIScreen mainScreen].scale;
     
-    [EAGLContext setCurrentContext:self.mainContext];
-    [self.mainContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-    
     dispatch_async(self.renderQueue, ^{
+        if ( _rendering ) {
+            return;
+        }
+        
+        if ( !self.renderable ) {
+            return;
+        }
+        
+        @synchronized(self) {
+            _rendering = YES;
+        }
         [EAGLContext setCurrentContext:self.renderContext];
         
         glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
         
         CGRect rect = CGRectMake(0, 0, width, height);
         
-        glViewport(0, 0, width, height);
-        glClearColor(0.f, 0.f, 1.0f, 1.0f);
-        //        if ( [_delegate respondsToSelector:@selector(drawInRect:)] ) {
-        //            [_delegate drawInRect:rect];
-        //        }
-        
-        //         if ( !self.renderable ) {
-        //         return;
-        //         }
-        //
-        glFinish();
-        glFlush();
-        
+        if ( [_delegate respondsToSelector:@selector(drawInRect:)] ) {
+            [_delegate drawInRect:rect];
+        }
         
         dispatch_sync(dispatch_get_main_queue(), ^{
+            if ( !self.renderable ) {
+                return;
+            }
+            
             [EAGLContext setCurrentContext:self.mainContext];
             glBindFramebuffer(GL_FRAMEBUFFER, _renderbuffer);
             glViewport(0, 0, width, height);
             
             [self.mainContext presentRenderbuffer:_renderbuffer];
-            glFinish();
             glFlush();
+        });
+        @synchronized(self) {
+            _rendering = NO;
+        }
+    });
+}
+
+
+- (BOOL)isRenderable
+{
+    if ( _removing || self.frame.size.width == 0.0f || self.frame.size.height == 0.0f || self.isHidden || [UIApplication sharedApplication].applicationState != UIApplicationStateActive || !self.superview || self.layer.frame.size.width == 0.0f || self.layer.frame.size.height == 0.0f ) {
+        @synchronized(self) {
+            _rendering = NO;
+        }
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+- (void)removeFromSuperview
+{
+    @synchronized(self) {
+        _removing = YES;
+    }
+    
+    dispatch_async(self.renderQueue, ^{
+        [EAGLContext setCurrentContext:self.renderContext];
+        
+        if ( _framebuffer != 0 ) {
+            glDeleteFramebuffers(1, &_framebuffer);
+            _framebuffer =  0;
+        }
+        
+        if ( [_delegate respondsToSelector:@selector(removeBuffersForView:)] ) {
+            [_delegate removeBuffersForView:self];
+        }
+        
+        _renderContext = nil;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [EAGLContext setCurrentContext:self.mainContext];
+            
+            if ( _renderbuffer != 0 ) {
+                glDeleteRenderbuffers(1, &_renderbuffer);
+                _renderbuffer =  0;
+            }
+            
+            _mainContext = nil;
         });
     });
 }

@@ -30,35 +30,46 @@
 }
 
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+}
+
+
+- (void)updateBuffersSize
+{
+    CGFloat width = self.view.frame.size.width * [UIScreen mainScreen].scale;
+    CGFloat height = self.view.frame.size.height * [UIScreen mainScreen].scale;
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
+    
+    GLint samples;
+    glGetIntegerv(GL_MAX_SAMPLES_APPLE, &samples);
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_RGBA8_OES, width, height);
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_DEPTH24_STENCIL8_OES, width, height);
+}
+
+
 #pragma mark - SKAsyncGLViewControllerDelegate
 
 - (void)createBuffers:(SKAsyncGLViewController *)viewController
 {
-    GLint samples;
-    
-    glGetIntegerv(GL_MAX_SAMPLES_APPLE, &samples);
-    
-    CGFloat width = self.view.frame.size.width;
-    CGFloat height = self.view.frame.size.height;
-    
-    glViewport(0, 0, width, height);
+    NSLog(@"create buffers");
     
     glGenRenderbuffers(1, &_stencilbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
     
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
-    //----multisampling
-    
     glGenRenderbuffers(1, &_samplerenderbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
-    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_RGBA8_OES, width, height);
-    
     glGenRenderbuffers(1, &_samplestencilbuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
-    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_DEPTH24_STENCIL8_OES, width, height);
+    
+    [self updateBuffersSize];
     
     glGenFramebuffers(1, &_sampleframebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
@@ -86,33 +97,51 @@
 }
 
 
+- (void)removeBuffers:(SKAsyncGLViewController *)viewController
+{
+    if ( _stencilbuffer != 0 ) {
+        glDeleteRenderbuffers(1, &_stencilbuffer);
+        _stencilbuffer =  0;
+    }
+    
+    if ( _sampleframebuffer != 0 ) {
+        glDeleteFramebuffers(1, &_sampleframebuffer);
+        _sampleframebuffer =  0;
+    }
+    
+    if ( _samplestencilbuffer != 0 ) {
+        glDeleteRenderbuffers(1, &_samplestencilbuffer);
+        _samplestencilbuffer =  0;
+    }
+    
+    if ( _samplerenderbuffer != 0 ) {
+        glDeleteRenderbuffers(1, &_samplerenderbuffer);
+        _samplerenderbuffer =  0;
+    }
+}
+
+
+#pragma mark - SKAsyncGLViewDelegate
+
 - (void)drawInRect:(CGRect)rect
 {
     glViewport(0, 0, rect.size.width, rect.size.height);
     
-//    glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
-//    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, rect.size.width, rect.size.height);
-//    GLint samples;
-//    glGetIntegerv(GL_MAX_SAMPLES_APPLE, &samples);
-//    
-//    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
-//    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_RGBA8_OES, rect.size.width, rect.size.height);
-//    
-//    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
-//    glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, GL_DEPTH24_STENCIL8_OES, rect.size.width, rect.size.height);
-//    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
-//    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
-//    glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
-//    
-    glClearColor(0.f, 0.f, 1.0f, 1.0f);
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    [self updateBuffersSize];
     
-//    glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
-    //     glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, _framebuffer);
-    //     glResolveMultisampleFramebufferAPPLE();
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _samplerenderbuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _sampleframebuffer);
     
-//    const GLenum discards[]  = { GL_COLOR_ATTACHMENT0, GL_DEPTH_ATTACHMENT };
-//    glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, 2, discards);
+    glClearColor(1.f, 0.f, 1.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    
+    glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, _sampleframebuffer);
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, self.view.framebuffer);
+    glResolveMultisampleFramebufferAPPLE();
+    
+    const GLenum discards[]  = { GL_COLOR_ATTACHMENT0, GL_DEPTH_ATTACHMENT };
+    glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, 2, discards);
     glFlush();
 }
 

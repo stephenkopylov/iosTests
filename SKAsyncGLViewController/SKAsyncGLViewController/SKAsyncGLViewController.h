@@ -15,9 +15,11 @@
 
 - (void)createBuffers:(SKAsyncGLViewController *)viewController;
 
+- (void)removeBuffers:(SKAsyncGLViewController *)viewController;
+
 @end
 
-@interface SKAsyncGLViewController : UIViewController
+@interface SKAsyncGLViewController : UIViewController<SKAsyncGLViewDelegate>
 
 @property (strong, nonatomic) SKAsyncGLView *view;
 @property (nonatomic, weak) id<SKAsyncGLViewControllerDelegate> delegate;

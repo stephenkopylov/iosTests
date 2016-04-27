@@ -17,12 +17,16 @@
 
 - (void)drawInRect:(CGRect)rect;
 
+- (void)removeBuffersForView:(SKAsyncGLView *)asyncView;
+
 @end
 
 @interface SKAsyncGLView : UIView
 
 @property (nonatomic, strong) dispatch_queue_t renderQueue;
 @property (nonatomic, weak) id<SKAsyncGLViewDelegate> delegate;
+@property (nonatomic) GLuint renderbuffer;
+@property (nonatomic) GLuint framebuffer;
 
 - (void)render;
 
