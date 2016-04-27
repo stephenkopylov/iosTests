@@ -182,9 +182,9 @@
             NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
         }
         
-        if ( [self.delegate respondsToSelector:@selector(setupGL:)] ) {
-            [self.delegate setupGL:self];
-        }
+//        if ( [self.delegate respondsToSelector:@selector(setupGL:)] ) {
+//            [self.delegate setupGL:self];
+//        }
         
         self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
         

@@ -68,6 +68,8 @@
     CGFloat width = rect.size.width;
     CGFloat height = rect.size.height;
     
+    glViewport(0, 0, width, height);
+    
     glBindRenderbuffer(GL_RENDERBUFFER, _stencilbuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8_OES, width, height);
     
@@ -90,8 +92,8 @@
     
     glGenRenderbuffers(1, &_stencilbuffer);
     
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
+    //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilbuffer);
     
     glGenRenderbuffers(1, &_samplerenderbuffer);
     glGenRenderbuffers(1, &_samplestencilbuffer);
@@ -103,24 +105,8 @@
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _samplerenderbuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _samplestencilbuffer);
-    self.vg = nvgCreateGLES2(NVG_STENCIL_STROKES | NVG_DEBUG);
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     
-    if ( status == GL_FRAMEBUFFER_COMPLETE ) {
-        NSLog(@"framebuffer complete");
-    }
-    else if ( status == GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT ) {
-        NSLog(@"incomplete framebuffer attachments");
-    }
-    else if ( status == GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT ) {
-        NSLog(@"incomplete missing framebuffer attachments");
-    }
-    else if ( status == GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS ) {
-        NSLog(@"incomplete framebuffer attachments dimensions");
-    }
-    else if ( status == GL_FRAMEBUFFER_UNSUPPORTED ) {
-        NSLog(@"combination of internal formats used by attachments in thef ramebuffer results in a nonrednerable target");
-    }
+    self.vg = nvgCreateGLES2(NVG_DEBUG);
 }
 
 
@@ -152,8 +138,6 @@
 
 - (void)drawInRect:(CGRect)rect
 {
-    glViewport(0, 0, rect.size.width, rect.size.height);
-    
     [self updateBuffersSize:rect];
     
     glBindRenderbuffer(GL_RENDERBUFFER, _samplestencilbuffer);
@@ -165,7 +149,7 @@
     
     nvgBeginFrame(self.vg, roundf(self.view.frame.size.width), roundf(self.view.frame.size.height), [UIScreen mainScreen].scale);
     
-    for ( int i = 0; i < 30; i++ ) {
+    for ( int i = 0; i < 100; i++ ) {
         int randNum = rand() % (255 - 0) + 0;
         int randNum2 = rand() % (5 - 0) + 0;
         nvgStrokeColor(self.vg, nvgRGB(randNum, 0, 0));
@@ -175,6 +159,12 @@
         nvgLineTo(self.vg, 100.0, 100.0 + i * 2);
         nvgStroke(self.vg);
     }
+    
+    nvgFillColor(self.vg, nvgRGBA(1.0, 0, 0, 1.0));
+    nvgBeginPath(self.vg);
+    nvgCircle(self.vg, 50, 50, 30);
+    nvgFill(self.vg);
+    nvgStroke(self.vg);
     
     nvgEndFrame(self.vg);
     
