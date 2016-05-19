@@ -24,16 +24,14 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     
     self.rects = @[
-                   [NSValue valueWithCGRect:CGRectMake(10.0f, 10.0f, 100.0f, 200.0f)],
-                   [NSValue valueWithCGRect:CGRectMake(200.0f, 200.0f, 100.0f, 50.0f)],
-                   [NSValue valueWithCGRect:CGRectMake(200.0f, 400.0f, 100.0f, 50.0f)]
+                   [NSValue valueWithCGRect:CGRectMake(10.0f, 400.0f, 100.0f, 200.0f)],
+                   [NSValue valueWithCGRect:CGRectMake(200.0f, 300.0f, 100.0f, 50.0f)],
+                   [NSValue valueWithCGRect:CGRectMake(200.0f, 500.0f, 100.0f, 50.0f)]
                    ];
     [self drawHoles];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        //        [self findEmptySpaces];
-    });
-    
+    NSLog(@"123");
     test(self, @(self.view.frame.size.width).intValue, @(self.view.frame.size.height).intValue);
+    NSLog(@"123");
 }
 
 
@@ -92,9 +90,9 @@ Pair best_ll = { 0, 0 };
 Pair best_ur = { -1, -1 };
 int best_area = 0;
 
-int *c; /* Cache */
-Pair *s; /* Stack */
-int top = 0; /* Top of stack */
+int *c;
+Pair *s;
+int top = 0;
 
 void push(int a, int b)
 {
@@ -112,7 +110,7 @@ void pop(int *a, int *b)
 }
 
 
-int M, N; /* Dimension of input; M is length of a row. */
+int M, N;
 
 void update_cache(id cSelf, int height)
 {
@@ -121,8 +119,6 @@ void update_cache(id cSelf, int height)
     bool empty = false;
     
     for ( m = 0; m != M; ++m ) {
-        //        scanf(" %c", &b);
-        //        fprintf(stderr, " %c %d %d", b, m, height);
         CGPoint point = CGPointMake(m, height);
         
         empty = ![cSelf pointInRects:point];
@@ -134,8 +130,6 @@ void update_cache(id cSelf, int height)
             ++c[m];
         }
     }
-    
-    //    fprintf(stderr, "\n");
 }
 
 
@@ -146,8 +140,6 @@ int test(id cSelf, int width, int height)
     M = width;
     N = height;
     
-    scanf("%d %d", &M, &N);
-    fprintf(stderr, "Reading %dx%d array (1 row == %d elements)\n", M, N, M);
     c = (int *)malloc((M + 1) * sizeof(int));
     s = (Pair *)malloc((M + 1) * sizeof(Pair));
     
@@ -161,12 +153,12 @@ int test(id cSelf, int width, int height)
         update_cache(cSelf, n);
         
         for ( m = 0; m != M + 1; ++m ) {
-            if ( c[m] > open_width ) { /* Open new rectangle? */
+            if ( c[m] > open_width ) {
                 push(m, open_width);
                 open_width = c[m];
             }
-            else   /* "else" optional here */
-                if ( c[m] < open_width ) {             /* Close rectangle(s)? */
+            else
+                if ( c[m] < open_width ) {
                     int m0, w0, area;
                     do {
                         pop(&m0, &w0);
@@ -189,9 +181,9 @@ int test(id cSelf, int width, int height)
         }
     }
     
-    fprintf(stderr, "The maximal rectangle has area %d.\n", best_area);
-    fprintf(stderr, "Location: [col=%d, row=%d] to [col=%d, row=%d]\n",
-            best_ll.one + 1, best_ll.two + 1, best_ur.one + 1, best_ur.two + 1);
+    //    fprintf(stderr, "The maximal rectangle has area %d.\n", best_area);
+    //    fprintf(stderr, "Location: [col=%d, row=%d] to [col=%d, row=%d]\n",
+    //            best_ll.one + 1, best_ll.two + 1, best_ur.one + 1, best_ur.two + 1);
     [cSelf drawFrame:CGRectMake(best_ll.one, best_ur.two, best_ur.one - best_ll.one, best_ll.two - best_ur.two)];
     
     return 0;
