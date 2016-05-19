@@ -25,6 +25,7 @@
     
     self.rects = @[
                    [NSValue valueWithCGRect:CGRectMake(10.0f, 10.0f, 100.0f, 200.0f)],
+                   [NSValue valueWithCGRect:CGRectMake(200.0f, 200.0f, 100.0f, 50.0f)],
                    [NSValue valueWithCGRect:CGRectMake(200.0f, 400.0f, 100.0f, 50.0f)]
                    ];
     [self drawHoles];
@@ -71,6 +72,17 @@
 }
 
 
+- (void)drawFrame:(CGRect)rect
+{
+    UIView *testView = [UIView new];
+    
+    testView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    testView.frame = rect;
+    
+    [self.view addSubview:testView];
+}
+
+
 typedef struct {
     int one;
     int two;
@@ -102,15 +114,20 @@ void pop(int *a, int *b)
 
 int M, N; /* Dimension of input; M is length of a row. */
 
-void update_cache(id cSelf)
+void update_cache(id cSelf, int height)
 {
     int m;
-    char b;
+    //    char b;
+    bool empty = false;
     
     for ( m = 0; m != M; ++m ) {
-        scanf(" %c", &b);
-        fprintf(stderr, " %c", b);
-        if ( b == '0' ) {
+        //        scanf(" %c", &b);
+        //        fprintf(stderr, " %c %d %d", b, m, height);
+        CGPoint point = CGPointMake(m, height);
+        
+        empty = ![cSelf pointInRects:point];
+        
+        if ( !empty ) {
             c[m] = 0;
         }
         else {
@@ -118,13 +135,14 @@ void update_cache(id cSelf)
         }
     }
     
-    fprintf(stderr, "\n");
+    //    fprintf(stderr, "\n");
 }
 
 
 int test(id cSelf, int width, int height)
 {
     int m, n;
+    
     M = width;
     N = height;
     
@@ -140,7 +158,7 @@ int test(id cSelf, int width, int height)
     /* Main algorithm: */
     for ( n = 0; n != N; ++n ) {
         int open_width = 0;
-        update_cache(cSelf);
+        update_cache(cSelf, n);
         
         for ( m = 0; m != M + 1; ++m ) {
             if ( c[m] > open_width ) { /* Open new rectangle? */
@@ -148,7 +166,7 @@ int test(id cSelf, int width, int height)
                 open_width = c[m];
             }
             else   /* "else" optional here */
-                if ( c[m] < open_width ) { /* Close rectangle(s)? */
+                if ( c[m] < open_width ) {             /* Close rectangle(s)? */
                     int m0, w0, area;
                     do {
                         pop(&m0, &w0);
@@ -174,6 +192,8 @@ int test(id cSelf, int width, int height)
     fprintf(stderr, "The maximal rectangle has area %d.\n", best_area);
     fprintf(stderr, "Location: [col=%d, row=%d] to [col=%d, row=%d]\n",
             best_ll.one + 1, best_ll.two + 1, best_ur.one + 1, best_ur.two + 1);
+    [cSelf drawFrame:CGRectMake(best_ll.one, best_ur.two, best_ur.one - best_ll.one, best_ll.two - best_ur.two)];
+    
     return 0;
 }
 
