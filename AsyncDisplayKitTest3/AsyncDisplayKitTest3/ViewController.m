@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustomCellNode.h"
 
 @interface ViewController () <ASTableViewDataSource, ASTableViewDelegate>
 
@@ -44,9 +45,7 @@
 
 - (ASCellNode *)tableView:(ASTableView *)tableView nodeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASTextCellNode *textCellNode = [ASTextCellNode new];
-    
-    textCellNode.text = indexPath.description;
+    CustomCellNode *textCellNode = [CustomCellNode new];
     
     return textCellNode;
 }

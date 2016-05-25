@@ -14,6 +14,7 @@
 		6AD9B0F81CF616CA005A7D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F61CF616CA005A7D1B /* Main.storyboard */; };
 		6AD9B0FA1CF616CA005A7D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F91CF616CA005A7D1B /* Assets.xcassets */; };
 		6AD9B0FD1CF616CA005A7D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0FB1CF616CA005A7D1B /* LaunchScreen.storyboard */; };
+		6AD9B1061CF61EC8005A7D1B /* CustomCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		6AD9B0F91CF616CA005A7D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AD9B0FC1CF616CA005A7D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AD9B0FE1CF616CA005A7D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AD9B1041CF61EC8005A7D1B /* CustomCellNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellNode.h; sourceTree = "<group>"; };
+		6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellNode.m; sourceTree = "<group>"; };
 		8AAB8C337D7D76912B470B4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D64BA750811662B644512453 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +94,8 @@
 				6AD9B0FB1CF616CA005A7D1B /* LaunchScreen.storyboard */,
 				6AD9B0FE1CF616CA005A7D1B /* Info.plist */,
 				6AD9B0ED1CF616CA005A7D1B /* Supporting Files */,
+				6AD9B1041CF61EC8005A7D1B /* CustomCellNode.h */,
+				6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */,
 			);
 			path = AsyncDisplayKitTest3;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD9B1061CF61EC8005A7D1B /* CustomCellNode.m in Sources */,
 				6AD9B0F51CF616CA005A7D1B /* ViewController.m in Sources */,
 				6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */,
 				6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */,
