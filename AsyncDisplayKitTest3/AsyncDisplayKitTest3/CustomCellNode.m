@@ -25,12 +25,16 @@ static CGFloat kInsets = 15.0;
         _textNode = [[ASTextNode alloc] init];
         _textNode.attributedString = [[NSAttributedString alloc] initWithString:@"123123123123123123123123123123123123 123123123123123123"
                                                                      attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor blackColor] }];
+        _textNode.flexShrink = YES;
+        _textNode.alignSelf = ASStackLayoutAlignSelfStretch;
         
-//        _textNode2 = [[ASTextNode alloc] init];
-//        _textNode2.attributedString = [[NSAttributedString alloc] initWithString:@"asdasdas dasd asd asdasdasdasd asd asd asdasd as d"
-//                                                                      attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor greenColor] }];
+        _textNode2 = [[ASTextNode alloc] init];
+        _textNode2.attributedString = [[NSAttributedString alloc] initWithString:@"asdasdas dasd asd asdasdasdasd asd asd asda"
+                                                                      attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor greenColor] }];
+        _textNode2.alignSelf = ASStackLayoutAlignSelfStretch;
+        _textNode2.flexShrink = YES;
         [self addSubnode:_textNode];
-//        [self addSubnode:_textNode2];
+        [self addSubnode:_textNode2];
     }
     
     return self;
@@ -39,24 +43,24 @@ static CGFloat kInsets = 15.0;
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
-    ASStackLayoutSpec *hStack = [[ASStackLayoutSpec alloc] init];
-    hStack.direction = ASStackLayoutDirectionHorizontal;
-    hStack.flexGrow = NO;
-//    hStack.flexShrink = YES;
-    hStack.justifyContent = ASStackLayoutJustifyContentStart;
-    hStack.alignItems = ASStackLayoutAlignItemsStart;
-    [hStack setChildren:@[_textNode]];
+    CGFloat maxWidth = constrainedSize.min.width / 100.0f * 30.0f;
+    ASStaticLayoutSpec *_textNodeSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[_textNode]];
     
-    ASStackLayoutSpec *vStack = [[ASStackLayoutSpec alloc] init];
-    vStack.direction = ASStackLayoutDirectionVertical;
-    vStack.flexGrow = YES;
-//    vStack.flexShrink = YES;
-    vStack.justifyContent = ASStackLayoutJustifyContentStart;
-    vStack.alignItems = ASStackLayoutAlignItemsStart;
-    [vStack setChildren:@[hStack]];
+    _textNodeSpec.flexShrink = YES;
     
-    ASInsetLayoutSpec *insetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(5, 5, 5, 5) child:vStack];
-        insetSpec.flexGrow = YES;
+    ASRelativeDimension halfParent = ASRelativeDimensionMakeWithPoints(maxWidth);
+    ASRelativeDimension fillParent = ASRelativeDimensionMakeWithPoints(200.0f);
+    
+    _textNode.sizeRange = ASRelativeSizeRangeMake(
+                                                  ASRelativeSizeMake(halfParent, fillParent),
+                                                  ASRelativeSizeMake(halfParent, fillParent)
+                                                  );
+    ASStaticLayoutSpec *staticSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[_textNode]];
+    
+    ASStackLayoutSpec *hStack = [ASStackLayoutSpec horizontalStackLayoutSpec];
+    [hStack setChildren:@[staticSpec, _textNode2]];
+    
+    ASInsetLayoutSpec *insetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(5, 5, 5, 5) child:hStack];
     return insetSpec;
 }
 
