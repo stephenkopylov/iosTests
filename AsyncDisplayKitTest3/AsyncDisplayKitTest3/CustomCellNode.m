@@ -26,13 +26,14 @@
         _textNode = [[ASTextNode alloc] init];
         _textNode.maximumNumberOfLines = 1;
         _textNode.truncationMode = NSLineBreakByTruncatingTail;
-                _textNode.alignSelf = ASStackLayoutAlignSelfCenter;
+        _textNode.alignSelf = ASStackLayoutAlignSelfCenter;
         _textNode.attributedString = [[NSAttributedString alloc] initWithString:@"1231231231231231231231"
                                                                      attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor blackColor] }];
         _textNode.flexShrink = YES;
         
         _textNode2 = [[ASTextNode alloc] init];
         _textNode2.maximumNumberOfLines = 1;
+        _textNode2.alignSelf = ASStackLayoutAlignSelfCenter;
         _textNode2.attributedString = [[NSAttributedString alloc] initWithString:@"asdasdas dasd asd asdasdasdasd asd asd asda"
                                                                       attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor greenColor] }];
         _textNode2.flexShrink = YES;
@@ -55,8 +56,6 @@
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
     CGFloat _textNodeMaxWidth = constrainedSize.min.width / 100.0f * 30.0f;
-    CGSize size = [_textNode calculateSizeThatFits:CGSizeMake(_textNodeMaxWidth, MAXFLOAT)];
-    
     CGFloat fontSize = defaultFontSize;
     
     while ( [_textNode calculateSizeThatFits:CGSizeMake(MAXFLOAT, MAXFLOAT)].width > _textNodeMaxWidth ) {
@@ -65,16 +64,14 @@
                                                                      attributes:@{ NSFontAttributeName: [UIFont systemFontOfSize:fontSize], NSForegroundColorAttributeName: [UIColor blackColor] }];
     }
     
-    
+    CGSize size = [_textNode calculateSizeThatFits:CGSizeMake(_textNodeMaxWidth, MAXFLOAT)];
     _textNode.sizeRange = ASRelativeSizeRangeMake(
                                                   ASRelativeSizeMake(ASRelativeDimensionMakeWithPoints(_textNodeMaxWidth), ASRelativeDimensionMakeWithPoints(size.height)),
                                                   ASRelativeSizeMake(ASRelativeDimensionMakeWithPoints(_textNodeMaxWidth), ASRelativeDimensionMakeWithPoints(size.height))
                                                   );
     ASStaticLayoutSpec *textNodeStaticSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[_textNode]];
     
-    ASCenterLayoutSpec *tweetCenter = [[ASCenterLayoutSpec alloc] init];
-    tweetCenter.centeringOptions = ASCenterLayoutSpecCenteringY;
-    tweetCenter.child = textNodeStaticSpec;
+//    ASCenterLayoutSpec *textNodeCenter = [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringY sizingOptions:ASCenterLayoutSpecSizingOptionMinimumXY child:textNodeStaticSpec];
     
     CGFloat _textNode3MaxWidth = constrainedSize.min.width / 100.0f * 20.0f;
     size = [_textNode3 calculateSizeThatFits:CGSizeMake(_textNode3MaxWidth, MAXFLOAT)];
@@ -89,6 +86,10 @@
     ASStackLayoutSpec *hStack = [ASStackLayoutSpec horizontalStackLayoutSpec];
     hStack.alignItems = ASStackLayoutAlignItemsCenter;
     [hStack setChildren:@[textNodeStaticSpec, _textNode2, textNode3StaticSpec]];
+    
+    //    ASStackLayoutSpec *vStack = [ASStackLayoutSpec verticalStackLayoutSpec];
+    //    vStack.alignItems = ASStackLayoutAlignItemsCenter;
+    //    [vStack setChildren:@[hStack]];
     
     ASInsetLayoutSpec *insetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(5, 5, 5, 5) child:hStack];
     return insetSpec;
