@@ -71,7 +71,7 @@
                                                   );
     ASStaticLayoutSpec *textNodeStaticSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[_textNode]];
     
-//    ASCenterLayoutSpec *textNodeCenter = [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringY sizingOptions:ASCenterLayoutSpecSizingOptionMinimumXY child:textNodeStaticSpec];
+    //    ASCenterLayoutSpec *textNodeCenter = [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringY sizingOptions:ASCenterLayoutSpecSizingOptionMinimumXY child:textNodeStaticSpec];
     
     CGFloat _textNode3MaxWidth = constrainedSize.min.width / 100.0f * 20.0f;
     size = [_textNode3 calculateSizeThatFits:CGSizeMake(_textNode3MaxWidth, MAXFLOAT)];
@@ -93,6 +93,12 @@
     
     ASInsetLayoutSpec *insetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(5, 5, 5, 5) child:hStack];
     return insetSpec;
+}
+
+
+- (void)didLoad
+{
+    [super didLoad];
 }
 
 

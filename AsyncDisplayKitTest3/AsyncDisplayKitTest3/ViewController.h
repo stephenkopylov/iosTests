@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ASTableView.h>
+#import <ASTableNode.h>
 
 @interface ViewController : UIViewController
 
-@property (nonatomic) ASTableView *tableView;
+@property (nonatomic) ASTableNode *tableView;
 
 @end
