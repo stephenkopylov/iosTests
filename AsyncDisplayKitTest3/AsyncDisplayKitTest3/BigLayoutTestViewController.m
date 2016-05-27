@@ -11,7 +11,7 @@
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import "BaseButtonNode.h"
 
-@interface BigLayoutTestViewController ()
+@interface BigLayoutTestViewController ()<ASPagerDataSource, ASPagerDelegate>
 @property (nonatomic) ASDisplayNode *node;
 @end
 
@@ -27,42 +27,60 @@
     [self.view addSubnode:_node];
     
     BaseButtonNode *button = [BaseButtonNode new];
-    button.flexGrow = YES;
-    button.flexShrink = YES;
-    button.alignSelf = ASStackLayoutAlignSelfStretch;
+    [button setTitle:@"123123" withFont:[UIFont systemFontOfSize:15] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
+//    button.flexGrow = YES;
+//    button.flexShrink = YES;
+//    button.alignSelf = ASStackLayoutAlignSelfStretch;
     button.backgroundColor = [UIColor redColor];
-    button.frame = CGRectMake(0, 0, 100, 100);
     button.preferredFrameSize = CGSizeMake(10.0, 20);
     [button addTarget:self action:@selector(test) forControlEvents:ASControlNodeEventTouchUpInside];
     [_node addSubnode:button];
     
     BaseButtonNode *button2 = [BaseButtonNode new];
+    [button2 setTitle:@"123123" withFont:[UIFont systemFontOfSize:15] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
     button2.flexGrow = YES;
-    button2.flexShrink = YES;
-    button2.alignSelf = ASStackLayoutAlignSelfStretch;
+//    button2.flexShrink = YES;
+//    button2.alignSelf = ASStackLayoutAlignSelfStretch;
     button2.backgroundColor = [UIColor grayColor];
     button2.preferredFrameSize = CGSizeMake(10.0, 20);
     [_node addSubnode:button2];
     
+    ASPagerNode *pagerNode = [ASPagerNode new];
+    pagerNode.flexGrow = YES;
+    pagerNode.flexShrink = YES;
+    pagerNode.alignSelf = ASStackLayoutAlignSelfStretch;
+    pagerNode.backgroundColor = [UIColor blueColor];
+    [_node addSubnode:pagerNode];
+    
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
+        
+        button.sizeRange = ASRelativeSizeRangeMake(
+                                                   ASRelativeSizeMake(ASRelativeDimensionMakeWithPoints(200), ASRelativeDimensionMakeWithPoints(40)),
+                                                   ASRelativeSizeMake(ASRelativeDimensionMakeWithPoints(200), ASRelativeDimensionMakeWithPoints(40))
+                                                   );
+        
         ASStackLayoutSpec *hStack = [ASStackLayoutSpec horizontalStackLayoutSpec];
-        hStack.alignItems = ASStackLayoutAlignItemsCenter;
-        hStack.spacing = 5.0;
+//        hStack.alignItems = ASStackLayoutAlignItemsCenter;
         [hStack setChildren:@[button, button2]];
-        ASRelativeSizeRange sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
-                                                                                           ASRelativeDimensionMakeWithPercent(1));
-        hStack.sizeRange = sizeRange;
+        hStack.alignSelf = ASStackLayoutAlignSelfStretch;
+  
+//        hStack.flexGrow = YES;
+//        hStack.flexShrink = YES;
         
-        ASStaticLayoutSpec *staticLayoutSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[hStack]];
+        ASStackLayoutSpec *vStack = [ASStackLayoutSpec verticalStackLayoutSpec];
+        [vStack setChildren:@[hStack, pagerNode]];
+        //        vStack.alignItems = ASStackLayoutAlignItemsCenter;
+        vStack.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
+                                                                              ASRelativeDimensionMakeWithPercent(1));
         
-        return staticLayoutSpec;
+        ASStaticLayoutSpec *staticLayoutSpec2 = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[vStack]];
+        return staticLayoutSpec2;
     };
 }
 
 
 - (void)test
 {
-    
 }
 
 
