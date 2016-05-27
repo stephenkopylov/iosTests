@@ -39,4 +39,11 @@
 }
 
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [_node measure:self.view.frame.size];
+}
+
+
 @end

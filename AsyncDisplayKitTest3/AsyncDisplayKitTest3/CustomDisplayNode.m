@@ -23,13 +23,8 @@
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
+    
     return nil;
-}
-
-
-- (void)didLoad
-{
-    [super didLoad];
 }
 
 
