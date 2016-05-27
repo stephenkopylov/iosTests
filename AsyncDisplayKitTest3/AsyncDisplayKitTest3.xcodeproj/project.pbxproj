@@ -10,6 +10,7 @@
 		2D3B4BD156B0B350AB005183 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D64BA750811662B644512453 /* libPods.a */; };
 		6A9A82831CF885C700979E6E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82821CF885C700979E6E /* TestViewController.m */; };
 		6A9A82861CF8865D00979E6E /* CustomDisplayNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82851CF8865D00979E6E /* CustomDisplayNode.m */; };
+		6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82881CF8AC6700979E6E /* BigLayoutTestViewController.m */; };
 		6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0EE1CF616CA005A7D1B /* main.m */; };
 		6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F11CF616CA005A7D1B /* AppDelegate.m */; };
 		6AD9B0F51CF616CA005A7D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F41CF616CA005A7D1B /* ViewController.m */; };
@@ -25,6 +26,8 @@
 		6A9A82821CF885C700979E6E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		6A9A82841CF8865D00979E6E /* CustomDisplayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDisplayNode.h; sourceTree = "<group>"; };
 		6A9A82851CF8865D00979E6E /* CustomDisplayNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDisplayNode.m; sourceTree = "<group>"; };
+		6A9A82871CF8AC6700979E6E /* BigLayoutTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigLayoutTestViewController.h; sourceTree = "<group>"; };
+		6A9A82881CF8AC6700979E6E /* BigLayoutTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigLayoutTestViewController.m; sourceTree = "<group>"; };
 		6AD9B0EA1CF616CA005A7D1B /* AsyncDisplayKitTest3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncDisplayKitTest3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD9B0EE1CF616CA005A7D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AD9B0F01CF616CA005A7D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				6A9A82821CF885C700979E6E /* TestViewController.m */,
 				6A9A82841CF8865D00979E6E /* CustomDisplayNode.h */,
 				6A9A82851CF8865D00979E6E /* CustomDisplayNode.m */,
+				6A9A82871CF8AC6700979E6E /* BigLayoutTestViewController.h */,
+				6A9A82881CF8AC6700979E6E /* BigLayoutTestViewController.m */,
 			);
 			path = AsyncDisplayKitTest3;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */,
 				6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */,
 				6A9A82831CF885C700979E6E /* TestViewController.m in Sources */,
+				6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */,
 				6A9A82861CF8865D00979E6E /* CustomDisplayNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,11 +21,4 @@
 }
 
 
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-    
-    return nil;
-}
-
-
 @end
