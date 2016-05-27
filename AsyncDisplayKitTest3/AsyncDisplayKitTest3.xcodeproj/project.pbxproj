@@ -21,6 +21,7 @@
 		6AD9B0FA1CF616CA005A7D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F91CF616CA005A7D1B /* Assets.xcassets */; };
 		6AD9B0FD1CF616CA005A7D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0FB1CF616CA005A7D1B /* LaunchScreen.storyboard */; };
 		6AD9B1061CF61EC8005A7D1B /* CustomCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */; };
+		F43A42C51CF8DC05006C1923 /* LayoutPlayground.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellNode.m; sourceTree = "<group>"; };
 		8AAB8C337D7D76912B470B4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D64BA750811662B644512453 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43A42C31CF8DC05006C1923 /* LayoutPlayground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutPlayground.h; sourceTree = "<group>"; };
+		F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutPlayground.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				6A9A828B1CF8B8A000979E6E /* BaseButtonNode.m */,
 				6A9A82901CF8BA2C00979E6E /* UIView+Shake.h */,
 				6A9A82911CF8BA2C00979E6E /* UIView+Shake.m */,
+				F43A42C31CF8DC05006C1923 /* LayoutPlayground.h */,
+				F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */,
 			);
 			path = AsyncDisplayKitTest3;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				6A9A82831CF885C700979E6E /* TestViewController.m in Sources */,
 				6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */,
 				6A9A82861CF8865D00979E6E /* CustomDisplayNode.m in Sources */,
+				F43A42C51CF8DC05006C1923 /* LayoutPlayground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
