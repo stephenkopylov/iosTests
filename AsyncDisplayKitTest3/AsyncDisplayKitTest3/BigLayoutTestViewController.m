@@ -9,11 +9,10 @@
 #import "BigLayoutTestViewController.h"
 #import "CustomDisplayNode.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
+#import "BaseButtonNode.h"
 
 @interface BigLayoutTestViewController ()
 @property (nonatomic) ASDisplayNode *node;
-@property (nonatomic) ASDisplayNode *button;
-@property (nonatomic) ASDisplayNode *button2;
 @end
 
 @implementation BigLayoutTestViewController
@@ -27,36 +26,43 @@
     _node.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubnode:_node];
     
-    _button = [ASDisplayNode new];
-    _button.flexGrow = YES;
-    _button.flexShrink = YES;
-    _button.alignSelf = ASStackLayoutAlignSelfStretch;
-    _button.backgroundColor = [UIColor redColor];
-    _button.frame = CGRectMake(0, 0, 100, 100);
-    _button.preferredFrameSize = CGSizeMake(10.0, 20);
-    [_node addSubnode:_button];
+    BaseButtonNode *button = [BaseButtonNode new];
+    button.flexGrow = YES;
+    button.flexShrink = YES;
+    button.alignSelf = ASStackLayoutAlignSelfStretch;
+    button.backgroundColor = [UIColor redColor];
+    button.frame = CGRectMake(0, 0, 100, 100);
+    button.preferredFrameSize = CGSizeMake(10.0, 20);
+    [button addTarget:self action:@selector(test) forControlEvents:ASControlNodeEventTouchUpInside];
+    [_node addSubnode:button];
     
-    _button2 = [ASDisplayNode new];
-    _button2.flexGrow = YES;
-    _button2.flexShrink = YES;
-    _button2.backgroundColor = [UIColor grayColor];
-    _button2.alignSelf = ASStackLayoutAlignSelfStretch;
-    _button2.preferredFrameSize = CGSizeMake(10.0, 20);
-    [_node addSubnode:_button2];
+    BaseButtonNode *button2 = [BaseButtonNode new];
+    button2.flexGrow = YES;
+    button2.flexShrink = YES;
+    button2.alignSelf = ASStackLayoutAlignSelfStretch;
+    button2.backgroundColor = [UIColor grayColor];
+    button2.preferredFrameSize = CGSizeMake(10.0, 20);
+    [_node addSubnode:button2];
     
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
         ASStackLayoutSpec *hStack = [ASStackLayoutSpec horizontalStackLayoutSpec];
         hStack.alignItems = ASStackLayoutAlignItemsCenter;
         hStack.spacing = 5.0;
-        [hStack setChildren:@[_button, _button2]];
+        [hStack setChildren:@[button, button2]];
         ASRelativeSizeRange sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
                                                                                            ASRelativeDimensionMakeWithPercent(1));
         hStack.sizeRange = sizeRange;
         
-          ASStaticLayoutSpec *staticLayoutSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[hStack]];
+        ASStaticLayoutSpec *staticLayoutSpec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[hStack]];
         
         return staticLayoutSpec;
     };
+}
+
+
+- (void)test
+{
+    
 }
 
 
