@@ -27,13 +27,16 @@
     ASDisplayNode *node1 = [ASDisplayNode new];
     node1.preferredFrameSize = CGSizeMake(100, 100);
     node1.backgroundColor = [UIColor redColor];
+    node1.flexGrow = YES;
+    node1.alignSelf = ASStackLayoutAlignSelfStretch;
     [_node addSubnode:node1];
     
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
-        return [ASRelativeLayoutSpec relativePositionLayoutSpecWithHorizontalPosition:ASRelativeLayoutSpecPositionEnd
-                                                                     verticalPosition:ASRelativeLayoutSpecPositionCenter
-                                                                         sizingOption:ASRelativeLayoutSpecSizingOptionDefault
-                                                                                child:node1];
+        node1.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
+                                                                             ASRelativeDimensionMakeWithPercent(1));
+        ASStaticLayoutSpec *spec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[node1]];
+        
+        return spec;
     };
 }
 
