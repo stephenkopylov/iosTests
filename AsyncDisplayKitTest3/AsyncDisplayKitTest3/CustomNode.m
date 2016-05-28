@@ -34,6 +34,8 @@
         _button1.pageNumber = PagerNodePageOne;
         _button1.preferredFrameSize = CGSizeMake(0, 0);
         _button1.alignSelf = ASStackLayoutAlignSelfStretch;
+        _button1.flexGrow = YES;
+        _button1.flexShrink = YES;
         [_button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button1];
         
@@ -44,6 +46,8 @@
         _button2.preferredFrameSize = CGSizeMake(0, 0);
         _button2.alignSelf = ASStackLayoutAlignSelfStretch;
         _button2.pageNumber = PagerNodePageTwo;
+        _button2.flexGrow = YES;
+        _button2.flexShrink = YES;
         [_button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button2];
         
@@ -53,15 +57,15 @@
         _button3.alignSelf = ASStackLayoutAlignSelfStretch;
         _button3.pageNumber = PagerNodePageThree;
         [_button3 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
-        _button3.flexGrow = NO;
         _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
         [self addSubnode:_button3];
         
         _textNode = [ASEditableTextNode new];
         _textNode.backgroundColor = [UIColor lightGrayColor];
         _textNode.alignSelf = ASStackLayoutAlignSelfStretch;
-        _textNode.flexGrow = YES;
-        _textNode.flexShrink = YES;
+        _textNode.flexGrow = NO;
+        _textNode.flexShrink = NO;
+        _textNode.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
         [self addSubnode:_textNode];
         
         _pagerNode = [ASPagerNode new];
@@ -75,7 +79,7 @@
             NSArray *children;
             children = @[_button1, _button2, _button3, _textNode];
             
-            if ( self.page != PagerNodePageThree ) {
+            if ( self.page != PagerNodePageThree && !_button1.flexGrow ) {
                 _button1.flexGrow = YES;
                 _button1.flexShrink = YES;
                 
@@ -86,7 +90,7 @@
                 _textNode.flexShrink = NO;
                 _textNode.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
             }
-            else {
+            else if ( self.page == PagerNodePageThree && _button1.flexGrow ) {
                 _button1.flexGrow = NO;
                 _button1.flexShrink = NO;
                 _button1.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
@@ -123,18 +127,27 @@
 {
     PagerNodePage page = button.pageNumber;
     
+    BOOL needToAnimae = NO;
+    
     if ( self.page == PagerNodePageThree && page == PagerNodePageThree ) {
         self.page = PagerNodePageTwo;
+        needToAnimae = YES;
     }
     else {
         self.page = page;
+        
+        if ( page == PagerNodePageThree ) {
+            needToAnimae = YES;
+        }
     }
     
     button.backgroundColor = OverViewASPagerNodeRandomColor();
     [_pagerNode scrollToPageAtIndex:self.page animated:YES];
     
-    [self transitionLayoutWithAnimation:YES shouldMeasureAsync:NO measurementCompletion:^{
-    }];
+    if ( needToAnimae ) {
+        [self transitionLayoutWithAnimation:YES shouldMeasureAsync:NO measurementCompletion:^{
+        }];
+    }
 }
 
 
