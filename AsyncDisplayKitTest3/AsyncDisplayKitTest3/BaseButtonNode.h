@@ -10,6 +10,8 @@
 
 @interface BaseButtonNode : ASButtonNode
 
-@property (nonatomic) NSInteger pageNumber;
+@property (nonatomic) NSInteger tag;
+
++ (BaseButtonNode *)standartButton;
 
 @end

@@ -15,6 +15,7 @@
 		6A9A828F1CF8B9D600979E6E /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A828E1CF8B9D600979E6E /* UIView+Additions.m */; };
 		6A9A82921CF8BA2C00979E6E /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82911CF8BA2C00979E6E /* UIView+Shake.m */; };
 		6AA2EC041CF9CFD000C22D80 /* CustomNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2EC031CF9CFD000C22D80 /* CustomNode.m */; };
+		6AA2EC071CF9F4E100C22D80 /* AssetsBlockNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */; };
 		6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0EE1CF616CA005A7D1B /* main.m */; };
 		6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F11CF616CA005A7D1B /* AppDelegate.m */; };
 		6AD9B0F51CF616CA005A7D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F41CF616CA005A7D1B /* ViewController.m */; };
@@ -41,6 +42,8 @@
 		6A9A82911CF8BA2C00979E6E /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
 		6AA2EC021CF9CFD000C22D80 /* CustomNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNode.h; sourceTree = "<group>"; };
 		6AA2EC031CF9CFD000C22D80 /* CustomNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNode.m; sourceTree = "<group>"; };
+		6AA2EC051CF9F4E100C22D80 /* AssetsBlockNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsBlockNode.h; sourceTree = "<group>"; };
+		6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsBlockNode.m; sourceTree = "<group>"; };
 		6AD9B0EA1CF616CA005A7D1B /* AsyncDisplayKitTest3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncDisplayKitTest3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD9B0EE1CF616CA005A7D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AD9B0F01CF616CA005A7D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */,
 				6AA2EC021CF9CFD000C22D80 /* CustomNode.h */,
 				6AA2EC031CF9CFD000C22D80 /* CustomNode.m */,
+				6AA2EC051CF9F4E100C22D80 /* AssetsBlockNode.h */,
+				6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */,
 			);
 			path = AsyncDisplayKitTest3;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				6AA2EC041CF9CFD000C22D80 /* CustomNode.m in Sources */,
 				6A9A828F1CF8B9D600979E6E /* UIView+Additions.m in Sources */,
 				6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */,
+				6AA2EC071CF9F4E100C22D80 /* AssetsBlockNode.m in Sources */,
 				6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */,
 				6A9A82831CF885C700979E6E /* TestViewController.m in Sources */,
 				6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */,

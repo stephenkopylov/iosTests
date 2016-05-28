@@ -8,10 +8,11 @@
 
 #import "CustomNode.h"
 #import "BaseButtonNode.h"
+#import "AssetsBlockNode.h"
 
 #define ANIMATION_DURATION 0.2
 
-@interface CustomNode ()<ASPagerNodeDataSource, ASCollectionDelegate>
+@interface CustomNode ()<ASPagerNodeDataSource, ASCollectionDelegate, ASPagerDelegate>
 @property (nonatomic) BaseButtonNode *button1;
 @property (nonatomic) BaseButtonNode *button2;
 @property (nonatomic) BaseButtonNode *button3;
@@ -34,36 +35,28 @@
     if ( self ) {
         _textField = [UITextField new];
         
-        _button1 = [BaseButtonNode new];
+        _button1 = [BaseButtonNode standartButton];
         [_button1 setTitle:@"11111" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button1.backgroundColor = [UIColor redColor];
-        _button1.pageNumber = PagerNodePageOne;
-        _button1.preferredFrameSize = CGSizeMake(0, 0);
-        _button1.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button1.flexGrow = YES;
-        _button1.flexShrink = YES;
+        _button1.tag = PagerNodePageOne;
         [_button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button1];
         
-        _button2 = [BaseButtonNode new];
+        _button2 = [BaseButtonNode standartButton];
         [_button2 setTitle:@"22222" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button2.backgroundColor = [UIColor greenColor];
-        _button2.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button2.preferredFrameSize = CGSizeMake(0, 0);
-        _button2.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button2.pageNumber = PagerNodePageTwo;
-        _button2.flexGrow = YES;
-        _button2.flexShrink = YES;
+        _button2.tag = PagerNodePageTwo;
         [_button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button2];
         
-        _button3 = [BaseButtonNode new];
+        _button3 = [BaseButtonNode standartButton];
         [_button3 setTitle:@"33333" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button3.backgroundColor = [UIColor purpleColor];
-        _button3.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button3.pageNumber = PagerNodePageThree;
+        _button3.tag = PagerNodePageThree;
         [_button3 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
+        _button3.flexGrow = NO;
+        _button3.flexShrink = NO;
         [self addSubnode:_button3];
         
         _textNode = [[ASDisplayNode alloc] initWithViewBlock:^UIView *_Nonnull {
@@ -134,7 +127,7 @@
 
 - (void)buttonClicked:(BaseButtonNode *)button
 {
-    PagerNodePage page = button.pageNumber;
+    PagerNodePage page = button.tag;
     
     if ( _page == PagerNodePageThree && page == PagerNodePageThree ) {
         self.page = PagerNodePageTwo;
@@ -221,7 +214,7 @@ static UIColor * OverViewASPagerNodeRandomColor()
 - (ASCellNodeBlock)pagerNode:(ASPagerNode *)pagerNode nodeBlockAtIndex:(NSInteger)index
 {
     return ^{
-        ASCellNode *cellNode = [ASCellNode new];
+        AssetsBlockNode *cellNode = [AssetsBlockNode new];
         cellNode.backgroundColor = OverViewASPagerNodeRandomColor();
         return cellNode;
     };

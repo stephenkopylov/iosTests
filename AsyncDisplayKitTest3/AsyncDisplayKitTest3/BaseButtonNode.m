@@ -24,4 +24,15 @@
 }
 
 
++ (BaseButtonNode *)standartButton
+{
+    BaseButtonNode *button = [BaseButtonNode new];
+    
+    button.alignSelf = ASStackLayoutAlignSelfStretch;
+    button.flexGrow = YES;
+    button.flexShrink = YES;
+    return button;
+}
+
+
 @end
