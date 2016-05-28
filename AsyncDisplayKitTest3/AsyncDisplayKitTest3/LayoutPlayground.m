@@ -8,12 +8,14 @@
 
 #import "LayoutPlayground.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
+#import "BaseButtonNode.h"
 @interface LayoutPlayground ()
 @property (nonatomic) ASDisplayNode *node;
 
 @end
 
 @implementation LayoutPlayground
+
 
 - (void)viewDidLoad
 {
@@ -24,26 +26,28 @@
     _node.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
     [self.view addSubnode:_node];
     
-    ASDisplayNode *node1 = [ASDisplayNode new];
-    node1.backgroundColor = [UIColor redColor];
-    node1.flexGrow = YES;
-    node1.alignSelf = ASStackLayoutAlignSelfStretch;
-    [_node addSubnode:node1];
+    BaseButtonNode *button1 = [BaseButtonNode new];
+    button1.backgroundColor = [UIColor redColor];
+    button1.flexGrow = YES;
+    button1.alignSelf = ASStackLayoutAlignSelfStretch;
+    [button1 addTarget:self action:@selector(test) forControlEvents:ASControlNodeEventTouchUpInside];
+    [_node addSubnode:button1];
     
-    ASDisplayNode *node2 = [ASDisplayNode new];
-    node2.backgroundColor = [UIColor greenColor];
-    node2.alignSelf = ASStackLayoutAlignSelfStretch;
-    node2.flexGrow = YES;
-    [_node addSubnode:node2];
+    BaseButtonNode *button2 = [BaseButtonNode new];
+    button2.backgroundColor = [UIColor greenColor];
+    button2.alignSelf = ASStackLayoutAlignSelfStretch;
+    button2.flexGrow = YES;
+    [button2 addTarget:self action:@selector(test) forControlEvents:ASControlNodeEventTouchUpInside];
+    [_node addSubnode:button2];
     
-    ASDisplayNode *node3 = [ASDisplayNode new];
+    ASPagerNode *node3 = [ASPagerNode new];
     node3.backgroundColor = [UIColor redColor];
     node3.alignSelf = ASStackLayoutAlignSelfStretch;
     node3.flexGrow = YES;
     [_node addSubnode:node3];
     
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
-        ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[node1, node2]];
+        ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[button1, button2]];
         spec.alignSelf = ASStackLayoutAlignSelfStretch;
         spec.flexBasis = ASRelativeDimensionMakeWithPoints(50);
         
