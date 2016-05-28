@@ -9,7 +9,7 @@
 #import "LayoutPlayground.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import "BaseButtonNode.h"
-@interface LayoutPlayground ()
+@interface LayoutPlayground ()<ASPagerNodeDataSource>
 @property (nonatomic) ASDisplayNode *node;
 
 @end
@@ -40,18 +40,20 @@
     [button2 addTarget:self action:@selector(test) forControlEvents:ASControlNodeEventTouchUpInside];
     [_node addSubnode:button2];
     
-    ASPagerNode *node3 = [ASPagerNode new];
-    node3.backgroundColor = [UIColor redColor];
-    node3.alignSelf = ASStackLayoutAlignSelfStretch;
-    node3.flexGrow = YES;
-    [_node addSubnode:node3];
+    ASPagerNode *pagerNode = [ASPagerNode new];
+    pagerNode.backgroundColor = [UIColor blueColor];
+    pagerNode.alignSelf = ASStackLayoutAlignSelfStretch;
+    pagerNode.flexGrow = YES;
+    //    pagerNode.delegate = self;
+    pagerNode.dataSource = self;
+    [_node addSubnode:pagerNode];
     
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
         ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[button1, button2]];
         spec.alignSelf = ASStackLayoutAlignSelfStretch;
         spec.flexBasis = ASRelativeDimensionMakeWithPoints(50);
         
-        ASStackLayoutSpec *stackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[spec, node3]];
+        ASStackLayoutSpec *stackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[spec, pagerNode]];
         stackSpec.alignSelf = ASStackLayoutAlignSelfStretch;
         stackSpec.flexBasis = ASRelativeDimensionMakeWithPercent(1.0);
         stackSpec.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
@@ -68,13 +70,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -83,13 +78,36 @@
 }
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (NSInteger)numberOfPagesInPagerNode:(ASPagerNode *)pagerNode
+{
+    return PagerNodePageCount;
+}
+
+
+- (ASCellNodeBlock)pagerNode:(ASPagerNode *)pagerNode nodeBlockAtIndex:(NSInteger)index
+{
+    return ^{
+        ASCellNode *cellNode = [ASCellNode new];
+        cellNode.backgroundColor = OverViewASPagerNodeRandomColor();
+        return cellNode;
+    };
+}
+
+
+- (ASSizeRange)pagerNode:(ASPagerNode *)pagerNode constrainedSizeForNodeAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ASSizeRangeMakeExactSize(pagerNode.frame.size);
+}
+
+
+static UIColor * OverViewASPagerNodeRandomColor()
+{
+    CGFloat hue = (arc4random() % 256 / 256.0);    //  0.0 to 1.0
+    CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;    //  0.5 to 1.0, away from white
+    CGFloat brightness = (arc4random() % 128 / 256.0) + 0.5;    //  0.5 to 1.0, away from black
+    
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+}
+
+
 @end
