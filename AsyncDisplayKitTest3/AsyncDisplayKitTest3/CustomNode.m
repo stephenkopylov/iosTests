@@ -13,6 +13,9 @@
 @property (nonatomic) BaseButtonNode *button1;
 @property (nonatomic) BaseButtonNode *button2;
 @property (nonatomic) BaseButtonNode *button3;
+
+@property (nonatomic) ASEditableTextNode *textNode;
+
 @property (nonatomic) ASPagerNode *pagerNode;
 
 @property (nonatomic) PagerNodePage page;
@@ -29,7 +32,7 @@
         [_button1 setTitle:@"11111" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button1.backgroundColor = [UIColor redColor];
         _button1.pageNumber = PagerNodePageOne;
-        _button1.flexGrow = YES;
+        _button1.preferredFrameSize = CGSizeMake(0, 0);
         _button1.alignSelf = ASStackLayoutAlignSelfStretch;
         [_button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button1];
@@ -38,7 +41,7 @@
         [_button2 setTitle:@"22222" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button2.backgroundColor = [UIColor greenColor];
         _button2.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button2.flexGrow = YES;
+        _button2.preferredFrameSize = CGSizeMake(0, 0);
         _button2.alignSelf = ASStackLayoutAlignSelfStretch;
         _button2.pageNumber = PagerNodePageTwo;
         [_button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
@@ -50,7 +53,16 @@
         _button3.alignSelf = ASStackLayoutAlignSelfStretch;
         _button3.pageNumber = PagerNodePageThree;
         [_button3 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
+        _button3.flexGrow = NO;
+        _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
         [self addSubnode:_button3];
+        
+        _textNode = [ASEditableTextNode new];
+        _textNode.backgroundColor = [UIColor lightGrayColor];
+        _textNode.alignSelf = ASStackLayoutAlignSelfStretch;
+        _textNode.flexGrow = YES;
+        _textNode.flexShrink = YES;
+        [self addSubnode:_textNode];
         
         _pagerNode = [ASPagerNode new];
         _pagerNode.backgroundColor = [UIColor blueColor];
@@ -61,23 +73,38 @@
         
         self.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
             NSArray *children;
+            children = @[_button1, _button2, _button3, _textNode];
             
             if ( self.page != PagerNodePageThree ) {
-                children = @[_button1, _button2, _button3];
-                _button3.flexGrow = NO;
-                _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
+                _button1.flexGrow = YES;
+                _button1.flexShrink = YES;
+                
+                _button2.flexGrow = YES;
+                _button2.flexShrink = YES;
+                
+                _textNode.flexGrow = NO;
+                _textNode.flexShrink = NO;
+                _textNode.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
             }
             else {
-                children = @[_button3];
-                _button3.flexGrow = YES;
+                _button1.flexGrow = NO;
+                _button1.flexShrink = NO;
+                _button1.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
+                
+                _button2.flexGrow = NO;
+                _button2.flexShrink = NO;
+                _button2.flexBasis = ASRelativeDimensionMakeWithPercent(0.0f);
+                
+                _textNode.flexGrow = YES;
+                _textNode.flexShrink = YES;
             }
             
-            ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:children];
+            ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:0.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:children];
             spec.alignSelf = ASStackLayoutAlignSelfStretch;
             spec.flexBasis = ASRelativeDimensionMakeWithPoints(50);
             spec.alignItems = ASStackLayoutAlignItemsStart;
             
-            ASStackLayoutSpec *stackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[spec, _pagerNode]];
+            ASStackLayoutSpec *stackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:0.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[spec, _pagerNode]];
             stackSpec.alignSelf = ASStackLayoutAlignSelfStretch;
             stackSpec.flexBasis = ASRelativeDimensionMakeWithPercent(1.0);
             stackSpec.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
@@ -94,7 +121,15 @@
 
 - (void)buttonClicked:(BaseButtonNode *)button
 {
-    self.page = button.pageNumber;
+    PagerNodePage page = button.pageNumber;
+    
+    if ( self.page == PagerNodePageThree && page == PagerNodePageThree ) {
+        self.page = PagerNodePageTwo;
+    }
+    else {
+        self.page = page;
+    }
+    
     button.backgroundColor = OverViewASPagerNodeRandomColor();
     [_pagerNode scrollToPageAtIndex:self.page animated:YES];
     
@@ -122,10 +157,17 @@ static UIColor * OverViewASPagerNodeRandomColor()
     button1EndFrame.size.height = 50.0f;
     button2EndFrame.size.height = 50.0f;
     
-    [UIView animateWithDuration:0.2 animations:^{
+    CGRect textStartFrame = [context initialFrameForNode:_textNode];
+    textStartFrame.size.height = 50.0f;
+    _textNode.frame = textStartFrame;
+    CGRect textEndFrame = [context finalFrameForNode:_textNode];
+    
+    [UIView animateWithDuration:0.2f animations:^{
         _button1.frame = button1EndFrame;
         _button2.frame = button2EndFrame;
         _button3.frame = button3EndFrame;
+        
+        _textNode.frame = textEndFrame;
     }];
 }
 
