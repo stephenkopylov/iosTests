@@ -9,16 +9,20 @@
 #import "CustomNode.h"
 #import "BaseButtonNode.h"
 
-@interface CustomNode ()<ASPagerNodeDataSource>
+#define ANIMATION_DURATION 0.2
+
+@interface CustomNode ()<ASPagerNodeDataSource, ASCollectionDelegate>
 @property (nonatomic) BaseButtonNode *button1;
 @property (nonatomic) BaseButtonNode *button2;
 @property (nonatomic) BaseButtonNode *button3;
 
-@property (nonatomic) ASEditableTextNode *textNode;
+@property (nonatomic) ASDisplayNode *textNode;
 
 @property (nonatomic) ASPagerNode *pagerNode;
 
 @property (nonatomic) PagerNodePage page;
+
+@property (nonatomic) UITextField *textField;
 @end
 
 @implementation CustomNode
@@ -28,6 +32,8 @@
     self = [super init];
     
     if ( self ) {
+        _textField = [UITextField new];
+        
         _button1 = [BaseButtonNode new];
         [_button1 setTitle:@"11111" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button1.backgroundColor = [UIColor redColor];
@@ -60,7 +66,9 @@
         _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
         [self addSubnode:_button3];
         
-        _textNode = [ASEditableTextNode new];
+        _textNode = [[ASDisplayNode alloc] initWithViewBlock:^UIView *_Nonnull {
+            return _textField;
+        }];
         _textNode.backgroundColor = [UIColor lightGrayColor];
         _textNode.alignSelf = ASStackLayoutAlignSelfStretch;
         _textNode.flexGrow = NO;
@@ -73,6 +81,7 @@
         _pagerNode.alignSelf = ASStackLayoutAlignSelfStretch;
         _pagerNode.flexGrow = YES;
         _pagerNode.dataSource = self;
+        _pagerNode.delegate = self;
         [self addSubnode:_pagerNode];
         
         self.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
@@ -127,27 +136,16 @@
 {
     PagerNodePage page = button.pageNumber;
     
-    BOOL needToAnimae = NO;
-    
-    if ( self.page == PagerNodePageThree && page == PagerNodePageThree ) {
+    if ( _page == PagerNodePageThree && page == PagerNodePageThree ) {
         self.page = PagerNodePageTwo;
-        needToAnimae = YES;
     }
     else {
         self.page = page;
-        
-        if ( page == PagerNodePageThree ) {
-            needToAnimae = YES;
-        }
     }
+    
+    [_pagerNode scrollToPageAtIndex:_page animated:YES];
     
     button.backgroundColor = OverViewASPagerNodeRandomColor();
-    [_pagerNode scrollToPageAtIndex:self.page animated:YES];
-    
-    if ( needToAnimae ) {
-        [self transitionLayoutWithAnimation:YES shouldMeasureAsync:NO measurementCompletion:^{
-        }];
-    }
 }
 
 
@@ -174,14 +172,41 @@ static UIColor * OverViewASPagerNodeRandomColor()
     textStartFrame.size.height = 50.0f;
     _textNode.frame = textStartFrame;
     CGRect textEndFrame = [context finalFrameForNode:_textNode];
-    
-    [UIView animateWithDuration:0.2f animations:^{
+    [UIView animateWithDuration:ANIMATION_DURATION delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _button1.frame = button1EndFrame;
         _button2.frame = button2EndFrame;
         _button3.frame = button3EndFrame;
         
         _textNode.frame = textEndFrame;
-    }];
+    } completion:nil];
+}
+
+
+#pragma mark - getters/setters
+
+- (void)setPage:(PagerNodePage)page
+{
+    BOOL needToAnimae = NO;
+    
+    if ( page == PagerNodePageThree || _page == PagerNodePageThree ) {
+        needToAnimae = YES;
+    }
+    
+    _page = page;
+    
+    if ( needToAnimae ) {
+        [self transitionLayoutWithAnimation:YES shouldMeasureAsync:NO measurementCompletion:^{
+        }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(ANIMATION_DURATION * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if ( self.page == PagerNodePageThree ) {
+                [_textField becomeFirstResponder];
+            }
+            else {
+                [_textField resignFirstResponder];
+            }
+        });
+    }
 }
 
 
@@ -206,6 +231,14 @@ static UIColor * OverViewASPagerNodeRandomColor()
 - (ASSizeRange)pagerNode:(ASPagerNode *)pagerNode constrainedSizeForNodeAtIndexPath:(NSIndexPath *)indexPath
 {
     return ASSizeRangeMakeExactSize(pagerNode.frame.size);
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger index = @(roundf(scrollView.contentOffset.x / _pagerNode.frame.size.width)).integerValue;
+    
+    self.page = index;
 }
 
 
