@@ -27,16 +27,32 @@
     ASDisplayNode *node1 = [ASDisplayNode new];
     node1.preferredFrameSize = CGSizeMake(100, 100);
     node1.backgroundColor = [UIColor redColor];
-    node1.flexGrow = YES;
     node1.alignSelf = ASStackLayoutAlignSelfStretch;
+    node1.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
+                                                                         ASRelativeDimensionMakeWithPercent(1));
+    
     [_node addSubnode:node1];
     
+    ASDisplayNode *node2 = [ASDisplayNode new];
+    node2.backgroundColor = [UIColor redColor];
+    node2.alignSelf = ASStackLayoutAlignSelfStretch;
+    node2.flexGrow = YES;
+    node2.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
+                                                                         ASRelativeDimensionMakeWithPercent(1));
+    [_node addSubnode:node2];
+    
     _node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
-        node1.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
-                                                                             ASRelativeDimensionMakeWithPercent(1));
         ASStaticLayoutSpec *spec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[node1]];
+        spec.flexBasis = ASRelativeDimensionMakeWithPoints(30);
         
-        return spec;
+        ASStackLayoutSpec *stackSpec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[spec, node2]];
+        stackSpec.alignSelf = ASStackLayoutAlignSelfStretch;
+        stackSpec.flexBasis = ASRelativeDimensionMakeWithPercent(1.0);
+        stackSpec.sizeRange = ASRelativeSizeRangeMakeWithExactRelativeDimensions(ASRelativeDimensionMakeWithPercent(1),
+                                                                                 ASRelativeDimensionMakeWithPercent(1));
+        
+        ASStaticLayoutSpec *spec2 = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[stackSpec]];
+        return spec2;
     };
 }
 
