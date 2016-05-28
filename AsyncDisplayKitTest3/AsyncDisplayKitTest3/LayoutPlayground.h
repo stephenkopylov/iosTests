@@ -8,13 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM (NSUInteger, PagerNodePage) {
-    PagerNodePageOne,
-    PagerNodePageTwo,
-    PagerNodePageThree,
-    PagerNodePageCount
-};
-
 @interface LayoutPlayground : UIViewController
 
 @end
