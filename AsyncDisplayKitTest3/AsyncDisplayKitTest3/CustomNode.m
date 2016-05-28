@@ -29,7 +29,8 @@
         [_button1 setTitle:@"11111" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button1.backgroundColor = [UIColor redColor];
         _button1.pageNumber = PagerNodePageOne;
-        _button1.flexShrink = YES;
+        _button1.flexGrow = YES;
+        _button1.alignSelf = ASStackLayoutAlignSelfStretch;
         [_button1 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button1];
         
@@ -37,7 +38,8 @@
         [_button2 setTitle:@"22222" withFont:[UIFont systemFontOfSize:14] withColor:[UIColor whiteColor] forState:ASControlStateNormal];
         _button2.backgroundColor = [UIColor greenColor];
         _button2.alignSelf = ASStackLayoutAlignSelfStretch;
-        _button2.flexShrink = YES;
+        _button2.flexGrow = YES;
+        _button2.alignSelf = ASStackLayoutAlignSelfStretch;
         _button2.pageNumber = PagerNodePageTwo;
         [_button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:_button2];
@@ -62,23 +64,12 @@
             
             if ( self.page != PagerNodePageThree ) {
                 children = @[_button1, _button2, _button3];
-                
-                _button1.alignSelf = ASStackLayoutAlignSelfStretch;
-                _button1.flexGrow = YES;
-                _button2.flexGrow = YES;
                 _button3.flexGrow = NO;
                 _button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
             }
             else {
-                _button1.alignSelf = ASStackLayoutAlignSelfAuto;
-                _button1.flexShrink = NO;
-                _button1.flexGrow = NO;
-                //            button1.flexBasis = ASRelativeDimensionMakeWithPoints(0);
-                _button2.flexGrow = NO;
-                _button2.flexBasis = ASRelativeDimensionMakeWithPoints(0);
-                _button3.flexGrow = YES;
-                //            button3.flexBasis = ASRelativeDimensionMakeWithPoints(50);
                 children = @[_button3];
+                _button3.flexGrow = YES;
             }
             
             ASStackLayoutSpec *spec = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:5.0f justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:children];
@@ -127,6 +118,9 @@ static UIColor * OverViewASPagerNodeRandomColor()
     CGRect button1EndFrame = [context finalFrameForNode:_button1];
     CGRect button2EndFrame = [context finalFrameForNode:_button2];
     CGRect button3EndFrame = [context finalFrameForNode:_button3];
+    
+    button1EndFrame.size.height = 50.0f;
+    button2EndFrame.size.height = 50.0f;
     
     [UIView animateWithDuration:0.2 animations:^{
         _button1.frame = button1EndFrame;
