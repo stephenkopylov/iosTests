@@ -7,12 +7,12 @@
 //
 
 #import "PopupTestViewController.h"
-#import "BaseAsyncPopup.h"
+#import "SimpleAsyncPopup.h"
 
 @implementation PopupTestViewController
 - (IBAction)buttonPressed:(id)sender
 {
-    BaseAsyncPopup *popup = [BaseAsyncPopup new];
+    SimpleAsyncPopup *popup = [SimpleAsyncPopup new];
     
     [popup show];
 }

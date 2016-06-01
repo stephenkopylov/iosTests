@@ -14,4 +14,8 @@
 
 - (void)hide;
 
+- (void)fillNode:(ASDisplayNode *)node;
+
+- (ASLayoutSpec *)specForNode;
+
 @end
