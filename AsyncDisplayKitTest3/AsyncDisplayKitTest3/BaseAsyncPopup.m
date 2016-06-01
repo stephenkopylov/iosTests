@@ -11,7 +11,6 @@
 @interface BaseAsyncPopup ()
 
 @property (nonatomic) UIWindow *lazyWindow;
-@property (nonatomic) ASDisplayNode *mainDisplayNode;
 @property (nonatomic) ASDisplayNode *backgroundNode;
 @property (nonatomic) ASDisplayNode *containerNode;
 @property (nonatomic) ASDisplayNode *popupNode;
@@ -22,21 +21,19 @@
 
 - (instancetype)init
 {
-    _mainDisplayNode = [ASDisplayNode new];
-    self = [super initWithNode:_mainDisplayNode];
+    self = [super initWithNode:[ASDisplayNode new]];
     
     if ( self ) {
         _backgroundNode = [ASDisplayNode new];
         _backgroundNode.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-        
-        [_mainDisplayNode addSubnode:_backgroundNode];
+        [self.node addSubnode:_backgroundNode];
         
         _containerNode = [ASDisplayNode new];
         _containerNode.layer.cornerRadius = 5.f;
         _containerNode.flexGrow = YES;
         _containerNode.flexShrink = YES;
         _containerNode.backgroundColor = [UIColor blueColor];
-        [_mainDisplayNode addSubnode:_containerNode];
+        [self.node addSubnode:_containerNode];
         
         _popupNode = [ASDisplayNode new];
         _popupNode.flexGrow = YES;
@@ -55,7 +52,7 @@
             return insetSpec;
         };
         
-        _mainDisplayNode.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
+        self.node.layoutSpecBlock = ^ASLayoutSpec *(ASDisplayNode *_Nonnull node, ASSizeRange constrainedSize) {
             ASCenterLayoutSpec *centerSpec = [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringXY sizingOptions:ASCenterLayoutSpecSizingOptionDefault child:_containerNode];
             ASStaticLayoutSpec *spec = [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[centerSpec]];
             
@@ -85,7 +82,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.alpha = 0.0f;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5f animations:^{
+            self.view.alpha = 1.0f;
+        }];
+    });
 }
+
+
+//- (void)viewDidLayoutSubviews
+//{
+//    [super viewDidLayoutSubviews];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSLog(@"size = %@", NSStringFromCGSize(self.lazyWindow.frame.size));
+//        [_mainDisplayNode measure:self.lazyWindow.frame.size];
+//    });
+//}
 
 
 - (void)show
@@ -104,8 +118,8 @@
 - (UIWindow *)lazyWindow
 {
     if ( _lazyWindow == nil ) {
-        _lazyWindow = [[UIWindow alloc] init];
         _lazyWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _lazyWindow.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2f];
         _lazyWindow.rootViewController = self;
         _lazyWindow.windowLevel = UIWindowLevelNormal;
     }
