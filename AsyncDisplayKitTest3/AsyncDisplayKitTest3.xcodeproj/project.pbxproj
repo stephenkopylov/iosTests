@@ -16,8 +16,6 @@
 		6A9A82921CF8BA2C00979E6E /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82911CF8BA2C00979E6E /* UIView+Shake.m */; };
 		6AA2EC041CF9CFD000C22D80 /* CustomNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2EC031CF9CFD000C22D80 /* CustomNode.m */; };
 		6AA2EC071CF9F4E100C22D80 /* AssetsBlockNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */; };
-		6AB414791CFC92010009C1B3 /* SubVCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB414781CFC92010009C1B3 /* SubVCTestViewController.m */; };
-		6AB4147C1CFC929F0009C1B3 /* SubVCTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB4147B1CFC929F0009C1B3 /* SubVCTest2ViewController.m */; };
 		6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0EE1CF616CA005A7D1B /* main.m */; };
 		6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F11CF616CA005A7D1B /* AppDelegate.m */; };
 		6AD9B0F51CF616CA005A7D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B0F41CF616CA005A7D1B /* ViewController.m */; };
@@ -26,6 +24,9 @@
 		6AD9B0FD1CF616CA005A7D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9B0FB1CF616CA005A7D1B /* LaunchScreen.storyboard */; };
 		6AD9B1061CF61EC8005A7D1B /* CustomCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */; };
 		F43A42C51CF8DC05006C1923 /* LayoutPlayground.m in Sources */ = {isa = PBXBuildFile; fileRef = F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */; };
+		F49EB8941CFF6FC900E99E12 /* PopupTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49EB8931CFF6FC900E99E12 /* PopupTestViewController.m */; };
+		F49EB8971CFF704800E99E12 /* BaseAsyncPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = F49EB8961CFF704800E99E12 /* BaseAsyncPopup.m */; };
+		F49EB89A1CFF745C00E99E12 /* SimpleAsyncPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = F49EB8991CFF745C00E99E12 /* SimpleAsyncPopup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +47,6 @@
 		6AA2EC031CF9CFD000C22D80 /* CustomNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNode.m; sourceTree = "<group>"; };
 		6AA2EC051CF9F4E100C22D80 /* AssetsBlockNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsBlockNode.h; sourceTree = "<group>"; };
 		6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsBlockNode.m; sourceTree = "<group>"; };
-		6AB414771CFC92010009C1B3 /* SubVCTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubVCTestViewController.h; sourceTree = "<group>"; };
-		6AB414781CFC92010009C1B3 /* SubVCTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubVCTestViewController.m; sourceTree = "<group>"; };
-		6AB4147A1CFC929F0009C1B3 /* SubVCTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubVCTest2ViewController.h; sourceTree = "<group>"; };
-		6AB4147B1CFC929F0009C1B3 /* SubVCTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubVCTest2ViewController.m; sourceTree = "<group>"; };
 		6AD9B0EA1CF616CA005A7D1B /* AsyncDisplayKitTest3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncDisplayKitTest3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD9B0EE1CF616CA005A7D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6AD9B0F01CF616CA005A7D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +63,12 @@
 		D64BA750811662B644512453 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43A42C31CF8DC05006C1923 /* LayoutPlayground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutPlayground.h; sourceTree = "<group>"; };
 		F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutPlayground.m; sourceTree = "<group>"; };
+		F49EB8921CFF6FC900E99E12 /* PopupTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupTestViewController.h; sourceTree = "<group>"; };
+		F49EB8931CFF6FC900E99E12 /* PopupTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupTestViewController.m; sourceTree = "<group>"; };
+		F49EB8951CFF704800E99E12 /* BaseAsyncPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAsyncPopup.h; sourceTree = "<group>"; };
+		F49EB8961CFF704800E99E12 /* BaseAsyncPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAsyncPopup.m; sourceTree = "<group>"; };
+		F49EB8981CFF745C00E99E12 /* SimpleAsyncPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAsyncPopup.h; sourceTree = "<group>"; };
+		F49EB8991CFF745C00E99E12 /* SimpleAsyncPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAsyncPopup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +150,12 @@
 				6AA2EC031CF9CFD000C22D80 /* CustomNode.m */,
 				6AA2EC051CF9F4E100C22D80 /* AssetsBlockNode.h */,
 				6AA2EC061CF9F4E100C22D80 /* AssetsBlockNode.m */,
-				6AB414771CFC92010009C1B3 /* SubVCTestViewController.h */,
-				6AB414781CFC92010009C1B3 /* SubVCTestViewController.m */,
-				6AB4147A1CFC929F0009C1B3 /* SubVCTest2ViewController.h */,
-				6AB4147B1CFC929F0009C1B3 /* SubVCTest2ViewController.m */,
+				F49EB8921CFF6FC900E99E12 /* PopupTestViewController.h */,
+				F49EB8931CFF6FC900E99E12 /* PopupTestViewController.m */,
+				F49EB8951CFF704800E99E12 /* BaseAsyncPopup.h */,
+				F49EB8961CFF704800E99E12 /* BaseAsyncPopup.m */,
+				F49EB8981CFF745C00E99E12 /* SimpleAsyncPopup.h */,
+				F49EB8991CFF745C00E99E12 /* SimpleAsyncPopup.m */,
 			);
 			path = AsyncDisplayKitTest3;
 			sourceTree = "<group>";
@@ -286,19 +291,20 @@
 			files = (
 				6A9A828C1CF8B8A000979E6E /* BaseButtonNode.m in Sources */,
 				6AD9B1061CF61EC8005A7D1B /* CustomCellNode.m in Sources */,
-				6AB414791CFC92010009C1B3 /* SubVCTestViewController.m in Sources */,
 				6AD9B0F51CF616CA005A7D1B /* ViewController.m in Sources */,
-				6AB4147C1CFC929F0009C1B3 /* SubVCTest2ViewController.m in Sources */,
 				6A9A82921CF8BA2C00979E6E /* UIView+Shake.m in Sources */,
+				F49EB8971CFF704800E99E12 /* BaseAsyncPopup.m in Sources */,
 				6AA2EC041CF9CFD000C22D80 /* CustomNode.m in Sources */,
 				6A9A828F1CF8B9D600979E6E /* UIView+Additions.m in Sources */,
 				6AD9B0F21CF616CA005A7D1B /* AppDelegate.m in Sources */,
 				6AA2EC071CF9F4E100C22D80 /* AssetsBlockNode.m in Sources */,
+				F49EB89A1CFF745C00E99E12 /* SimpleAsyncPopup.m in Sources */,
 				6AD9B0EF1CF616CA005A7D1B /* main.m in Sources */,
 				6A9A82831CF885C700979E6E /* TestViewController.m in Sources */,
 				6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */,
 				6A9A82861CF8865D00979E6E /* CustomDisplayNode.m in Sources */,
 				F43A42C51CF8DC05006C1923 /* LayoutPlayground.m in Sources */,
+				F49EB8941CFF6FC900E99E12 /* PopupTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
