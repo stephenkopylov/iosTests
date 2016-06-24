@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AsyncDisplayKit.h>
+#import "TestVC.h"
 
 @interface ViewController ()
 
@@ -31,9 +32,12 @@
 
 - (IBAction)buttonClicked:(id)sender
 {
-    ASViewController *vc = [[ASViewController alloc] initWithNode:[ASDisplayNode new]];
+    TestVC *vc = [[TestVC alloc] initWithNode:[ASDisplayNode new]];
     
-    vc.node.backgroundColor = [UIColor redColor];
+    vc.edgesForExtendedLayout = UIRectEdgeNone;
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    
+    vc.node.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
     
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }

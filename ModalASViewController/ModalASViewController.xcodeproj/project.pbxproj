@@ -13,6 +13,7 @@
 		6A1E8CAA1D1DA42C000682EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1E8CA81D1DA42C000682EE /* Main.storyboard */; };
 		6A1E8CAC1D1DA42C000682EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1E8CAB1D1DA42C000682EE /* Assets.xcassets */; };
 		6A1E8CAF1D1DA42C000682EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1E8CAD1D1DA42C000682EE /* LaunchScreen.storyboard */; };
+		6A1E8CB81D1DA759000682EE /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1E8CB71D1DA759000682EE /* TestVC.m */; };
 		EDCA06248AE872788D9DF9A6 /* libPods-ModalASViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E33AC18DA99781810A46CF /* libPods-ModalASViewController.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 		6A1E8CAB1D1DA42C000682EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A1E8CAE1D1DA42C000682EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A1E8CB01D1DA42C000682EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A1E8CB61D1DA759000682EE /* TestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
+		6A1E8CB71D1DA759000682EE /* TestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
 		AE1D6F08CA42E354586EBD4E /* Pods-ModalASViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModalASViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModalASViewController/Pods-ModalASViewController.release.xcconfig"; sourceTree = "<group>"; };
 		E266BFA60A6BAE4C9FB7E11B /* Pods-ModalASViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModalASViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModalASViewController/Pods-ModalASViewController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +85,8 @@
 				6A1E8CAD1D1DA42C000682EE /* LaunchScreen.storyboard */,
 				6A1E8CB01D1DA42C000682EE /* Info.plist */,
 				6A1E8C9F1D1DA42C000682EE /* Supporting Files */,
+				6A1E8CB61D1DA759000682EE /* TestVC.h */,
+				6A1E8CB71D1DA759000682EE /* TestVC.m */,
 			);
 			path = ModalASViewController;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A1E8CB81D1DA759000682EE /* TestVC.m in Sources */,
 				6A1E8CA71D1DA42C000682EE /* ViewController.m in Sources */,
 				6A1E8CA41D1DA42C000682EE /* AppDelegate.m in Sources */,
 				6A1E8CA11D1DA42C000682EE /* main.m in Sources */,
