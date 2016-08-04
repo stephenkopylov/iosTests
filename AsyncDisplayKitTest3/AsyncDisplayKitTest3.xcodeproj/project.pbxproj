@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D3B4BD156B0B350AB005183 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D64BA750811662B644512453 /* libPods.a */; };
+		39ADFD59544A0EFAF340B873 /* libPods-AsyncDisplayKitTest3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C80159EFE85DB8E0D5E39A /* libPods-AsyncDisplayKitTest3.a */; };
 		6A9A82831CF885C700979E6E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82821CF885C700979E6E /* TestViewController.m */; };
 		6A9A82861CF8865D00979E6E /* CustomDisplayNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82851CF8865D00979E6E /* CustomDisplayNode.m */; };
 		6A9A82891CF8AC6700979E6E /* BigLayoutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A82881CF8AC6700979E6E /* BigLayoutTestViewController.m */; };
@@ -30,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		48331BBDF2682E69871A7068 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4D953515CB92EBABECE1CDD0 /* Pods-AsyncDisplayKitTest3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncDisplayKitTest3.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsyncDisplayKitTest3/Pods-AsyncDisplayKitTest3.release.xcconfig"; sourceTree = "<group>"; };
 		6A9A82811CF885C700979E6E /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		6A9A82821CF885C700979E6E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		6A9A82841CF8865D00979E6E /* CustomDisplayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDisplayNode.h; sourceTree = "<group>"; };
@@ -59,8 +59,8 @@
 		6AD9B0FE1CF616CA005A7D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AD9B1041CF61EC8005A7D1B /* CustomCellNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellNode.h; sourceTree = "<group>"; };
 		6AD9B1051CF61EC8005A7D1B /* CustomCellNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellNode.m; sourceTree = "<group>"; };
-		8AAB8C337D7D76912B470B4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D64BA750811662B644512453 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B935C51FA24FB6BA556486 /* Pods-AsyncDisplayKitTest3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncDisplayKitTest3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsyncDisplayKitTest3/Pods-AsyncDisplayKitTest3.debug.xcconfig"; sourceTree = "<group>"; };
+		D7C80159EFE85DB8E0D5E39A /* libPods-AsyncDisplayKitTest3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsyncDisplayKitTest3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43A42C31CF8DC05006C1923 /* LayoutPlayground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutPlayground.h; sourceTree = "<group>"; };
 		F43A42C41CF8DC05006C1923 /* LayoutPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutPlayground.m; sourceTree = "<group>"; };
 		F49EB8921CFF6FC900E99E12 /* PopupTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupTestViewController.h; sourceTree = "<group>"; };
@@ -76,26 +76,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D3B4BD156B0B350AB005183 /* libPods.a in Frameworks */,
+				39ADFD59544A0EFAF340B873 /* libPods-AsyncDisplayKitTest3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18E286AD6FA778D68CA03855 /* Frameworks */ = {
+		326E3AB5CCF5ED4BCABE12E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D64BA750811662B644512453 /* libPods.a */,
+				D7C80159EFE85DB8E0D5E39A /* libPods-AsyncDisplayKitTest3.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5DA63717BFE6C1E5350D58C9 /* Pods */ = {
+		5DD53AE37CFF748AE6127FD2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8AAB8C337D7D76912B470B4C /* Pods.debug.xcconfig */,
-				48331BBDF2682E69871A7068 /* Pods.release.xcconfig */,
+				72B935C51FA24FB6BA556486 /* Pods-AsyncDisplayKitTest3.debug.xcconfig */,
+				4D953515CB92EBABECE1CDD0 /* Pods-AsyncDisplayKitTest3.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -105,8 +105,8 @@
 			children = (
 				6AD9B0EC1CF616CA005A7D1B /* AsyncDisplayKitTest3 */,
 				6AD9B0EB1CF616CA005A7D1B /* Products */,
-				5DA63717BFE6C1E5350D58C9 /* Pods */,
-				18E286AD6FA778D68CA03855 /* Frameworks */,
+				5DD53AE37CFF748AE6127FD2 /* Pods */,
+				326E3AB5CCF5ED4BCABE12E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,12 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AD9B1011CF616CA005A7D1B /* Build configuration list for PBXNativeTarget "AsyncDisplayKitTest3" */;
 			buildPhases = (
-				AF50C39378A4CC50EB56E0EB /* Check Pods Manifest.lock */,
+				977FA001A1132622DD748766 /* [CP] Check Pods Manifest.lock */,
 				6AD9B0E61CF616CA005A7D1B /* Sources */,
 				6AD9B0E71CF616CA005A7D1B /* Frameworks */,
 				6AD9B0E81CF616CA005A7D1B /* Resources */,
-				52052EEE3947BE2CC12D581F /* Embed Pods Frameworks */,
-				48F8397AE49F7997BB320440 /* Copy Pods Resources */,
+				C3FF66DC4099F7C8EF613402 /* [CP] Embed Pods Frameworks */,
+				6E4CCC95000FCE2A9DC124B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,49 +237,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48F8397AE49F7997BB320440 /* Copy Pods Resources */ = {
+		6E4CCC95000FCE2A9DC124B1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsyncDisplayKitTest3/Pods-AsyncDisplayKitTest3-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		52052EEE3947BE2CC12D581F /* Embed Pods Frameworks */ = {
+		977FA001A1132622DD748766 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF50C39378A4CC50EB56E0EB /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3FF66DC4099F7C8EF613402 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsyncDisplayKitTest3/Pods-AsyncDisplayKitTest3-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -370,6 +370,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -408,6 +409,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -416,11 +418,11 @@
 		};
 		6AD9B1021CF616CA005A7D1B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AAB8C337D7D76912B470B4C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 72B935C51FA24FB6BA556486 /* Pods-AsyncDisplayKitTest3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AsyncDisplayKitTest3/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.AsyncDisplayKitTest3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,11 +431,11 @@
 		};
 		6AD9B1031CF616CA005A7D1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48331BBDF2682E69871A7068 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4D953515CB92EBABECE1CDD0 /* Pods-AsyncDisplayKitTest3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AsyncDisplayKitTest3/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.AsyncDisplayKitTest3;
 				PRODUCT_NAME = "$(TARGET_NAME)";

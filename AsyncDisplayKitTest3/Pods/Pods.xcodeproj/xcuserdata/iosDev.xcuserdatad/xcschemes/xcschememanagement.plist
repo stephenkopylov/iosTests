@@ -19,7 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-AsyncDisplayKitTest3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7434312210BCBB8E5E799251D607CB6C</key>
+		<key>6EC48066A10459224CBD157FC4FB3F55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>852F3CC66329A3D9D9A3533B3DDFCDEE</key>
+		<key>8F3B243A2117F94CD73AB6717D9B51A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D3266136F0681C23E519B104BF2481A</key>
+		<key>F767C8D86AE588542CF0ECBF7309D38F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F27A9E81876805F094F573C09D8B5114</key>
+		<key>F97CBBAC8555F65D970242AC46BB14D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
