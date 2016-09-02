@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F48A60D01D7A1DF00029FB39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F48A60CF1D7A1DF00029FB39 /* main.m */; };
+		F48A60D31D7A1DF00029FB39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F48A60D21D7A1DF00029FB39 /* AppDelegate.m */; };
+		F48A60D61D7A1DF00029FB39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48A60D51D7A1DF00029FB39 /* ViewController.m */; };
+		F48A60D91D7A1DF00029FB39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48A60D71D7A1DF00029FB39 /* Main.storyboard */; };
+		F48A60DB1D7A1DF00029FB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48A60DA1D7A1DF00029FB39 /* Assets.xcassets */; };
+		F48A60DE1D7A1DF00029FB39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48A60DC1D7A1DF00029FB39 /* LaunchScreen.storyboard */; };
+		F48A60E71D7A1E500029FB39 /* ObjCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = F48A60E61D7A1E500029FB39 /* ObjCpp.mm */; };
+		F48A60EA1D7A20280029FB39 /* CppTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48A60E81D7A20280029FB39 /* CppTest.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F48A60CB1D7A1DEF0029FB39 /* TaLibIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaLibIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F48A60CF1D7A1DF00029FB39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F48A60D11D7A1DF00029FB39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F48A60D21D7A1DF00029FB39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F48A60D41D7A1DF00029FB39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F48A60D51D7A1DF00029FB39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F48A60D81D7A1DF00029FB39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F48A60DA1D7A1DF00029FB39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F48A60DD1D7A1DF00029FB39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F48A60DF1D7A1DF00029FB39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48A60E51D7A1E500029FB39 /* ObjCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCpp.h; sourceTree = "<group>"; };
+		F48A60E61D7A1E500029FB39 /* ObjCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCpp.mm; sourceTree = "<group>"; };
+		F48A60E81D7A20280029FB39 /* CppTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CppTest.cpp; sourceTree = "<group>"; };
+		F48A60E91D7A20280029FB39 /* CppTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CppTest.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F48A60C81D7A1DEF0029FB39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F48A60C21D7A1DEF0029FB39 = {
+			isa = PBXGroup;
+			children = (
+				F48A60CD1D7A1DF00029FB39 /* TaLibIntegration */,
+				F48A60CC1D7A1DEF0029FB39 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F48A60CC1D7A1DEF0029FB39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F48A60CB1D7A1DEF0029FB39 /* TaLibIntegration.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F48A60CD1D7A1DF00029FB39 /* TaLibIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				F48A60D11D7A1DF00029FB39 /* AppDelegate.h */,
+				F48A60D21D7A1DF00029FB39 /* AppDelegate.m */,
+				F48A60D41D7A1DF00029FB39 /* ViewController.h */,
+				F48A60D51D7A1DF00029FB39 /* ViewController.m */,
+				F48A60D71D7A1DF00029FB39 /* Main.storyboard */,
+				F48A60DA1D7A1DF00029FB39 /* Assets.xcassets */,
+				F48A60DC1D7A1DF00029FB39 /* LaunchScreen.storyboard */,
+				F48A60DF1D7A1DF00029FB39 /* Info.plist */,
+				F48A60CE1D7A1DF00029FB39 /* Supporting Files */,
+				F48A60E51D7A1E500029FB39 /* ObjCpp.h */,
+				F48A60E61D7A1E500029FB39 /* ObjCpp.mm */,
+				F48A60E81D7A20280029FB39 /* CppTest.cpp */,
+				F48A60E91D7A20280029FB39 /* CppTest.hpp */,
+			);
+			path = TaLibIntegration;
+			sourceTree = "<group>";
+		};
+		F48A60CE1D7A1DF00029FB39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F48A60CF1D7A1DF00029FB39 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F48A60CA1D7A1DEF0029FB39 /* TaLibIntegration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F48A60E21D7A1DF00029FB39 /* Build configuration list for PBXNativeTarget "TaLibIntegration" */;
+			buildPhases = (
+				F48A60C71D7A1DEF0029FB39 /* Sources */,
+				F48A60C81D7A1DEF0029FB39 /* Frameworks */,
+				F48A60C91D7A1DEF0029FB39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaLibIntegration;
+			productName = TaLibIntegration;
+			productReference = F48A60CB1D7A1DEF0029FB39 /* TaLibIntegration.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F48A60C31D7A1DEF0029FB39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = test;
+				TargetAttributes = {
+					F48A60CA1D7A1DEF0029FB39 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F48A60C61D7A1DEF0029FB39 /* Build configuration list for PBXProject "TaLibIntegration" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F48A60C21D7A1DEF0029FB39;
+			productRefGroup = F48A60CC1D7A1DEF0029FB39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F48A60CA1D7A1DEF0029FB39 /* TaLibIntegration */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F48A60C91D7A1DEF0029FB39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F48A60DE1D7A1DF00029FB39 /* LaunchScreen.storyboard in Resources */,
+				F48A60DB1D7A1DF00029FB39 /* Assets.xcassets in Resources */,
+				F48A60D91D7A1DF00029FB39 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F48A60C71D7A1DEF0029FB39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F48A60EA1D7A20280029FB39 /* CppTest.cpp in Sources */,
+				F48A60D61D7A1DF00029FB39 /* ViewController.m in Sources */,
+				F48A60E71D7A1E500029FB39 /* ObjCpp.mm in Sources */,
+				F48A60D31D7A1DF00029FB39 /* AppDelegate.m in Sources */,
+				F48A60D01D7A1DF00029FB39 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F48A60D71D7A1DF00029FB39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F48A60D81D7A1DF00029FB39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F48A60DC1D7A1DF00029FB39 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F48A60DD1D7A1DF00029FB39 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F48A60E01D7A1DF00029FB39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F48A60E11D7A1DF00029FB39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F48A60E31D7A1DF00029FB39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TaLibIntegration/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test.TaLibIntegration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F48A60E41D7A1DF00029FB39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TaLibIntegration/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = test.TaLibIntegration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F48A60C61D7A1DEF0029FB39 /* Build configuration list for PBXProject "TaLibIntegration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48A60E01D7A1DF00029FB39 /* Debug */,
+				F48A60E11D7A1DF00029FB39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F48A60E21D7A1DF00029FB39 /* Build configuration list for PBXNativeTarget "TaLibIntegration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48A60E31D7A1DF00029FB39 /* Debug */,
+				F48A60E41D7A1DF00029FB39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F48A60C31D7A1DEF0029FB39 /* Project object */;
+}
