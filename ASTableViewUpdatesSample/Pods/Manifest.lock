@@ -12,9 +12,9 @@ PODS:
     - PINCache (>= 3.0.0-beta)
   - PINRemoteImage/iOS (3.0.0-beta.3):
     - PINRemoteImage/Core
-  - Realm (2.0.1):
-    - Realm/Headers (= 2.0.1)
-  - Realm/Headers (2.0.1)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
 
 DEPENDENCIES:
   - AsyncDisplayKit
@@ -24,7 +24,7 @@ SPEC CHECKSUMS:
   AsyncDisplayKit: 926ded3ca3fb7026565e0e81f0e132fea4d3a6eb
   PINCache: 6911fe422a633e18b3d3ddf2bd4f0e55e36e2892
   PINRemoteImage: 308731aa6534500e58fc211b9cc2bb7252df25ba
-  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
 
 PODFILE CHECKSUM: 99466b0ec3abbf7a646bab00727440fa0b0533b6
 

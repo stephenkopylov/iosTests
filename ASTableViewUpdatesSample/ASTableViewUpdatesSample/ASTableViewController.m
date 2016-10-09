@@ -57,33 +57,39 @@
 
 
 -(void)update{
-    dispatch_async(_customQueue, ^{
-        int tmp = (arc4random() % 30)+1;
-        if(tmp % 5 == 0){
-            [[RLMRealm defaultRealm] beginWriteTransaction];
-            [[RLMRealm defaultRealm] deleteObjects:[TestModel allObjects]];
-            [[RLMRealm defaultRealm] commitWriteTransaction];
-        }else{
-            int lowerBound = 0;
-            int upperBound = 200;
-            int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
-            
-            NSMutableArray *generatedObjects = @[].mutableCopy;
-            
-            for (int i = 0; i<rndValue; i++) {
-                TestModel *model = [TestModel new];
-                model.objectId = i;
-                [generatedObjects addObject:model];
-            }
-            
-            [[RLMRealm defaultRealm] beginWriteTransaction];
-            [[RLMRealm defaultRealm] addOrUpdateObjectsFromArray:generatedObjects.copy];
-            [[RLMRealm defaultRealm] commitWriteTransaction];
-        }
+    
+    if([self randomBool]){
+//        double x = drand48()*50.f;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self update];
+        self.tableNode.view.contentOffset = CGPointMake(0.0f,self.tableNode.view.contentSize.height*drand48());
+    }else{
+        dispatch_async(_customQueue, ^{
+            if([self randomBool]){
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                [[RLMRealm defaultRealm] deleteObjects:[TestModel allObjects]];
+                [[RLMRealm defaultRealm] commitWriteTransaction];
+            }else{
+                int lowerBound = 0;
+                int upperBound = 200;
+                int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
+                
+                NSMutableArray *generatedObjects = @[].mutableCopy;
+                
+                for (int i = 0; i<rndValue; i++) {
+                    TestModel *model = [TestModel new];
+                    model.objectId = i;
+                    [generatedObjects addObject:model];
+                }
+                
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                [[RLMRealm defaultRealm] addOrUpdateObjectsFromArray:generatedObjects.copy];
+                [[RLMRealm defaultRealm] commitWriteTransaction];
+            }
         });
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self update];
     });
 }
 
@@ -112,5 +118,13 @@
     };
 }
 
+-(BOOL)randomBool{
+    int tmp = (arc4random() % 30)+1;
+    if(tmp % 5 == 0){
+        return YES;
+    }else{
+        return NO;
+    }
+}
 
 @end

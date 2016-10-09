@@ -147,6 +147,7 @@
 				TargetAttributes = {
 					F42947041DA8250300AB787D = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6FNQXHZSC5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -360,7 +361,9 @@
 			baseConfigurationReference = F1ACB24F62780B83773B3BF4 /* Pods-ASTableViewUpdatesSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FNQXHZSC5;
 				INFOPLIST_FILE = ASTableViewUpdatesSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.ASTableViewUpdatesSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -372,7 +375,9 @@
 			baseConfigurationReference = 990B18DC7B144AD1F5EDDED3 /* Pods-ASTableViewUpdatesSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FNQXHZSC5;
 				INFOPLIST_FILE = ASTableViewUpdatesSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.ASTableViewUpdatesSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
