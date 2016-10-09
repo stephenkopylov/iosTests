@@ -8,9 +8,9 @@
 
 #import "AppDelegate.h"
 #import <RLMRealmConfiguration.h>
+#import "ASTableViewController.h"
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
@@ -19,14 +19,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    
     config.schemaVersion = 2;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         
     };
     [RLMRealmConfiguration setDefaultConfiguration:config];
-    
     [RLMRealm defaultRealm];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController  = [ASTableViewController new];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
