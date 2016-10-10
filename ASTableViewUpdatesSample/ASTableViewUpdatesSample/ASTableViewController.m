@@ -37,7 +37,6 @@
         
         _notificationToken = [_results addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
             __strong  typeof(self) strongSelf = weakSelf;
-            
             if(change){
                 [strongSelf.tableNode.view beginUpdates];
                 
@@ -81,8 +80,7 @@
         }
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tableNode.view.contentOffset = CGPointMake(0.0f,self.tableNode.view.contentSize.height*drand48());
         
         [self update];
