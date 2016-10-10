@@ -55,7 +55,8 @@
 }
 
 
--(void)update{
+-(void)update
+{
     dispatch_async(_customQueue, ^{
         if([self randomBool]){
             [[RLMRealm defaultRealm] beginWriteTransaction];
@@ -80,20 +81,27 @@
         }
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[RLMRealm defaultRealm] beginWriteTransaction];
+        [[RLMRealm defaultRealm] deleteObjects:[TestModel allObjects]];
+        [[RLMRealm defaultRealm] commitWriteTransaction];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tableNode.view.contentOffset = CGPointMake(0.0f,self.tableNode.view.contentSize.height*drand48());
-        
         [self update];
     });
 }
 
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return _results.count;
 }
 
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
@@ -101,18 +109,19 @@
 -(ASCellNodeBlock)tableView:(ASTableView *)tableView nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath{
     TestModel *object = self.results[indexPath.row];
     
-    NSString *title = [NSString stringWithFormat:@"ObjectId = %@",@(object.objectId)];
+    //    NSString *title = [NSString stringWithFormat:@"ObjectId = %@",@(object.objectId)];
     
     return ^{
-        ASTextCellNode *cell = [ASTextCellNode new];
+        ASCellNode *cell = [ASCellNode new];
         
-        cell.text = title;
+        //        cell.text = title;
         
         return cell;
     };
 }
 
--(BOOL)randomBool{
+-(BOOL)randomBool
+{
     int tmp = (arc4random() % 30)+1;
     if(tmp % 5 == 0){
         return YES;
